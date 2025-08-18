@@ -1,6 +1,6 @@
 ﻿namespace Logic.Enigmes;
 
-public class element
+public class Riddle
 {
     
 }
