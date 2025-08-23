@@ -22,6 +22,9 @@ public partial class MainWindow : Window, IObserver
     private string path;
     private Scene scene;
     
+    /// <summary>
+    /// init the window of the game 
+    /// </summary>
     public MainWindow()
     {
         this.path = "IHM/Ressources/IMG_clickable/";
@@ -30,12 +33,18 @@ public partial class MainWindow : Window, IObserver
         InitializeComponent();
     }
 
+    /// <summary>
+    /// reaction when an image is clicked
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="e"></param>
     public void ElementClicked(object sender, MouseButtonEventArgs e)
     {
         if (sender is Image img)
         {
             string name = img.Tag?.ToString() ?? img.Name;
             // Envoyer le nom à la scène
+            this.scene.Router(img.Tag.ToString());
         }
     }
 
@@ -64,7 +73,28 @@ public partial class MainWindow : Window, IObserver
         }
     }
 
-    public void AddImage(string name, int width, int height, double x, double y)
+    public void ChangeSpecificIntElement(InteractiveElement intEl)
+    {
+        Image img = this.MainCanvas.Children
+            .OfType<Image>()
+            .FirstOrDefault(img => (string)img.Tag == intEl.ImageName);
+
+        if (img != null)
+        {
+            img.Source = new BitmapImage(new Uri(path+intEl.ImageName+".png", UriKind.Relative));
+            img.Tag = intEl.ImageName;
+        }
+    }
+    
+    /// <summary>
+    /// Create an image (uiElement) in the canvas
+    /// </summary>
+    /// <param name="name"> the name of the image</param>
+    /// <param name="width"> the width of the image</param>
+    /// <param name="height"> the height of the image</param>
+    /// <param name="x"> the left coordonnees of the image</param>
+    /// <param name="y"> the top coordonnees of the image</param>
+    private void AddImage(string name, int width, int height, double x, double y)
     {
         Image image = new Image
         {
