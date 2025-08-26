@@ -38,7 +38,11 @@ public abstract class Riddle : Observable
     /// <summary>
     /// define if a riddle is a success or not
     /// </summary>
-    public bool IsSuccess => this.isSuccess;
+    public bool IsSuccess 
+    { 
+        get;
+        protected set;
+    }
 
     /// <summary>
     /// init the riddle

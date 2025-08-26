@@ -7,6 +7,13 @@ public class Riddle0 : Riddle
 {
     public override string Name => "Riddle0";
 
+    public Riddle0()
+    {
+        this.BackgroundName = "DE000N";
+        this.Elements = new List<InteractiveElement>();
+        this.Elements.Add(new InteractiveElement("OnOff","EP003N",252,290,570,300));
+    }
+
     public override void ReactElement(string imageName)
     {
         throw new NotImplementedException();
@@ -27,7 +34,7 @@ public class Riddle0 : Riddle
         throw new NotImplementedException();
     }
 
-    protected override void NotifyChangeSpecificIntElement(InteractiveElement intEl)
+    protected override void NotifyChangeSpecificIntElement(InteractiveElement intEl, string oldName)
     {
         throw new NotImplementedException();
     }

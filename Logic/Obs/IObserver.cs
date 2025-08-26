@@ -29,5 +29,6 @@ public interface IObserver
     /// Update the image of a specific element 
     /// </summary>
     /// <param name="intEl"> the interactive element to update</param>
-    public void ChangeSpecificIntElement(InteractiveElement intEl);
+    /// <param name="oldName"> the old name of the image needed to find it</param>
+    public void ChangeSpecificIntElement(InteractiveElement intEl, string oldName);
 }

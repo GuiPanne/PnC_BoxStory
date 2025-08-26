@@ -27,10 +27,12 @@ public partial class MainWindow : Window, IObserver
     /// </summary>
     public MainWindow()
     {
-        this.path = "IHM/Ressources/IMG_clickable/";
+        InitializeComponent();
+
+        this.path = "Ressources/IMG_clickable/";
         this.scene = new Scene();
         this.scene.Register(this);
-        InitializeComponent();
+        this.scene.Init();
     }
 
     /// <summary>
@@ -38,7 +40,7 @@ public partial class MainWindow : Window, IObserver
     /// </summary>
     /// <param name="sender"></param>
     /// <param name="e"></param>
-    public void ElementClicked(object sender, MouseButtonEventArgs e)
+    private void ElementClicked(object sender, MouseButtonEventArgs e)
     {
         if (sender is Image img)
         {
@@ -50,7 +52,7 @@ public partial class MainWindow : Window, IObserver
 
     public void DisplayBackGround(string imageName)
     {
-        string folder = "IHM/Ressources/IMG_background/";
+        string folder = "Ressources/IMG_background/";
         string path = folder+imageName+".png";
         ImageBrush bg = new ImageBrush();
         bg.ImageSource = new BitmapImage(new Uri(path, UriKind.Relative));
@@ -59,10 +61,7 @@ public partial class MainWindow : Window, IObserver
 
     public void CleanCanvas()
     {
-        foreach (UIElement el in this.MainCanvas.Children)
-        {
-            MainCanvas.Children.Remove(el);
-        }
+        MainCanvas.Children.Clear();
     }
 
     public void SetInteractiveElements(List<InteractiveElement> interactiveElements)
@@ -73,11 +72,11 @@ public partial class MainWindow : Window, IObserver
         }
     }
 
-    public void ChangeSpecificIntElement(InteractiveElement intEl)
+    public void ChangeSpecificIntElement(InteractiveElement intEl, string oldName)
     {
         Image img = this.MainCanvas.Children
             .OfType<Image>()
-            .FirstOrDefault(img => (string)img.Tag == intEl.ImageName);
+            .FirstOrDefault(img => (string)img.Tag == oldName);
 
         if (img != null)
         {
@@ -104,13 +103,31 @@ public partial class MainWindow : Window, IObserver
             Tag = name
         };
         image.MouseLeftButtonUp += ElementClicked;
-        
-        // A faire quand on a les version altérés des images
-        //image.MouseEnter =
-        //image.MouseLeave = 
-        
+
+        image.MouseEnter += Image_MouseEnter;
+        image.MouseLeave += Image_MouseLeave;
+
         Canvas.SetLeft(image, x);
         Canvas.SetTop(image, y);
         MainCanvas.Children.Add(image);
+    }
+
+    private void Image_MouseEnter(object sender, MouseEventArgs e)
+    {
+        if (sender is Image img)
+        {
+            string tempName = img.Tag?.ToString() ?? img.Name;
+            tempName = tempName.Remove(5);
+            tempName += 'S';
+            img.Source = new BitmapImage(new Uri(path+tempName+".png", UriKind.Relative));
+        }
+    }
+
+    private void Image_MouseLeave(object sender, MouseEventArgs e)
+    {
+        if (sender is Image img)
+        {
+            img.Source = new BitmapImage(new Uri(path+img.Tag+".png", UriKind.Relative));
+        }
     }
 }

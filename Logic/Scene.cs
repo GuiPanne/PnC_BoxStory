@@ -10,7 +10,6 @@ namespace Logic;
 public class Scene : Observable, IObserver
 {
     private Riddle currentRiddle;
-    private string currentBackGroundName;
     private int riddlesSuccess;
     private List<Riddle> riddles;
 
@@ -19,14 +18,28 @@ public class Scene : Observable, IObserver
     /// </summary>
     public Scene()
     {
-        this.riddles = new List<Riddle>();
-        this.riddles.Add(new Riddle0());
-        this.riddles.Add(new Riddle1());
-        // etc...
+        this.riddles = new List<Riddle> {
+            new Riddle0(),
+            new Riddle1(),
+        };
         this.riddlesSuccess = 1;
-        this.currentRiddle = this.riddles.Find(riddle => riddle.Name == "Riddle0" );
-        this.currentBackGroundName = this.currentRiddle.BackgroundName;
+        this.SetCurrentRiddle("Riddle0");
     }
+
+    public void Init()
+    {
+        this.NotifyBackgroundChange(this.currentRiddle.BackgroundName);
+        this.NotifySetInteractiveElements();
+    }
+
+    public void Update()
+    {
+        this.NotifyCleanCanvas();
+        this.NotifyBackgroundChange(this.currentRiddle.BackgroundName);
+        this.NotifySetInteractiveElements();
+    }
+
+
 
     /// <summary>
     /// when an image is clicked choose what to do thanks to the image name
@@ -42,7 +55,13 @@ public class Scene : Observable, IObserver
                 this.VerifySuccess(currentRiddle.IsSuccess);
                 break;
             case "EP": // éléments de la pièce
-                this.currentRiddle.ReactElement(imageName);
+                switch (imageName)
+                {
+                    case "EP003N":
+                        this.SetCurrentRiddle("Riddle1");
+                        this.Update();
+                        break;
+                }
                 break;
             case "FI": // fléche d'intéraction 
                 break;
@@ -61,7 +80,6 @@ public class Scene : Observable, IObserver
         if (currentRiddleIsSuccess)
         {
             this.riddlesSuccess++;
-            this.currentRiddle = this.riddles.Find(riddle => riddle.Name == "Riddle0");
         }
     }
     
@@ -89,11 +107,11 @@ public class Scene : Observable, IObserver
         }
     }
 
-    protected override void NotifyChangeSpecificIntElement(InteractiveElement intEl)
+    protected override void NotifyChangeSpecificIntElement(InteractiveElement intEl, string oldName)
     {
         foreach (IObserver obs in this.observers)
         {
-            obs.ChangeSpecificIntElement(intEl);
+            obs.ChangeSpecificIntElement(intEl, oldName);
         }
     }
 
@@ -112,8 +130,19 @@ public class Scene : Observable, IObserver
         throw new NotImplementedException();
     }
 
-    public void ChangeSpecificIntElement(InteractiveElement intEl)
+    public void ChangeSpecificIntElement(InteractiveElement intEl, string oldName)
     {
-        this.NotifyChangeSpecificIntElement(intEl);
+        this.NotifyChangeSpecificIntElement(intEl, oldName);
+    }
+
+    private void SetCurrentRiddle(string name)
+    {
+        if (this.currentRiddle != null)
+            this.currentRiddle.Unregister(this);
+
+        this.currentRiddle = this.riddles.Find(r => r.Name == name);
+
+        if (this.currentRiddle != null)
+            this.currentRiddle.Register(this);
     }
 }

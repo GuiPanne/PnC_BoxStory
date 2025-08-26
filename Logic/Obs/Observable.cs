@@ -50,11 +50,12 @@ public abstract class Observable
     /// notify the observer to display all interactive elements
     /// </summary>
     protected abstract void NotifySetInteractiveElements();
-    
+
     /// <summary>
     /// notify the observer to update a specific element 
     /// </summary>
     /// <param name="intEl">the element to update</param>
-    protected abstract void NotifyChangeSpecificIntElement(InteractiveElement intEl);
+    /// <param name="oldName">the old name of the image needed to find it</param>
+    protected abstract void NotifyChangeSpecificIntElement(InteractiveElement intEl, string oldName);
 
 }
