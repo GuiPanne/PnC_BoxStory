@@ -15,7 +15,7 @@ public class Riddle1 : Riddle
     {
         this.BackgroundName = "ZE100N";
         this.Elements = new List<InteractiveElement>();
-        this.Elements.Add(new InteractiveElement("OnOffButton", "EE100N", 354, 711, 623, 94.5));
+        this.Elements.Add(new InteractiveElement("OnOffButton", "EE100N", 247, 581, 678, 140));
     }
         
     public override void ReactElement(string imageName)
