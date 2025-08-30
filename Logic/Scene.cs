@@ -26,17 +26,9 @@ public class Scene : Observable, IObserver
         this.SetCurrentRiddle("Riddle0");
     }
 
-    public void Init()
-    {
-        this.NotifyBackgroundChange(this.currentRiddle.BackgroundName);
-        this.NotifySetInteractiveElements();
-    }
-
     public void Update()
     {
-        this.NotifyCleanCanvas();
-        this.NotifyBackgroundChange(this.currentRiddle.BackgroundName);
-        this.NotifySetInteractiveElements();
+        this.NotifySceneTransition(this.currentRiddle.BackgroundName, this.currentRiddle.Elements);
     }
 
 
@@ -83,27 +75,11 @@ public class Scene : Observable, IObserver
         }
     }
     
-    protected override void NotifyBackgroundChange(string imageName)
+    protected override void NotifySceneTransition(string imageName, List<InteractiveElement> interactiveElements)
     {
         foreach (IObserver obs in this.observers)
         {
-            obs.DisplayBackGround(imageName);
-        }
-    }
-
-    protected override void NotifyCleanCanvas()
-    {
-        foreach (IObserver obs in this.observers)
-        {
-            obs.CleanCanvas();
-        }
-    }
-
-    protected override void NotifySetInteractiveElements()
-    {
-        foreach (IObserver obs in this.observers)
-        {
-            obs.SetInteractiveElements(currentRiddle.Elements);
+            obs.SceneTransition(imageName, interactiveElements);
         }
     }
 
@@ -115,7 +91,7 @@ public class Scene : Observable, IObserver
         }
     }
 
-    public void DisplayBackGround(string imageName)
+    public void SceneTransition(string imageName, List<InteractiveElement> interactiveElements)
     {
         throw new NotImplementedException();
     }

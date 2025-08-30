@@ -5,6 +5,7 @@ using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
@@ -32,7 +33,7 @@ public partial class MainWindow : Window, IObserver
         this.path = "Ressources/IMG_clickable/";
         this.scene = new Scene();
         this.scene.Register(this);
-        this.scene.Init();
+        this.scene.Update();
     }
 
     /// <summary>
@@ -50,21 +51,13 @@ public partial class MainWindow : Window, IObserver
         }
     }
 
-    public void DisplayBackGround(string imageName)
+    public void SceneTransition(string imageName, List<InteractiveElement> interactiveElements)
     {
-        string folder = "Ressources/IMG_background/";
-        string path = folder+imageName+".png";
-        ImageBrush bg = new ImageBrush();
-        bg.ImageSource = new BitmapImage(new Uri(path, UriKind.Relative));
-        this.Background = bg;
+        Start_Transition(imageName, interactiveElements);
     }
 
-    public void CleanCanvas()
-    {
-        MainCanvas.Children.Clear();
-    }
 
-    public void SetInteractiveElements(List<InteractiveElement> interactiveElements)
+    private void SetInteractiveElements(List<InteractiveElement> interactiveElements)
     {
         foreach (InteractiveElement intEl in interactiveElements)
         {
@@ -130,4 +123,48 @@ public partial class MainWindow : Window, IObserver
             img.Source = new BitmapImage(new Uri(path+img.Tag+".png", UriKind.Relative));
         }
     }
+
+    private void Start_Transition(string newBackgroundName, List<InteractiveElement> interactiveElements)
+    {
+        List<UIElement> copy = MainCanvas.Children.OfType<UIElement>().ToList();
+        Rectangle rect = new Rectangle
+        {
+            Tag = "rect",
+            Fill = new SolidColorBrush(Colors.Black),
+            Opacity = 0,
+            Width = MainCanvas.ActualWidth,
+            Height = MainCanvas.ActualHeight
+        };
+        MainCanvas.Children.Add(rect);
+        Panel.SetZIndex(rect, int.MaxValue);
+
+        var fadeIn = new DoubleAnimation(0, 1, TimeSpan.FromSeconds(1.5));
+        fadeIn.Completed += (s, e) =>
+        {
+            foreach (UIElement el in copy)
+            {
+                if (el != rect)
+                {
+                    MainCanvas.Children.Remove(el);
+                }
+            }
+            // Étape 2 : changer le background
+            string folder = "Ressources/IMG_background/";
+            string path = folder + newBackgroundName + ".png";
+            this.Background = new ImageBrush(new BitmapImage(new Uri(path, UriKind.Relative)));
+
+            // Étape 3 : ajouter les éléments interactifs
+            this.SetInteractiveElements(interactiveElements);
+
+            // Étape 4 : fade-out
+            var fadeOut = new DoubleAnimation(1, 0, TimeSpan.FromSeconds(1.5));
+            fadeOut.Completed += (s2, e2) => MainCanvas.Children.Remove(rect);
+
+            rect.BeginAnimation(UIElement.OpacityProperty, fadeOut);
+        };
+
+        rect.BeginAnimation(UIElement.OpacityProperty, fadeIn);
+    }
+
+
 }

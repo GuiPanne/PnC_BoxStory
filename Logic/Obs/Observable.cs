@@ -39,18 +39,8 @@ public abstract class Observable
     /// notify the observers the bg changes
     /// </summary>
     /// <param name="imageName">the new background name</param>
-    protected abstract void NotifyBackgroundChange(string imageName);
-
-    /// <summary>
-    /// notify the obs the canvas need to be clean
-    /// </summary>
-    protected abstract void NotifyCleanCanvas();
-    
-    /// <summary>
-    /// notify the observer to display all interactive elements
-    /// </summary>
-    protected abstract void NotifySetInteractiveElements();
-
+    /// <param name="interactiveElements"> elements to display</param>
+    protected abstract void NotifySceneTransition(string imageName, List<InteractiveElement> interactiveElements);
     /// <summary>
     /// notify the observer to update a specific element 
     /// </summary>

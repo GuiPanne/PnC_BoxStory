@@ -28,17 +28,7 @@ public class Riddle1 : Riddle
         }
     }
 
-    protected override void NotifyBackgroundChange(string imageName)
-    {
-        throw new NotImplementedException();
-    }
-
-    protected override void NotifyCleanCanvas()
-    {
-        throw new NotImplementedException();
-    }
-
-    protected override void NotifySetInteractiveElements()
+    protected override void NotifySceneTransition(string imageName, List<InteractiveElement> interactiveElements)
     {
         throw new NotImplementedException();
     }

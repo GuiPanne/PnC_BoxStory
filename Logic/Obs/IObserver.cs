@@ -12,18 +12,8 @@ public interface IObserver
     /// change the background 
     /// </summary>
     /// <param name="imageName">the name of the image who is the new BG</param>
-    public void DisplayBackGround(string imageName);
-    
-    /// <summary>
-    /// Remove all element in the canva (image)
-    /// </summary>
-    public void CleanCanvas();
-    
-    /// <summary>
-    /// Add interactive elements from the scene in the canvas
-    /// </summary>
-    /// <param name="interactiveElements"></param>
-    public void SetInteractiveElements(List<InteractiveElement> interactiveElements);
+    /// <param name="interactiveElements"> the name of interactive elements to display</param>
+    public void SceneTransition(string imageName, List<InteractiveElement> interactiveElements);
     
     /// <summary>
     /// Update the image of a specific element 
