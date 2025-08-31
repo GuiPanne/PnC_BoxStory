@@ -1,6 +1,6 @@
-﻿using Logic.obs;
+﻿using Logic.Obs;
 
-namespace Logic.Enigmes;
+namespace Logic.Riddles;
 
 /// <summary>
 /// abstract class who represents the basic of a riddle

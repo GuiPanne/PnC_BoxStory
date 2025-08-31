@@ -1,17 +1,13 @@
-﻿using System.Text;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Logic;
-using Logic.Enigmes;
-using Logic.obs;
+using Logic.Obs;
+using Logic.Riddles;
 
 namespace IHM;
 
@@ -73,7 +69,7 @@ public partial class MainWindow : Window, IObserver
         }
     }
 
-    public void ChangeSpecificIntElement(InteractiveElement intEl, string oldName)
+    public void ChangeSpecificIntElement(Element element, string oldName)
     {
         Image img = this.MainCanvas.Children
             .OfType<Image>()
@@ -81,8 +77,8 @@ public partial class MainWindow : Window, IObserver
 
         if (img != null)
         {
-            img.Source = new BitmapImage(new Uri(path+intEl.ImageName+".png", UriKind.Relative));
-            img.Tag = intEl.ImageName;
+            img.Source = new BitmapImage(new Uri(path+element.ImageName+".png", UriKind.Relative));
+            img.Tag = element.ImageName;
         }
     }
     

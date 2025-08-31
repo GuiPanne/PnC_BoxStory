@@ -1,6 +1,6 @@
-﻿using Logic.Enigmes;
-using Logic.Enigmes.Riddle1;
-using Logic.obs;
+﻿using Logic.Obs;
+using Logic.Riddles;
+using Logic.Riddles.RiddleModel;
 
 namespace Logic;
 
@@ -21,6 +21,7 @@ public class Scene : Observable, IObserver
         this.riddles = new List<Riddle> {
             new Riddle0(),
             new Riddle1(),
+            new Riddle2(),
         };
         this.riddlesSuccess = 1;
         this.SetCurrentRiddle("Riddle0");
@@ -42,7 +43,6 @@ public class Scene : Observable, IObserver
         {
             case "EE": // éléments d'énigme
                 this.currentRiddle.ReactElement(imageName);
-                this.VerifySuccess(currentRiddle.IsSuccess);
                 break;
             case "EP": // éléments de la pièce
                 switch (imageName)
@@ -51,12 +51,17 @@ public class Scene : Observable, IObserver
                         this.SetCurrentRiddle("Riddle1");
                         this.Update();
                         break;
+                    case "EP005N":
+                        this.SetCurrentRiddle("Riddle2");
+                        this.Update();
+                        break;
                 }
                 break;
             case "FI": // fléche d'intéraction 
                 switch (imageName)
                 {
                     case "FI000N":
+                        this.VerifySuccess(currentRiddle.IsSuccess);
                         this.SetCurrentRiddle("Riddle0");
                         this.Update();
                         break;
@@ -88,11 +93,11 @@ public class Scene : Observable, IObserver
         }
     }
 
-    protected override void NotifyChangeSpecificIntElement(InteractiveElement intEl, string oldName)
+    protected override void NotifyChangeSpecificIntElement(Element element, string oldName)
     {
         foreach (IObserver obs in this.observers)
         {
-            obs.ChangeSpecificIntElement(intEl, oldName);
+            obs.ChangeSpecificIntElement(element, oldName);
         }
     }
 
@@ -101,9 +106,9 @@ public class Scene : Observable, IObserver
         throw new NotImplementedException();
     }
 
-    public void ChangeSpecificIntElement(InteractiveElement intEl, string oldName)
+    public void ChangeSpecificIntElement(Element element, string oldName)
     {
-        this.NotifyChangeSpecificIntElement(intEl, oldName);
+        this.NotifyChangeSpecificIntElement(element, oldName);
     }
 
     private void SetCurrentRiddle(string name)

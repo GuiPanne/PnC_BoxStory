@@ -10,7 +10,7 @@
         <Canvas Name="MainCanvas" />
         <Label Name="CoordLabel"
                HorizontalAlignment="Left"
-               VerticalAlignment="Bottom"
+               VerticalAlignment="Top"
                Margin="10"
                Foreground="White"
                Background="Black"

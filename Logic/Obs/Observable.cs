@@ -1,6 +1,6 @@
-﻿using Logic.Enigmes;
+﻿using Logic.Riddles;
 
-namespace Logic.obs;
+namespace Logic.Obs;
 
 /// <summary>
 /// Abstract class who can be observed and indicate something change
@@ -41,11 +41,12 @@ public abstract class Observable
     /// <param name="imageName">the new background name</param>
     /// <param name="interactiveElements"> elements to display</param>
     protected abstract void NotifySceneTransition(string imageName, List<InteractiveElement> interactiveElements, List<StaticElement> staticElements);
+
     /// <summary>
     /// notify the observer to update a specific element 
     /// </summary>
-    /// <param name="intEl">the element to update</param>
+    /// <param name="element"></param>
     /// <param name="oldName">the old name of the image needed to find it</param>
-    protected abstract void NotifyChangeSpecificIntElement(InteractiveElement intEl, string oldName);
+    protected abstract void NotifyChangeSpecificIntElement(Element element, string oldName);
 
 }

@@ -1,6 +1,6 @@
-﻿using Logic.obs;
+﻿using Logic.Obs;
 
-namespace Logic.Enigmes.Riddle1;
+namespace Logic.Riddles.RiddleModel;
 
 /// <summary>
 /// first riddle of the game
@@ -8,8 +8,6 @@ namespace Logic.Enigmes.Riddle1;
 public class Riddle1 : Riddle
 {
     public override string Name => "Riddle1";
-    
-    private InteractiveElement element1;
     
     public Riddle1() : base()
     {
@@ -26,6 +24,12 @@ public class Riddle1 : Riddle
             this.NotifyChangeSpecificIntElement(this.IElements.Find(e => e.ImageName == "EE101N"), "EE100N");
             this.IsSuccess = true;
         }
+        else
+        {
+            this.IElements.Find(e => e.ImageName == "EE101N").ImageName= "EE100N";
+            this.NotifyChangeSpecificIntElement(this.IElements.Find(e => e.ImageName == "EE100N"), "EE101N");
+            this.IsSuccess = false;
+        }
     }
 
     protected override void NotifySceneTransition(string imageName, List<InteractiveElement> interactiveElements, List<StaticElement> staticElements)
@@ -33,11 +37,11 @@ public class Riddle1 : Riddle
         throw new NotImplementedException();
     }
 
-    protected override void NotifyChangeSpecificIntElement(InteractiveElement intEl, string oldName)
+    protected override void NotifyChangeSpecificIntElement(Element element, string oldName)
     {
         foreach (IObserver obs in this.observers)
         {
-            obs.ChangeSpecificIntElement(intEl, oldName);
+            obs.ChangeSpecificIntElement(element, oldName);
         }
     }
 
