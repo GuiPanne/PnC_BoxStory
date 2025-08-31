@@ -9,16 +9,23 @@ public abstract class Riddle : Observable
 {
     private bool isSuccess;
     private string backgroundName;
-    private List<InteractiveElement> elements;
+    private List<InteractiveElement> iElements;
+    private List<StaticElement> sElements;
 
     /// <summary>
     /// all elements contain in the riddle
     /// </summary>
     /// <exception cref="ArgumentNullException"></exception>
-    public List<InteractiveElement> Elements
+    public List<InteractiveElement> IElements
     {
-        get => elements;
-        set => elements = value ?? throw new ArgumentNullException(nameof(value));
+        get => iElements;
+        set => iElements = value ?? throw new ArgumentNullException(nameof(value));
+    }
+
+    public List<StaticElement> SElements
+    {
+        get => sElements;
+        set => sElements = value ?? throw new ArgumentNullException(nameof(value));
     }
 
     /// <summary>
@@ -49,7 +56,8 @@ public abstract class Riddle : Observable
     /// </summary>
     public Riddle()
     {
-        this.elements = new List<InteractiveElement>();
+        this.iElements = new List<InteractiveElement>();
+        this.sElements = new List<StaticElement>();
         this.isSuccess = false;
     }
 
@@ -58,4 +66,6 @@ public abstract class Riddle : Observable
     /// </summary>
     /// <param name="imageName"> the image name who has been click in IHM</param>
     public abstract void ReactElement(string imageName);
+
+    public abstract void UpdateRoomRiddle(int successNumber);
 }

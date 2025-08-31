@@ -14,21 +14,21 @@ public class Riddle1 : Riddle
     public Riddle1() : base()
     {
         this.BackgroundName = "ZE100N";
-        this.Elements = new List<InteractiveElement>();
-        this.Elements.Add(new InteractiveElement("OnOffButton", "EE100N", 247, 581, 678, 140));
+        this.IElements.Add(new InteractiveElement("OnOffButton", "EE100N", 247, 581, 678, 140));
+        this.IElements.Add(new InteractiveElement("Back", "FI000N", 95, 91, 1425, 745));
     }
         
     public override void ReactElement(string imageName)
     {
         if (imageName == "EE100N")
         {
-            this.Elements.Find(e => e.ImageName == "EE100N").ImageName= "EE101N";
-            this.NotifyChangeSpecificIntElement(this.Elements.Find(e => e.ImageName == "EE101N"), "EE100N");
+            this.IElements.Find(e => e.ImageName == "EE100N").ImageName= "EE101N";
+            this.NotifyChangeSpecificIntElement(this.IElements.Find(e => e.ImageName == "EE101N"), "EE100N");
             this.IsSuccess = true;
         }
     }
 
-    protected override void NotifySceneTransition(string imageName, List<InteractiveElement> interactiveElements)
+    protected override void NotifySceneTransition(string imageName, List<InteractiveElement> interactiveElements, List<StaticElement> staticElements)
     {
         throw new NotImplementedException();
     }
@@ -39,5 +39,10 @@ public class Riddle1 : Riddle
         {
             obs.ChangeSpecificIntElement(intEl, oldName);
         }
+    }
+
+    public override void UpdateRoomRiddle(int successNumber)
+    {
+        throw new NotImplementedException();
     }
 }

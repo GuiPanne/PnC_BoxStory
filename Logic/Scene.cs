@@ -25,14 +25,12 @@ public class Scene : Observable, IObserver
         this.riddlesSuccess = 1;
         this.SetCurrentRiddle("Riddle0");
     }
-
+    
     public void Update()
     {
-        this.NotifySceneTransition(this.currentRiddle.BackgroundName, this.currentRiddle.Elements);
+        this.NotifySceneTransition(this.currentRiddle.BackgroundName, this.currentRiddle.IElements, this.currentRiddle.SElements);
     }
-
-
-
+    
     /// <summary>
     /// when an image is clicked choose what to do thanks to the image name
     /// </summary>
@@ -56,6 +54,13 @@ public class Scene : Observable, IObserver
                 }
                 break;
             case "FI": // fléche d'intéraction 
+                switch (imageName)
+                {
+                    case "FI000N":
+                        this.SetCurrentRiddle("Riddle0");
+                        this.Update();
+                        break;
+                }
                 break;
             case "EM": // éléments menu 
                 break;
@@ -75,11 +80,11 @@ public class Scene : Observable, IObserver
         }
     }
     
-    protected override void NotifySceneTransition(string imageName, List<InteractiveElement> interactiveElements)
+    protected override void NotifySceneTransition(string imageName, List<InteractiveElement> interactiveElements, List<StaticElement> staticElements)
     {
         foreach (IObserver obs in this.observers)
         {
-            obs.SceneTransition(imageName, interactiveElements);
+            obs.SceneTransition(imageName, interactiveElements, staticElements);
         }
     }
 
@@ -91,17 +96,7 @@ public class Scene : Observable, IObserver
         }
     }
 
-    public void SceneTransition(string imageName, List<InteractiveElement> interactiveElements)
-    {
-        throw new NotImplementedException();
-    }
-
-    public void CleanCanvas()
-    {
-        throw new NotImplementedException();
-    }
-
-    public void SetInteractiveElements(List<InteractiveElement> interactiveElements)
+    public void SceneTransition(string imageName, List<InteractiveElement> interactiveElements, List<StaticElement> staticElements)
     {
         throw new NotImplementedException();
     }
@@ -117,6 +112,12 @@ public class Scene : Observable, IObserver
             this.currentRiddle.Unregister(this);
 
         this.currentRiddle = this.riddles.Find(r => r.Name == name);
+        
+        //Vérification cohérence salle du cube
+        if (this.currentRiddle.Name == "Riddle0")
+        {
+            this.currentRiddle.UpdateRoomRiddle(this.riddlesSuccess);
+        }
 
         if (this.currentRiddle != null)
             this.currentRiddle.Register(this);

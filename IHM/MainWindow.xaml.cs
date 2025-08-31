@@ -29,7 +29,7 @@ public partial class MainWindow : Window, IObserver
     public MainWindow()
     {
         InitializeComponent();
-
+        this.MouseMove += MainCanvas_MouseMove;
         this.path = "Ressources/IMG_clickable/";
         this.scene = new Scene();
         this.scene.Register(this);
@@ -51,9 +51,9 @@ public partial class MainWindow : Window, IObserver
         }
     }
 
-    public void SceneTransition(string imageName, List<InteractiveElement> interactiveElements)
+    public void SceneTransition(string imageName, List<InteractiveElement> interactiveElements, List<StaticElement> staticElements)
     {
-        Start_Transition(imageName, interactiveElements);
+        Start_Transition(imageName, interactiveElements, staticElements);
     }
 
 
@@ -61,7 +61,15 @@ public partial class MainWindow : Window, IObserver
     {
         foreach (InteractiveElement intEl in interactiveElements)
         {
-            this.AddImage(intEl.ImageName, intEl.ImageWidth, intEl.ImageHeight, intEl.ImageX, intEl.ImageY);
+            this.AddImage(intEl.ImageName, intEl.ImageWidth, intEl.ImageHeight, intEl.ImageX, intEl.ImageY, true);
+        }
+    }
+
+    private void SetStaticElements(List<StaticElement> staticElements)
+    {
+        foreach (StaticElement staticEl in staticElements)
+        {
+            this.AddImage(staticEl.ImageName, staticEl.ImageWidth, staticEl.ImageHeight, staticEl.ImageX, staticEl.ImageY, false);
         }
     }
 
@@ -86,7 +94,7 @@ public partial class MainWindow : Window, IObserver
     /// <param name="height"> the height of the image</param>
     /// <param name="x"> the left coordonnees of the image</param>
     /// <param name="y"> the top coordonnees of the image</param>
-    private void AddImage(string name, int width, int height, double x, double y)
+    private void AddImage(string name, int width, int height, double x, double y, bool interactive)
     {
         Image image = new Image
         {
@@ -95,10 +103,13 @@ public partial class MainWindow : Window, IObserver
             Height = height,
             Tag = name
         };
-        image.MouseLeftButtonUp += ElementClicked;
+        if (interactive)
+        {
+            image.MouseLeftButtonUp += ElementClicked;
 
-        image.MouseEnter += Image_MouseEnter;
-        image.MouseLeave += Image_MouseLeave;
+            image.MouseEnter += Image_MouseEnter;
+            image.MouseLeave += Image_MouseLeave;
+        }
 
         Canvas.SetLeft(image, x);
         Canvas.SetTop(image, y);
@@ -124,7 +135,7 @@ public partial class MainWindow : Window, IObserver
         }
     }
 
-    private void Start_Transition(string newBackgroundName, List<InteractiveElement> interactiveElements)
+    private void Start_Transition(string newBackgroundName, List<InteractiveElement> interactiveElements, List<StaticElement> staticElements)
     {
         List<UIElement> copy = MainCanvas.Children.OfType<UIElement>().ToList();
         Rectangle rect = new Rectangle
@@ -138,7 +149,7 @@ public partial class MainWindow : Window, IObserver
         MainCanvas.Children.Add(rect);
         Panel.SetZIndex(rect, int.MaxValue);
 
-        var fadeIn = new DoubleAnimation(0, 1, TimeSpan.FromSeconds(1.5));
+        var fadeIn = new DoubleAnimation(0, 1, TimeSpan.FromSeconds(0.5));
         fadeIn.Completed += (s, e) =>
         {
             foreach (UIElement el in copy)
@@ -153,11 +164,12 @@ public partial class MainWindow : Window, IObserver
             string path = folder + newBackgroundName + ".png";
             this.Background = new ImageBrush(new BitmapImage(new Uri(path, UriKind.Relative)));
 
-            // Étape 3 : ajouter les éléments interactifs
+            // Étape 3 : ajouter les éléments 
             this.SetInteractiveElements(interactiveElements);
+            this.SetStaticElements(staticElements);
 
             // Étape 4 : fade-out
-            var fadeOut = new DoubleAnimation(1, 0, TimeSpan.FromSeconds(1.5));
+            var fadeOut = new DoubleAnimation(1, 0, TimeSpan.FromSeconds(0.5));
             fadeOut.Completed += (s2, e2) => MainCanvas.Children.Remove(rect);
 
             rect.BeginAnimation(UIElement.OpacityProperty, fadeOut);
@@ -166,5 +178,9 @@ public partial class MainWindow : Window, IObserver
         rect.BeginAnimation(UIElement.OpacityProperty, fadeIn);
     }
 
-
+    private void MainCanvas_MouseMove(object sender, MouseEventArgs e)
+    {
+        var pos = e.GetPosition(MainCanvas);
+        CoordLabel.Content = $"X: {pos.X:0}, Y: {pos.Y:0}";
+    }
 }

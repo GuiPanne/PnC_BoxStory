@@ -6,7 +6,14 @@
         xmlns:local="clr-namespace:IHM"
         mc:Ignorable="d"
         Title="MainWindow" Height="900" Width="1600">
-    <Canvas Name="MainCanvas">
-
-    </Canvas>
+    <Grid>
+        <Canvas Name="MainCanvas" />
+        <Label Name="CoordLabel"
+               HorizontalAlignment="Left"
+               VerticalAlignment="Bottom"
+               Margin="10"
+               Foreground="White"
+               Background="Black"
+               Opacity="0.7"/>
+    </Grid>
 </Window>

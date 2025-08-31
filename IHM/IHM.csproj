@@ -34,12 +34,6 @@
       <Content Include="Ressources\IMG_background\DE002N.png">
         <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       </Content>
-      <Content Include="Ressources\IMG_clickable\EE000N.png">
-        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      </Content>
-      <Content Include="Ressources\IMG_clickable\EE000S.png">
-        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      </Content>
       <Content Include="Ressources\IMG_clickable\EE101N.png">
         <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       </Content>
@@ -59,6 +53,14 @@
         <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       </Content>
       <Content Include="Ressources\IMG_clickable\EP005S.png">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+      <None Remove="Ressources\IMG_clickable\FI000S.png" />
+      <Content Include="Ressources\IMG_clickable\FI000S.png">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+      <None Remove="Ressources\IMG_clickable\FI000N.png" />
+      <Content Include="Ressources\IMG_clickable\FI000N.png">
         <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       </Content>
     </ItemGroup>

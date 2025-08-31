@@ -40,7 +40,7 @@ public abstract class Observable
     /// </summary>
     /// <param name="imageName">the new background name</param>
     /// <param name="interactiveElements"> elements to display</param>
-    protected abstract void NotifySceneTransition(string imageName, List<InteractiveElement> interactiveElements);
+    protected abstract void NotifySceneTransition(string imageName, List<InteractiveElement> interactiveElements, List<StaticElement> staticElements);
     /// <summary>
     /// notify the observer to update a specific element 
     /// </summary>
