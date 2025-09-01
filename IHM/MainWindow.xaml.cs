@@ -5,9 +5,11 @@ using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using IHM.WPFSoundControl;
 using Logic;
 using Logic.Obs;
 using Logic.Riddles;
+using Logic.SoundControl;
 
 namespace IHM;
 
@@ -26,10 +28,13 @@ public partial class MainWindow : Window, IObserver
     {
         InitializeComponent();
         this.MouseMove += MainCanvas_MouseMove;
-        this.path = "Ressources/IMG_clickable/";
+        this.path = "Resources/IMG_clickable/";
         this.scene = new Scene();
         this.scene.Register(this);
         this.scene.Update();
+
+        ISoundService music = SoundService.GetInstance();
+        music.LaunchMusic();
     }
 
     /// <summary>
@@ -156,7 +161,7 @@ public partial class MainWindow : Window, IObserver
                 }
             }
             // Étape 2 : changer le background
-            string folder = "Ressources/IMG_background/";
+            string folder = "Resources/IMG_background/";
             string path = folder + newBackgroundName + ".png";
             this.Background = new ImageBrush(new BitmapImage(new Uri(path, UriKind.Relative)));
 
