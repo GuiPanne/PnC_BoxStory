@@ -26,14 +26,14 @@ public partial class MainWindow : Window, IObserver
     /// </summary>
     public MainWindow()
     {
+        ISoundService music = new SoundService();
         InitializeComponent();
         this.MouseMove += MainCanvas_MouseMove;
         this.path = "Resources/IMG_clickable/";
-        this.scene = new Scene();
+        this.scene = new Scene(music);
         this.scene.Register(this);
         this.scene.Update();
 
-        ISoundService music = SoundService.GetInstance();
         music.LaunchMusic();
     }
 
@@ -150,7 +150,7 @@ public partial class MainWindow : Window, IObserver
         MainCanvas.Children.Add(rect);
         Panel.SetZIndex(rect, int.MaxValue);
 
-        var fadeIn = new DoubleAnimation(0, 1, TimeSpan.FromSeconds(0.5));
+        var fadeIn = new DoubleAnimation(0, 1, TimeSpan.FromSeconds(1));
         fadeIn.Completed += (s, e) =>
         {
             foreach (UIElement el in copy)
@@ -170,7 +170,7 @@ public partial class MainWindow : Window, IObserver
             this.SetStaticElements(staticElements);
 
             // Étape 4 : fade-out
-            var fadeOut = new DoubleAnimation(1, 0, TimeSpan.FromSeconds(0.5));
+            var fadeOut = new DoubleAnimation(1, 0, TimeSpan.FromSeconds(1));
             fadeOut.Completed += (s2, e2) => MainCanvas.Children.Remove(rect);
 
             rect.BeginAnimation(UIElement.OpacityProperty, fadeOut);

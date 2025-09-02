@@ -1,4 +1,5 @@
 ﻿using Logic.Obs;
+using Logic.SoundControl;
 
 namespace Logic.Riddles.RiddleModel;
 
@@ -9,7 +10,7 @@ public class Riddle1 : Riddle
 {
     public override string Name => "Riddle1";
     
-    public Riddle1() : base()
+    public Riddle1(ISoundService soundService) : base(soundService)
     {
         this.BackgroundName = "ZE100N";
         this.IElements.Add(new InteractiveElement("OnOffButton", "EE100N", 247, 581, 678, 140));
@@ -18,11 +19,13 @@ public class Riddle1 : Riddle
         
     public override void ReactElement(string imageName)
     {
+        this.soundService.PlaySfx("bruitClicUltime.mp3");
         if (imageName == "EE100N")
         {
             this.IElements.Find(e => e.ImageName == "EE100N").ImageName= "EE101N";
             this.NotifyChangeSpecificIntElement(this.IElements.Find(e => e.ImageName == "EE101N"), "EE100N");
             this.IsSuccess = true;
+            this.soundService.PlaySfx("bruitOuvertureR2.mp3");
         }
         else
         {

@@ -1,4 +1,5 @@
 ﻿using Logic.Obs;
+using Logic.SoundControl;
 
 namespace Logic.Riddles.RiddleModel;
 
@@ -7,7 +8,7 @@ public class Riddle2 : Riddle
     private int count;
     public override string Name => "Riddle2";
 
-    public Riddle2()
+    public Riddle2(ISoundService soundService) : base(soundService)
     {
         this.count = 0;
         this.BackgroundName = "ZE200N";
@@ -29,6 +30,7 @@ public class Riddle2 : Riddle
     }
     public override void ReactElement(string imageName)
     {
+        this.soundService.PlaySfx("bruitToucheMachineEcrire.mp3");
         switch (imageName)
         {
             case "EE200N": // bouton 1
@@ -56,7 +58,14 @@ public class Riddle2 : Riddle
                 break;
         }
 
-        this.IsSuccess = this.count == 27;
+        if (this.count == 27)
+        {
+            this.IsSuccess = true;
+        }
+        else
+        {
+            this.IsSuccess = false;
+        }
     }
     
     private void ToggleLabel(string labelName, string offImage, string onImage)

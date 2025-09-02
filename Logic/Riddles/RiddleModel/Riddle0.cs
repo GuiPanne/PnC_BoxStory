@@ -1,4 +1,6 @@
-﻿namespace Logic.Riddles.RiddleModel;
+﻿using Logic.SoundControl;
+
+namespace Logic.Riddles.RiddleModel;
 
 /// <summary>
 /// Fake riddle it's more the "main view of the game"
@@ -8,7 +10,7 @@ public class Riddle0 : Riddle
     private int cubeRotation;
     public override string Name => "Riddle0";
 
-    public Riddle0()
+    public Riddle0(ISoundService soundService) : base(soundService)
     {
         cubeRotation = 0;
         this.BackgroundName = "DE000N";

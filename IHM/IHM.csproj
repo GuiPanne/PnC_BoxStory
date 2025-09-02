@@ -165,6 +165,76 @@
       <Content Include="Resources\IMG_clickable\EE210N.png">
         <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       </Content>
+      <Content Update="Resources\Sound\Old_Music\Twisting.mp3">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+      <Content Update="Resources\Sound\Old_Music\Hard Boiled.mp3">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+      <None Remove="Resources\Sound\Music\Man Down.mp3" />
+      <Content Include="Resources\Sound\Music\Man Down.mp3">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+      <None Remove="Resources\Sound\Music\Lost Time.mp3" />
+      <Content Include="Resources\Sound\Music\Lost Time.mp3">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+      <None Remove="Resources\Sound\Music\Leaving Home.mp3" />
+      <Content Include="Resources\Sound\Music\Leaving Home.mp3">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+      <None Remove="Resources\Sound\Music\Anguish.mp3" />
+      <Content Include="Resources\Sound\Music\Anguish.mp3">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+      <None Remove="Resources\Sound\SFX\bruitGrincement.mp3" />
+      <Content Include="Resources\Sound\SFX\bruitGrincement.mp3">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+      <None Remove="Resources\Sound\SFX\bruitChaise.mp3" />
+      <Content Include="Resources\Sound\SFX\bruitChaise.mp3">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </Content>
+      <None Remove="Resources\Sound\SFX\bruitClicUltime.mp3" />
+      <Content Include="Resources\Sound\SFX\bruitClicUltime.mp3">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+      <None Remove="Resources\Sound\SFX\bruitGlissePuzzle.mp3" />
+      <Content Include="Resources\Sound\SFX\bruitGlissePuzzle.mp3">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+      <None Remove="Resources\Sound\SFX\bruitPapierDechiree.mp3" />
+      <Content Include="Resources\Sound\SFX\bruitPapierDechiree.mp3">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+      <None Remove="Resources\Sound\SFX\bruitPhoto.mp3" />
+      <Content Include="Resources\Sound\SFX\bruitPhoto.mp3">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+      <None Remove="Resources\Sound\SFX\bruitTape.mp3" />
+      <Content Include="Resources\Sound\SFX\bruitTape.mp3">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+      <None Remove="Resources\Sound\SFX\bruitToucheMachineEcrire.mp3" />
+      <Content Include="Resources\Sound\SFX\bruitToucheMachineEcrire.mp3">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+      <None Remove="Resources\Sound\SFX\longBruitEnregistrement.mp3" />
+      <Content Include="Resources\Sound\SFX\longBruitEnregistrement.mp3">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+      <None Remove="Resources\Sound\SFX\longBruitToucheMachineEcrire.mp3" />
+      <Content Include="Resources\Sound\SFX\longBruitToucheMachineEcrire.mp3">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+      <None Remove="Resources\Sound\SFX\bruitChaise2.mp3" />
+      <Content Include="Resources\Sound\SFX\bruitChaise2.mp3">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </Content>
+      <None Remove="Resources\Sound\SFX\bruitOurvertureR2.mp3" />
+      <Content Include="Resources\Sound\SFX\bruitOuvertureR2.mp3">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </Content>
     </ItemGroup>
 
     <ItemGroup>
@@ -202,18 +272,8 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="Resources\Sound\SFX\" />
-    </ItemGroup>
-
-    <ItemGroup>
       <None Remove="Ressources\Sound\Music\Twisting.mp3" />
-      <Content Include="Resources\Sound\Music\Twisting.mp3">
-        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      </Content>
       <None Remove="Ressources\Sound\Music\Hard Boiled.mp3" />
-      <Content Include="Resources\Sound\Music\Hard Boiled.mp3">
-        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      </Content>
     </ItemGroup>
 
 </Project>

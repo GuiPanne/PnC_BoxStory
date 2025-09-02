@@ -1,6 +1,7 @@
 ﻿using Logic.Obs;
 using Logic.Riddles;
 using Logic.Riddles.RiddleModel;
+using Logic.SoundControl;
 
 namespace Logic;
 
@@ -12,16 +13,18 @@ public class Scene : Observable, IObserver
     private Riddle currentRiddle;
     private int riddlesSuccess;
     private List<Riddle> riddles;
+    private ISoundService soundService;
 
     /// <summary>
     /// the init of the scene with the start of the game
     /// </summary>
-    public Scene()
+    public Scene(ISoundService soundService)
     {
+        this.soundService = soundService;
         this.riddles = new List<Riddle> {
-            new Riddle0(),
-            new Riddle1(),
-            new Riddle2(),
+            new Riddle0(soundService),
+            new Riddle1(soundService),
+            new Riddle2(soundService),
         };
         this.riddlesSuccess = 1;
         this.SetCurrentRiddle("Riddle0");
@@ -48,10 +51,12 @@ public class Scene : Observable, IObserver
                 switch (imageName)
                 {
                     case "EP003N":
+                        this.soundService.PlaySfx("bruitChaise.mp3");
                         this.SetCurrentRiddle("Riddle1");
                         this.Update();
                         break;
                     case "EP005N":
+                        this.soundService.PlaySfx("bruitChaise.mp3");
                         this.SetCurrentRiddle("Riddle2");
                         this.Update();
                         break;
@@ -62,6 +67,7 @@ public class Scene : Observable, IObserver
                 {
                     case "FI000N":
                         this.VerifySuccess(currentRiddle.IsSuccess);
+                        this.soundService.PlaySfx("bruitChaise2.mp3");
                         this.SetCurrentRiddle("Riddle0");
                         this.Update();
                         break;

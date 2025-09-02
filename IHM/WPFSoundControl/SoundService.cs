@@ -6,17 +6,7 @@ namespace IHM.WPFSoundControl;
 
 public class SoundService :ISoundService
 {
-    private static SoundService instance;
-
-    public static SoundService GetInstance()
-    {
-        if (instance == null)
-        {
-            instance = new SoundService();
-        }
-        return instance;
-    }
-
+    private List<MediaPlayer> activeSfx;
     private string sfxPath;
     private MediaPlayer musicPlayer;
     private double volume;
@@ -31,13 +21,15 @@ public class SoundService :ISoundService
         set{ isStopMusic = value;}
     }
 
-    private SoundService()
+    public SoundService()
     {
+        activeSfx = new List<MediaPlayer>();
         musicPlayer = new MediaPlayer();
         musicFilesName = GetMusicFilesName();
         sfxPath = "../Resources/Sound/SFX/";
         volume = 0.1;
         isStopMusic = false;
+        musicPlayer.Volume = volume;
     }
 
     private string[] GetMusicFilesName()
@@ -69,8 +61,14 @@ public class SoundService :ISoundService
         string fullPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Resources", "Sound", "SFX", fileName);
 
         MediaPlayer sfx = new MediaPlayer();
+        sfx.Volume = 1;
         sfx.Open(new Uri(fullPath, UriKind.Absolute));
-        sfx.MediaEnded += (sender, args) => sfx.Close();
+        sfx.MediaEnded += (sender, args) =>
+        {
+            sfx.Close();
+            activeSfx.Remove(sfx);
+        };
+        activeSfx.Add(sfx);
         sfx.Play();
     }
 }

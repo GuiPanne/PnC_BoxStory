@@ -1,4 +1,5 @@
 ﻿using Logic.Obs;
+using Logic.SoundControl;
 
 namespace Logic.Riddles;
 
@@ -11,6 +12,8 @@ public abstract class Riddle : Observable
     private string backgroundName;
     private List<InteractiveElement> iElements;
     private List<StaticElement> sElements;
+    
+    protected ISoundService soundService;
 
     /// <summary>
     /// all elements contain in the riddle
@@ -54,8 +57,9 @@ public abstract class Riddle : Observable
     /// <summary>
     /// init the riddle
     /// </summary>
-    public Riddle()
+    public Riddle(ISoundService soundService)
     {
+        this.soundService = soundService;
         this.iElements = new List<InteractiveElement>();
         this.sElements = new List<StaticElement>();
         this.isSuccess = false;
