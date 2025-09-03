@@ -61,6 +61,7 @@ public class Riddle2 : Riddle
         if (this.count == 27)
         {
             this.IsSuccess = true;
+            this.soundService.PlaySfx("bruitDeverouiller.mp3");
         }
         else
         {
