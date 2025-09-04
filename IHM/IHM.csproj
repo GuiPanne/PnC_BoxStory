@@ -10,6 +10,29 @@
 
     <ItemGroup>
       <None Remove="Resources\IMG_background\DE003N.png" />
+      <None Remove="Resources\IMG_clickable\EE404N.png" />
+      <None Remove="Resources\IMG_clickable\EE405N.png" />
+      <None Remove="Resources\IMG_clickable\EE405S.png" />
+      <None Remove="Resources\IMG_clickable\EE406N.png" />
+      <None Remove="Resources\IMG_clickable\EE406S.png" />
+      <None Remove="Resources\IMG_clickable\EE407N.png" />
+      <None Remove="Resources\IMG_clickable\EE407S.png" />
+      <None Remove="Resources\IMG_clickable\EE408N.png" />
+      <None Remove="Resources\IMG_clickable\EE408S.png" />
+      <None Remove="Resources\IMG_clickable\EE409N.png" />
+      <None Remove="Resources\IMG_clickable\EE409S.png" />
+      <None Remove="Resources\IMG_clickable\EE410S.png" />
+      <None Remove="Resources\IMG_clickable\EE411S.png" />
+      <None Remove="Resources\IMG_clickable\EE412S.png" />
+      <None Remove="Resources\IMG_clickable\EE413S.png" />
+      <None Remove="Resources\IMG_clickable\EE414N.png" />
+      <None Remove="Resources\IMG_clickable\EE414S.png" />
+      <None Remove="Resources\IMG_clickable\EE415N.png" />
+      <None Remove="Resources\IMG_clickable\EE415S.png" />
+      <None Remove="Resources\IMG_clickable\EE440N.png" />
+      <None Remove="Resources\IMG_clickable\EE441N.png" />
+      <None Remove="Resources\IMG_clickable\EE442N.png" />
+      <None Remove="Resources\IMG_clickable\EE443N.png" />
       <None Remove="Resources\IMG_clickable\EP006N.png" />
       <None Remove="Resources\IMG_clickable\EP006S.png" />
       <None Remove="Ressources\IMG_background\DE000N.png" />
@@ -70,19 +93,76 @@
       <Content Include="Resources\IMG_clickable\EE403S.png">
         <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       </Content>
+      <Content Include="Resources\IMG_clickable\EE404N.png">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
       <Content Include="Resources\IMG_clickable\EE404S.png">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+      <Content Include="Resources\IMG_clickable\EE405N.png">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+      <Content Include="Resources\IMG_clickable\EE405S.png">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+      <Content Include="Resources\IMG_clickable\EE406N.png">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+      <Content Include="Resources\IMG_clickable\EE406S.png">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+      <Content Include="Resources\IMG_clickable\EE407N.png">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+      <Content Include="Resources\IMG_clickable\EE407S.png">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+      <Content Include="Resources\IMG_clickable\EE408N.png">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+      <Content Include="Resources\IMG_clickable\EE408S.png">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+      <Content Include="Resources\IMG_clickable\EE409N.png">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+      <Content Include="Resources\IMG_clickable\EE409S.png">
         <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       </Content>
       <Content Include="Resources\IMG_clickable\EE410N.png">
         <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       </Content>
+      <Content Include="Resources\IMG_clickable\EE410S.png">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
       <Content Include="Resources\IMG_clickable\EE411N.png">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+      <Content Include="Resources\IMG_clickable\EE411S.png">
         <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       </Content>
       <Content Include="Resources\IMG_clickable\EE412N.png">
         <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       </Content>
+      <Content Include="Resources\IMG_clickable\EE412S.png">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
       <Content Include="Resources\IMG_clickable\EE413N.png">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+      <Content Include="Resources\IMG_clickable\EE413S.png">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+      <Content Include="Resources\IMG_clickable\EE414N.png">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+      <Content Include="Resources\IMG_clickable\EE414S.png">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+      <Content Include="Resources\IMG_clickable\EE415N.png">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+      <Content Include="Resources\IMG_clickable\EE415S.png">
         <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       </Content>
       <Content Include="Resources\IMG_clickable\EE420N.png">
@@ -107,6 +187,18 @@
         <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       </Content>
       <Content Include="Resources\IMG_clickable\EE433N.png">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+      <Content Include="Resources\IMG_clickable\EE440N.png">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+      <Content Include="Resources\IMG_clickable\EE441N.png">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+      <Content Include="Resources\IMG_clickable\EE442N.png">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+      <Content Include="Resources\IMG_clickable\EE443N.png">
         <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       </Content>
       <Content Include="Resources\IMG_clickable\EP0002S.png">
