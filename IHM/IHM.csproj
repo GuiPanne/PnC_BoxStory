@@ -421,6 +421,10 @@
       <Content Include="Resources\Sound\SFX\bruitOuvertureR4.mp3">
         <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       </Content>
+      <None Remove="Resources\Sound\SFX\bruitTourne.mp3" />
+      <Content Include="Resources\Sound\SFX\bruitTourne.mp3">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </Content>
     </ItemGroup>
 
     <ItemGroup>

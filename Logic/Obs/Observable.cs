@@ -47,6 +47,8 @@ public abstract class Observable
     /// </summary>
     /// <param name="element"></param>
     /// <param name="oldName">the old name of the image needed to find it</param>
-    protected abstract void NotifyChangeSpecificIntElement(Element element, string oldName);
+    protected abstract void NotifyChangeSpecificElement(Element element, string oldName);
+    
+    protected abstract void NotifyRemoveSpecificElement(Element element);
 
 }

@@ -71,5 +71,5 @@ public abstract class Riddle : Observable
     /// <param name="imageName"> the image name who has been click in IHM</param>
     public abstract void ReactElement(string imageName);
 
-    public abstract void UpdateRoomRiddle(int successNumber);
+    public abstract void UpdateRoomRiddle(int successNumber, int changeRotation);
 }

@@ -63,7 +63,7 @@ public class Scene : Observable, IObserver
                         break;
                     case "EP006N":
                         this.soundService.PlaySfx("bruitChaise.mp3");
-                        this.SetCurrentRiddle("Riddl4");
+                        this.SetCurrentRiddle("Riddle4");
                         this.Update();
                         break;
                 }
@@ -75,6 +75,11 @@ public class Scene : Observable, IObserver
                         this.VerifySuccess(currentRiddle.IsSuccess);
                         this.soundService.PlaySfx("bruitChaise2.mp3");
                         this.SetCurrentRiddle("Riddle0");
+                        this.Update();
+                        break;
+                    case "FI001N":
+                        this.soundService.PlaySfx("bruitTourne.mp3");
+                        this.SetCurrentRiddle("Riddle0", 1);
                         this.Update();
                         break;
                 }
@@ -105,11 +110,19 @@ public class Scene : Observable, IObserver
         }
     }
 
-    protected override void NotifyChangeSpecificIntElement(Element element, string oldName)
+    protected override void NotifyChangeSpecificElement(Element element, string oldName)
     {
         foreach (IObserver obs in this.observers)
         {
-            obs.ChangeSpecificIntElement(element, oldName);
+            obs.ChangeSpecificElement(element, oldName);
+        }
+    }
+
+    protected override void NotifyRemoveSpecificElement(Element element)
+    {
+        foreach (IObserver obs in this.observers)
+        {
+            obs.RemoveSpecificElement(element);
         }
     }
 
@@ -118,12 +131,17 @@ public class Scene : Observable, IObserver
         throw new NotImplementedException();
     }
 
-    public void ChangeSpecificIntElement(Element element, string oldName)
+    public void ChangeSpecificElement(Element element, string oldName)
     {
-        this.NotifyChangeSpecificIntElement(element, oldName);
+        this.NotifyChangeSpecificElement(element, oldName);
     }
 
-    private void SetCurrentRiddle(string name)
+    public void RemoveSpecificElement(Element element)
+    {
+        this.NotifyRemoveSpecificElement(element);
+    }
+
+    private void SetCurrentRiddle(string name, int cubeRotation = -1)
     {
         if (this.currentRiddle != null)
             this.currentRiddle.Unregister(this);
@@ -133,7 +151,7 @@ public class Scene : Observable, IObserver
         //Vérification cohérence salle du cube
         if (this.currentRiddle.Name == "Riddle0")
         {
-            this.currentRiddle.UpdateRoomRiddle(this.riddlesSuccess);
+            this.currentRiddle.UpdateRoomRiddle(this.riddlesSuccess, cubeRotation);
         }
 
         if (this.currentRiddle != null)

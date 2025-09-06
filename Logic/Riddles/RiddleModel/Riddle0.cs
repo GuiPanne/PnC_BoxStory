@@ -8,6 +8,7 @@ namespace Logic.Riddles.RiddleModel;
 public class Riddle0 : Riddle
 {
     private int cubeRotation;
+    public int CubeRotation;
     public override string Name => "Riddle0";
 
     public Riddle0(ISoundService soundService) : base(soundService)
@@ -20,8 +21,12 @@ public class Riddle0 : Riddle
         this.SElements.Add(new StaticElement("Chien","EP001N",149,206,1339,147));
     }
 
-    public override void UpdateRoomRiddle(int successNumber)
+    public override void UpdateRoomRiddle(int successNumber, int changeRotation)
     {
+        if (changeRotation != -1)
+        {
+            cubeRotation = changeRotation;
+        }
         if (cubeRotation == 0)
         {
             switch (successNumber)
@@ -44,7 +49,10 @@ public class Riddle0 : Riddle
                     this.SElements.Add(new StaticElement("Chien","EP001N",149,206,1339,147));
                     this.SElements.Add(new StaticElement("Tiroir","EP000N",815,105,355,730));
                     this.SElements.Add(new StaticElement("OnOff","EP003N",80,155,840,218));
-                    this.SElements.Add(new StaticElement("Binaries", "EP005N", 177, 110, 794, 535));                    break;
+                    this.SElements.Add(new StaticElement("Binaries", "EP005N", 177, 110, 794, 535));
+                    //temp
+                    this.IElements.Add(new InteractiveElement("Turn", "FI001N", 91, 134, 1194, 530));
+                    break;
                 case 4:
                     break;
                 case 5:
@@ -56,7 +64,13 @@ public class Riddle0 : Riddle
         {
             switch (successNumber)
             {
-                case 4:
+                case 3: //Remettre 4 après test
+                    this.BackgroundName = "DE003N";
+                    this.IElements.Clear();
+                    this.SElements.Clear();
+                    this.SElements.Add(new StaticElement("Chien","EP001N",149,206,1339,147));
+                    this.SElements.Add(new StaticElement("Tiroir","EP000N",815,105,355,730));
+                    this.IElements.Add(new InteractiveElement("Onde", "EP006N", 290, 103, 590, 539));
                     break;
                 case 5:
                     break;
@@ -85,7 +99,12 @@ public class Riddle0 : Riddle
         throw new NotImplementedException();
     }
 
-    protected override void NotifyChangeSpecificIntElement(Element element, string oldName)
+    protected override void NotifyChangeSpecificElement(Element element, string oldName)
+    {
+        throw new NotImplementedException();
+    }
+
+    protected override void NotifyRemoveSpecificElement(Element element)
     {
         throw new NotImplementedException();
     }

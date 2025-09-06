@@ -77,18 +77,18 @@ public class Riddle2 : Riddle
         if (label.ImageName == offImage)
         {
             label.ImageName = onImage;
-            this.NotifyChangeSpecificIntElement(label, offImage);
+            this.NotifyChangeSpecificElement(label, offImage);
             this.count += int.Parse(labelName.Replace("Label", ""));
         }
         else
         {
             label.ImageName = offImage;
-            this.NotifyChangeSpecificIntElement(label, onImage);
+            this.NotifyChangeSpecificElement(label, onImage);
             this.count -= int.Parse(labelName.Replace("Label", ""));
         }
     }
 
-    public override void UpdateRoomRiddle(int successNumber)
+    public override void UpdateRoomRiddle(int successNumber, int changeRotation)
     {
         throw new NotImplementedException();
     }
@@ -99,11 +99,16 @@ public class Riddle2 : Riddle
         throw new NotImplementedException();
     }
 
-    protected override void NotifyChangeSpecificIntElement(Element element, string oldName)
+    protected override void NotifyChangeSpecificElement(Element element, string oldName)
     {
         foreach (IObserver obs in this.observers)
         {
-            obs.ChangeSpecificIntElement(element, oldName);
+            obs.ChangeSpecificElement(element, oldName);
         }
+    }
+
+    protected override void NotifyRemoveSpecificElement(Element element)
+    {
+        throw new NotImplementedException();
     }
 }

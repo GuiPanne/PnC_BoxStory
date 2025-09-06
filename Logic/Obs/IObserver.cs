@@ -20,5 +20,7 @@ public interface IObserver
     /// </summary>
     /// <param name="element"></param>
     /// <param name="oldName"> the old name of the image needed to find it</param>
-    public void ChangeSpecificIntElement(Element element, string oldName);
+    public void ChangeSpecificElement(Element element, string oldName);
+    
+    public void RemoveSpecificElement(Element element);
 }

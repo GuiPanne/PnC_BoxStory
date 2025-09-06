@@ -74,7 +74,7 @@ public partial class MainWindow : Window, IObserver
         }
     }
 
-    public void ChangeSpecificIntElement(Element element, string oldName)
+    public void ChangeSpecificElement(Element element, string oldName)
     {
         Image img = this.MainCanvas.Children
             .OfType<Image>()
@@ -83,10 +83,22 @@ public partial class MainWindow : Window, IObserver
         if (img != null)
         {
             img.Source = new BitmapImage(new Uri(path+element.ImageName+".png", UriKind.Relative));
+            img.Width = element.ImageWidth;
+            img.Height = element.ImageHeight;
             img.Tag = element.ImageName;
+            Canvas.SetLeft(img, element.ImageX);
+            Canvas.SetTop(img, element.ImageY);
         }
     }
-    
+
+    public void RemoveSpecificElement(Element element)
+    {
+        Image img = this.MainCanvas.Children
+            .OfType<Image>()
+            .FirstOrDefault(img => (string)img.Tag == element.ImageName);
+        this.MainCanvas.Children.Remove(img);
+    }
+
     /// <summary>
     /// Create an image (uiElement) in the canvas
     /// </summary>

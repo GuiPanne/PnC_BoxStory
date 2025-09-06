@@ -5,78 +5,112 @@ namespace Logic.Riddles.RiddleModel;
 
 public class Riddle4 : Riddle
 {
-    private int ondeValue1;
-    private int ondeValue2;
-    private int ondeValue3;
-    private int ondeValue4;
+    // Positions actuelles des SE (0,1,2) pour correspondre aux 3 images
+    private int[] currentSEPositions = new int[4];
+    
+    // Positions actuelles des IE (1..4)
+    private int[] currentIEPositions = new int[4];
+    
+    // Multiplicateurs des IE sur les SE
+    private readonly Dictionary<int, Dictionary<int,int>> ieEffects = new()
+    {
+        { 1, new Dictionary<int,int>{{1,-1},{2,1}} },
+        { 2, new Dictionary<int,int>{{1,1},{3,-1}} },
+        { 3, new Dictionary<int,int>{{2,-2}} },
+        { 4, new Dictionary<int,int>{{3,1},{4,2}} }
+    };
+    
+    private Dictionary<int, List<StaticElementState>> seStates = new()
+    {
+        { 1, new List<StaticElementState>
+            {
+                new StaticElementState("EE420N", 246, 95, 317, 229),
+                new StaticElementState("EE440N", 245, 22, 317, 306),
+                new StaticElementState("EE430N", 245, 95, 317, 310),
+            }
+        },
+        { 2, new List<StaticElementState>
+            {
+                new StaticElementState("EE421N", 246, 95, 535, 229),
+                new StaticElementState("EE441N", 245, 22, 535, 306),
+                new StaticElementState("EE431N", 245, 95, 535, 310),
+            }
+        },
+        { 3, new List<StaticElementState>
+            {
+                new StaticElementState("EE422N", 246, 95, 763, 229),
+                new StaticElementState("EE442N", 245, 22, 763, 306),
+                new StaticElementState("EE432N", 245, 95, 763, 310),
+            }
+        },
+        { 4, new List<StaticElementState>
+            {
+                new StaticElementState("EE423N", 246, 95, 987, 229),
+                new StaticElementState("EE443N", 245, 22, 987, 306),
+                new StaticElementState("EE433N", 245, 95, 987, 310),
+            }
+        }
+    };
     
     public override string Name => "Riddle4";
 
     public Riddle4(ISoundService soundService) : base(soundService)
     {
-        this.ondeValue1 = 2;
-        this.ondeValue2 = 1;
-        this.ondeValue3 = 0;
-        this.ondeValue4 = 1;
+        // Initialisation des positions des SE
+        currentSEPositions[0] = 2; 
+        currentSEPositions[1] = 1; 
+        currentSEPositions[2] = 0; 
+        currentSEPositions[3] = 1; 
+
+        // Initialisation des positions des IE
+        currentIEPositions[0] = 1;
+        currentIEPositions[1] = 1;
+        currentIEPositions[2] = 1;
+        currentIEPositions[3] = 1;
         
         this.BackgroundName = "ZE400N";
-        this.SElements.Add(new StaticElement("Onde1", "EE430N", 245,95, 200, 206));
-        this.SElements.Add(new StaticElement("Onde2", "EE422N", 245,22, 445, 237.5));
-        this.SElements.Add(new StaticElement("Onde3", "EE430N", 245,95, 690, 206));
-        this.SElements.Add(new StaticElement("Onde4", "EE443N", 245,22, 935, 237.5));
+        this.SElements.Add(new StaticElement("Onde1", "EE430N", 245,95, 317, 310));
+        this.SElements.Add(new StaticElement("Onde2", "EE441N", 245,22, 535, 306));
+        this.SElements.Add(new StaticElement("Onde3", "EE422N", 246,95, 763, 229));
+        this.SElements.Add(new StaticElement("Onde4", "EE443N", 245,22, 983, 306));
 
-        this.IElements.Add(new InteractiveElement("Button1", "EE400N", 175, 215, 50, 500));
-        this.IElements.Add(new InteractiveElement("Button2", "EE401N", 175, 215, 250, 500));
-        this.IElements.Add(new InteractiveElement("Button3", "EE402N", 175, 215, 450, 500));
-        this.IElements.Add(new InteractiveElement("Button4", "EE403N", 175, 215, 650, 500));
+        this.IElements.Add(new InteractiveElement("Button1", "EE400N", 175, 215, 362, 500));
+        this.IElements.Add(new InteractiveElement("Button2", "EE401N", 175, 215, 597, 500));
+        this.IElements.Add(new InteractiveElement("Button3", "EE402N", 175, 215, 828, 500));
+        this.IElements.Add(new InteractiveElement("Button4", "EE403N", 175, 215, 1053, 500));
 
         this.IElements.Add(new InteractiveElement("Back", "FI000N", 95, 91, 1425, 745));
     }
 
     public override void ReactElement(string imageName)
     {
-        // Table des transitions cycliques
-        var transitions = new Dictionary<int, string[]>
-        {
-            { 0, new[] { "EE400N", "EE404N", "EE408N", "EE412N" } }, // Button1
-            { 1, new[] { "EE401N", "EE405N", "EE409N", "EE413N" } }, // Button2
-            { 2, new[] { "EE402N", "EE406N", "EE410N", "EE414N" } }, // Button3
-            { 3, new[] { "EE403N", "EE407N", "EE411N", "EE415N" } }  // Button4
-        };
+        // Trouver l'IE cliqué
+        var ie = IElements.FirstOrDefault(x => x.ImageName == imageName);
+        if (ie == null) return;
 
-        switch (imageName)
-        {
-            case string s1 when transitions[0].Contains(s1):
-                this.ondeValue1 -= 1;
-                this.ondeValue2 += 1;
-                CycleImage(0, s1, transitions[0]);
-                break;
+        int ieIndex = IElements.IndexOf(ie);
 
-            case string s2 when transitions[1].Contains(s2):
-                this.ondeValue1 += 1;
-                this.ondeValue3 -= 1;
-                CycleImage(1, s2, transitions[1]);
-                break;
+        // On ignore le "Back" (index 4)
+        if (ieIndex < 0 || ieIndex > 3) return;
 
-            case string s3 when transitions[2].Contains(s3):
-                this.ondeValue2 -= 2;
-                CycleImage(2, s3, transitions[2]);
-                break;
+        int oldPos = currentIEPositions[ieIndex];   // ancienne position (1..4)
+        int newPos = oldPos + 1;
+        if (newPos > 4) newPos = 1;
+        currentIEPositions[ieIndex] = newPos;
 
-            case string s4 when transitions[3].Contains(s4):
-                this.ondeValue3 += 1;
-                this.ondeValue4 += 2;
-                CycleImage(3, s4, transitions[3]);
-                break;
-        }
+        // ✅ Calcul du delta
+        int delta = newPos - oldPos;
+        if (delta == -3) delta = +1; // sécurité au cas où
+        if (delta == 3) delta = -1; // pour éviter tout bug de wrap
+        // (mais normalement newPos - oldPos donne toujours 1 ou -3)
 
-        // Clamp et mise à jour des ondes
-        UpdateOnde(0, ref this.ondeValue1);
-        UpdateOnde(1, ref this.ondeValue2);
-        UpdateOnde(2, ref this.ondeValue3);
-        UpdateOnde(3, ref this.ondeValue4);
+        ApplyIEEffectDelta(ieIndex, delta);
 
-        if (this.ondeValue1 == 1 && this.ondeValue2 == 1 && this.ondeValue3 == 1 && this.ondeValue4 == 1)
+        // Mise à jour des images
+        UpdateImages(imageName);
+        this.soundService.PlaySfx("longBruitEnregistrement.mp3");
+        
+        if (this.currentSEPositions.All(pos => pos == 1))
         {
             this.IsSuccess = true;
             this.soundService.PlaySfx("bruitOuvertureR4.mp3");
@@ -86,38 +120,59 @@ public class Riddle4 : Riddle
             this.IsSuccess = false;
         }
     }
-
-    // Fait tourner l'image cycliquement
-    private void CycleImage(int elementIndex, string currentImage, string[] cycle)
-    {
-        int idx = Array.IndexOf(cycle, currentImage);
-        int nextIdx = (idx + 1) % cycle.Length;
-
-        string oldName = this.IElements[elementIndex].ImageName;
-        this.IElements[elementIndex].ImageName = cycle[nextIdx];
-        this.NotifyChangeSpecificIntElement(this.IElements[elementIndex], oldName);
-    }
     
-    private void UpdateOnde(int index, ref int ondeValue)
+    private void ApplyIEEffectDelta(int ieIndex, int delta)
     {
-        // Clamp entre 0 et 2
-        ondeValue = Math.Clamp(ondeValue, 0, 2);
+        if (!ieEffects.TryGetValue(ieIndex + 1, out var effects)) return;
 
-        string[,] images =
+        foreach (var kvp in effects)
         {
-            { "EE420N", "EE440N", "EE430N" }, // Onde1
-            { "EE421N", "EE441N", "EE431N" }, // Onde2
-            { "EE422N", "EE442N", "EE432N" }, // Onde3
-            { "EE423N", "EE443N", "EE433N" }  // Onde4
-        };
+            int seIndex = kvp.Key - 1; // 0-based
+            int mult = kvp.Value;
 
-        string oldName = this.SElements[index].ImageName;
-        this.SElements[index].ImageName = images[index, ondeValue];
-        this.NotifyChangeSpecificIntElement(this.SElements[index], oldName);
-        this.soundService.PlaySfx("longBruitEnregistrement.mp3");
+            // On applique uniquement la variation
+            currentSEPositions[seIndex] += delta * mult;
+            currentSEPositions[seIndex] = ((currentSEPositions[seIndex] % 3) + 3) % 3;
+        }
     }
     
-    public override void UpdateRoomRiddle(int successNumber)
+    private void UpdateImages(string imageName)
+    {
+        // Met à jour l'IE qui a été cliqué
+        InteractiveElement ie = IElements.FirstOrDefault(x => x.ImageName == imageName);
+        if (ie != null)
+        {
+            string oldName = ie.ImageName;
+            int ieIndex = IElements.IndexOf(ie);
+            int pos = currentIEPositions[ieIndex];
+            int nb = (pos-1)*4+ieIndex;
+            if (nb >= 10)
+            {
+                ie.ImageName = $"EE4{nb}N";
+            }
+            else
+                ie.ImageName = $"EE40{nb}N";
+            this.NotifyChangeSpecificElement(ie, oldName);
+        }
+
+        // Met à jour chaque SE
+        for (int i = 0; i < SElements.Count; i++)
+        {
+            int pos = currentSEPositions[i]; // 0,1,2
+            var state = seStates[i+1][pos];  // liste des 3 états
+            string oldName = SElements[i].ImageName;
+            SElements[i].ImageName = state.ImageName;
+            SElements[i].ImageHeight = state.Height;
+            SElements[i].ImageWidth = state.Width;
+            SElements[i].ImageX = state.X;
+            SElements[i].ImageY = state.Y;
+            this.NotifyChangeSpecificElement(SElements[i], oldName);
+        }
+    }
+
+
+    
+    public override void UpdateRoomRiddle(int successNumber, int changeRotation)
     {
         throw new NotImplementedException();
     }
@@ -128,11 +183,38 @@ public class Riddle4 : Riddle
         throw new NotImplementedException();
     }
 
-    protected override void NotifyChangeSpecificIntElement(Element element, string oldName)
+    protected override void NotifyChangeSpecificElement(Element element, string oldName)
     {
         foreach (IObserver obs in this.observers)
         {
-            obs.ChangeSpecificIntElement(element, oldName);
+            obs.ChangeSpecificElement(element, oldName);
+        }
+    }
+
+    protected override void NotifyRemoveSpecificElement(Element element)
+    {
+        throw new NotImplementedException();
+    }
+
+    // T'inquiète c'est propre comme archi 😊
+    private class StaticElementState
+    {
+        public string ImageName { get; set; }
+        public int Height { get; set; }
+        public int Width { get; set; }
+        public int X { get; set; }
+        public int Y { get; set; }
+
+        public StaticElementState(string imageName, int width, int height, int x, int y)
+        {
+            ImageName = imageName;
+            Height = height;
+            Width = width;
+            X = x;
+            Y = y;
         }
     }
 }
+
+
+

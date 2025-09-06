@@ -23,14 +23,14 @@ public class Riddle1 : Riddle
         if (imageName == "EE100N")
         {
             this.IElements.Find(e => e.ImageName == "EE100N").ImageName= "EE101N";
-            this.NotifyChangeSpecificIntElement(this.IElements.Find(e => e.ImageName == "EE101N"), "EE100N");
+            this.NotifyChangeSpecificElement(this.IElements.Find(e => e.ImageName == "EE101N"), "EE100N");
             this.IsSuccess = true;
             this.soundService.PlaySfx("bruitOuvertureR2.mp3");
         }
         else
         {
             this.IElements.Find(e => e.ImageName == "EE101N").ImageName= "EE100N";
-            this.NotifyChangeSpecificIntElement(this.IElements.Find(e => e.ImageName == "EE100N"), "EE101N");
+            this.NotifyChangeSpecificElement(this.IElements.Find(e => e.ImageName == "EE100N"), "EE101N");
             this.IsSuccess = false;
         }
     }
@@ -40,15 +40,20 @@ public class Riddle1 : Riddle
         throw new NotImplementedException();
     }
 
-    protected override void NotifyChangeSpecificIntElement(Element element, string oldName)
+    protected override void NotifyChangeSpecificElement(Element element, string oldName)
     {
         foreach (IObserver obs in this.observers)
         {
-            obs.ChangeSpecificIntElement(element, oldName);
+            obs.ChangeSpecificElement(element, oldName);
         }
     }
 
-    public override void UpdateRoomRiddle(int successNumber)
+    protected override void NotifyRemoveSpecificElement(Element element)
+    {
+        throw new NotImplementedException();
+    }
+
+    public override void UpdateRoomRiddle(int successNumber, int changeRotation)
     {
         throw new NotImplementedException();
     }
