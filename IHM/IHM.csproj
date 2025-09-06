@@ -35,6 +35,8 @@
       <None Remove="Resources\IMG_clickable\EE443N.png" />
       <None Remove="Resources\IMG_clickable\EP006N.png" />
       <None Remove="Resources\IMG_clickable\EP006S.png" />
+      <None Remove="Resources\IMG_clickable\FI001N.png" />
+      <None Remove="Resources\IMG_clickable\FI001S.png" />
       <None Remove="Ressources\IMG_background\DE000N.png" />
       <None Remove="Ressources\IMG_background\DE002N.png" />
       <None Remove="Ressources\IMG_background\ZE100N.png" />
@@ -333,6 +335,12 @@
       </Content>
       <None Remove="Ressources\IMG_clickable\EE210N.png" />
       <Content Include="Resources\IMG_clickable\EE210N.png">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+      <Content Include="Resources\IMG_clickable\FI001N.png">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+      <Content Include="Resources\IMG_clickable\FI001S.png">
         <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       </Content>
       <Content Update="Resources\Sound\Old_Music\Twisting.mp3">
