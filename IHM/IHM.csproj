@@ -409,6 +409,10 @@
       <Content Include="Resources\Sound\SFX\bruitDeverouiller.mp3">
         <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       </Content>
+      <None Remove="Resources\Sound\SFX\ouvertureR4.mp3" />
+      <Content Include="Resources\Sound\SFX\bruitOuvertureR4.mp3">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
     </ItemGroup>
 
     <ItemGroup>
