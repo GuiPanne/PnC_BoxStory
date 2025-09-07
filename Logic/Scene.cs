@@ -25,6 +25,7 @@ public class Scene : Observable, IObserver
             new Riddle0(soundService),
             new Riddle1(soundService),
             new Riddle2(soundService),
+            new Riddle3(soundService),
             new Riddle4(soundService)
         };
         this.riddlesSuccess = 1;
@@ -59,6 +60,11 @@ public class Scene : Observable, IObserver
                     case "EP005N":
                         this.soundService.PlaySfx("bruitChaise.mp3");
                         this.SetCurrentRiddle("Riddle2");
+                        this.Update();
+                        break;
+                    case "EP004N":
+                        this.soundService.PlaySfx("bruitChaise.mp3");
+                        this.SetCurrentRiddle("Riddle3");
                         this.Update();
                         break;
                     case "EP006N":
