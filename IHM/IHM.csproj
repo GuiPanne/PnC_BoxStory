@@ -553,6 +553,18 @@
       <Content Include="Resources\Sound\SFX\bruitOuvertureR3.mp3">
         <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       </Content>
+      <None Remove="Resources\Sound\Character\ETHAN\son3.mp3" />
+      <Content Include="Resources\Sound\Character\ETHAN\son3.mp3">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </Content>
+      <None Remove="Resources\Sound\Character\ETHAN\son2.mp3" />
+      <Content Include="Resources\Sound\Character\ETHAN\son2.mp3">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </Content>
+      <None Remove="Resources\Sound\Character\ETHAN\son1.mp3" />
+      <Content Include="Resources\Sound\Character\ETHAN\son1.mp3">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </Content>
     </ItemGroup>
 
     <ItemGroup>

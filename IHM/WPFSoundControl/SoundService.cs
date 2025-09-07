@@ -56,12 +56,31 @@ public class SoundService :ISoundService
         musicPlayer.Play();
     }
 
+    public void DialogSFX(string voiceName)
+    {
+        string basePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Resources", "Sound", "Character", voiceName);
+        string[] voiceLine = Directory.GetFileSystemEntries(basePath, "*.mp3");
+        MediaPlayer voicePlayer = new MediaPlayer();
+        voicePlayer.Volume = 0.6; 
+        Random r = new Random();
+        string chosenFile = voiceLine[r.Next(0, voiceLine.Length)];
+        voicePlayer.Open(new Uri(chosenFile, UriKind.Absolute));
+        voicePlayer.MediaEnded += (sender, args) =>
+        {
+            voicePlayer.Close();
+            activeSfx.Remove(voicePlayer);
+        };
+
+        activeSfx.Add(voicePlayer);
+        voicePlayer.Play();
+    }
+
     public void PlaySfx(string fileName)
     {
         string fullPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Resources", "Sound", "SFX", fileName);
 
         MediaPlayer sfx = new MediaPlayer();
-        sfx.Volume = 1;
+        sfx.Volume = 0.6;
         sfx.Open(new Uri(fullPath, UriKind.Absolute));
         sfx.MediaEnded += (sender, args) =>
         {
