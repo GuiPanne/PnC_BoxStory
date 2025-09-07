@@ -33,7 +33,10 @@ public partial class MainWindow : Window, IObserver
         this.scene = new Scene(music);
         this.scene.Register(this);
         this.scene.Update();
-
+        
+        DialogueControl dc = new DialogueControl("dialogTest");
+        RootGrid.Children.Add(dc);
+        
         music.LaunchMusic();
     }
 
