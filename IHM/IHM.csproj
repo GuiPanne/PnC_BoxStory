@@ -12,6 +12,7 @@
       <None Remove="Resources\IMG_background\DE001N.png" />
       <None Remove="Resources\IMG_background\DE003N.png" />
       <None Remove="Resources\IMG_background\DE004N.png" />
+      <None Remove="Resources\IMG_background\ZE500N.png" />
       <None Remove="Resources\IMG_clickable\EE300N.png" />
       <None Remove="Resources\IMG_clickable\EE300S.png" />
       <None Remove="Resources\IMG_clickable\EE301N.png" />
@@ -57,6 +58,66 @@
       <None Remove="Resources\IMG_clickable\EE441N.png" />
       <None Remove="Resources\IMG_clickable\EE442N.png" />
       <None Remove="Resources\IMG_clickable\EE443N.png" />
+      <None Remove="Resources\IMG_clickable\EE500N.png" />
+      <None Remove="Resources\IMG_clickable\EE500S.png" />
+      <None Remove="Resources\IMG_clickable\EE501N.png" />
+      <None Remove="Resources\IMG_clickable\EE501S.png" />
+      <None Remove="Resources\IMG_clickable\EE502N.png" />
+      <None Remove="Resources\IMG_clickable\EE502S.png" />
+      <None Remove="Resources\IMG_clickable\EE503N.png" />
+      <None Remove="Resources\IMG_clickable\EE503S.png" />
+      <None Remove="Resources\IMG_clickable\EE504N.png" />
+      <None Remove="Resources\IMG_clickable\EE504S.png" />
+      <None Remove="Resources\IMG_clickable\EE505N.png" />
+      <None Remove="Resources\IMG_clickable\EE505S.png" />
+      <None Remove="Resources\IMG_clickable\EE506N.png" />
+      <None Remove="Resources\IMG_clickable\EE506S.png" />
+      <None Remove="Resources\IMG_clickable\EE507N.png" />
+      <None Remove="Resources\IMG_clickable\EE507S.png" />
+      <None Remove="Resources\IMG_clickable\EE508N.png" />
+      <None Remove="Resources\IMG_clickable\EE508S.png" />
+      <None Remove="Resources\IMG_clickable\EE509N.png" />
+      <None Remove="Resources\IMG_clickable\EE509S.png" />
+      <None Remove="Resources\IMG_clickable\EE510N.png" />
+      <None Remove="Resources\IMG_clickable\EE510S.png" />
+      <None Remove="Resources\IMG_clickable\EE511N.png" />
+      <None Remove="Resources\IMG_clickable\EE511S.png" />
+      <None Remove="Resources\IMG_clickable\EE512N.png" />
+      <None Remove="Resources\IMG_clickable\EE512S.png" />
+      <None Remove="Resources\IMG_clickable\EE513N.png" />
+      <None Remove="Resources\IMG_clickable\EE513S.png" />
+      <None Remove="Resources\IMG_clickable\EE514N.png" />
+      <None Remove="Resources\IMG_clickable\EE514S.png" />
+      <None Remove="Resources\IMG_clickable\EE515N.png" />
+      <None Remove="Resources\IMG_clickable\EE515S.png" />
+      <None Remove="Resources\IMG_clickable\EE516N.png" />
+      <None Remove="Resources\IMG_clickable\EE516S.png" />
+      <None Remove="Resources\IMG_clickable\EE517N.png" />
+      <None Remove="Resources\IMG_clickable\EE517S.png" />
+      <None Remove="Resources\IMG_clickable\EE518N.png" />
+      <None Remove="Resources\IMG_clickable\EE518S.png" />
+      <None Remove="Resources\IMG_clickable\EE519N.png" />
+      <None Remove="Resources\IMG_clickable\EE519S.png" />
+      <None Remove="Resources\IMG_clickable\EE520N.png" />
+      <None Remove="Resources\IMG_clickable\EE521N.png" />
+      <None Remove="Resources\IMG_clickable\EE522N.png" />
+      <None Remove="Resources\IMG_clickable\EE523N.png" />
+      <None Remove="Resources\IMG_clickable\EE524N.png" />
+      <None Remove="Resources\IMG_clickable\EE525N.png" />
+      <None Remove="Resources\IMG_clickable\EE526N.png" />
+      <None Remove="Resources\IMG_clickable\EE527N.png" />
+      <None Remove="Resources\IMG_clickable\EE528N.png" />
+      <None Remove="Resources\IMG_clickable\EE529N.png" />
+      <None Remove="Resources\IMG_clickable\EE530N.png" />
+      <None Remove="Resources\IMG_clickable\EE531N.png" />
+      <None Remove="Resources\IMG_clickable\EE532N.png" />
+      <None Remove="Resources\IMG_clickable\EE533N.png" />
+      <None Remove="Resources\IMG_clickable\EE534N.png" />
+      <None Remove="Resources\IMG_clickable\EE535N.png" />
+      <None Remove="Resources\IMG_clickable\EE536N.png" />
+      <None Remove="Resources\IMG_clickable\EE537N.png" />
+      <None Remove="Resources\IMG_clickable\EE538N.png" />
+      <None Remove="Resources\IMG_clickable\EE540N.png" />
       <None Remove="Resources\IMG_clickable\EP004N.png" />
       <None Remove="Resources\IMG_clickable\EP004S.png" />
       <None Remove="Resources\IMG_clickable\EP006N.png" />
@@ -98,6 +159,9 @@
         <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       </Content>
       <Content Include="Resources\IMG_background\ZE400N.png">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+      <Content Include="Resources\IMG_background\ZE500N.png">
         <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       </Content>
       <Content Include="Resources\IMG_clickable\EE101N.png">
@@ -299,6 +363,186 @@
         <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       </Content>
       <Content Include="Resources\IMG_clickable\EE443N.png">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+      <Content Include="Resources\IMG_clickable\EE500N.png">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+      <Content Include="Resources\IMG_clickable\EE500S.png">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+      <Content Include="Resources\IMG_clickable\EE501N.png">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+      <Content Include="Resources\IMG_clickable\EE501S.png">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+      <Content Include="Resources\IMG_clickable\EE502N.png">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+      <Content Include="Resources\IMG_clickable\EE502S.png">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+      <Content Include="Resources\IMG_clickable\EE503N.png">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+      <Content Include="Resources\IMG_clickable\EE503S.png">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+      <Content Include="Resources\IMG_clickable\EE504N.png">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+      <Content Include="Resources\IMG_clickable\EE504S.png">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+      <Content Include="Resources\IMG_clickable\EE505N.png">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+      <Content Include="Resources\IMG_clickable\EE505S.png">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+      <Content Include="Resources\IMG_clickable\EE506N.png">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+      <Content Include="Resources\IMG_clickable\EE506S.png">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+      <Content Include="Resources\IMG_clickable\EE507N.png">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+      <Content Include="Resources\IMG_clickable\EE507S.png">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+      <Content Include="Resources\IMG_clickable\EE508N.png">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+      <Content Include="Resources\IMG_clickable\EE508S.png">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+      <Content Include="Resources\IMG_clickable\EE509N.png">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+      <Content Include="Resources\IMG_clickable\EE509S.png">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+      <Content Include="Resources\IMG_clickable\EE510N.png">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+      <Content Include="Resources\IMG_clickable\EE510S.png">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+      <Content Include="Resources\IMG_clickable\EE511N.png">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+      <Content Include="Resources\IMG_clickable\EE511S.png">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+      <Content Include="Resources\IMG_clickable\EE512N.png">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+      <Content Include="Resources\IMG_clickable\EE512S.png">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+      <Content Include="Resources\IMG_clickable\EE513N.png">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+      <Content Include="Resources\IMG_clickable\EE513S.png">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+      <Content Include="Resources\IMG_clickable\EE514N.png">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+      <Content Include="Resources\IMG_clickable\EE514S.png">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+      <Content Include="Resources\IMG_clickable\EE515N.png">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+      <Content Include="Resources\IMG_clickable\EE515S.png">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+      <Content Include="Resources\IMG_clickable\EE516N.png">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+      <Content Include="Resources\IMG_clickable\EE516S.png">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+      <Content Include="Resources\IMG_clickable\EE517N.png">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+      <Content Include="Resources\IMG_clickable\EE517S.png">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+      <Content Include="Resources\IMG_clickable\EE518N.png">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+      <Content Include="Resources\IMG_clickable\EE518S.png">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+      <Content Include="Resources\IMG_clickable\EE519N.png">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+      <Content Include="Resources\IMG_clickable\EE519S.png">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+      <Content Include="Resources\IMG_clickable\EE520N.png">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+      <Content Include="Resources\IMG_clickable\EE521N.png">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+      <Content Include="Resources\IMG_clickable\EE522N.png">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+      <Content Include="Resources\IMG_clickable\EE523N.png">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+      <Content Include="Resources\IMG_clickable\EE524N.png">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+      <Content Include="Resources\IMG_clickable\EE525N.png">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+      <Content Include="Resources\IMG_clickable\EE526N.png">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+      <Content Include="Resources\IMG_clickable\EE527N.png">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+      <Content Include="Resources\IMG_clickable\EE528N.png">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+      <Content Include="Resources\IMG_clickable\EE529N.png">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+      <Content Include="Resources\IMG_clickable\EE530N.png">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+      <Content Include="Resources\IMG_clickable\EE531N.png">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+      <Content Include="Resources\IMG_clickable\EE532N.png">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+      <Content Include="Resources\IMG_clickable\EE533N.png">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+      <Content Include="Resources\IMG_clickable\EE534N.png">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+      <Content Include="Resources\IMG_clickable\EE535N.png">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+      <Content Include="Resources\IMG_clickable\EE536N.png">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+      <Content Include="Resources\IMG_clickable\EE537N.png">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+      <Content Include="Resources\IMG_clickable\EE538N.png">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+      <Content Include="Resources\IMG_clickable\EE540N.png">
         <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       </Content>
       <Content Include="Resources\IMG_clickable\EP0002S.png">
@@ -551,18 +795,6 @@
       </Content>
       <None Remove="Resources\Sound\SFX\bruitOuvertureR3.mp3" />
       <Content Include="Resources\Sound\SFX\bruitOuvertureR3.mp3">
-        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      </Content>
-      <None Remove="Resources\Sound\Character\ETHAN\son3.mp3" />
-      <Content Include="Resources\Sound\Character\ETHAN\son3.mp3">
-        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      </Content>
-      <None Remove="Resources\Sound\Character\ETHAN\son2.mp3" />
-      <Content Include="Resources\Sound\Character\ETHAN\son2.mp3">
-        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      </Content>
-      <None Remove="Resources\Sound\Character\ETHAN\son1.mp3" />
-      <Content Include="Resources\Sound\Character\ETHAN\son1.mp3">
         <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       </Content>
     </ItemGroup>
