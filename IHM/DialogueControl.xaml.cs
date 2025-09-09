@@ -108,60 +108,60 @@ public partial class DialogueControl : UserControl
     }
     
     private void PlayBlip(int frequency, int durationMs, string instrument = "synth", float volume = 0.05f)
-{ 
-    int sampleRate = 44100;
-    int samples = (int)((sampleRate * durationMs) / 1000.0);
-    var buffer = new float[samples];
+    { 
+        int sampleRate = 44100;
+        int samples = (int)((sampleRate * durationMs) / 1000.0);
+        var buffer = new float[samples];
 
-    for (int i = 0; i < samples; i++)
-    {
-        double t = (double)i / sampleRate;
-        double sample = 0;
-
-        switch (instrument.ToLower())
+        for (int i = 0; i < samples; i++)
         {
-            case "synth": // machine à écrire / synthé grave
-                // sinusoïde + octave, attaque ultra courte
-                sample = Math.Sin(2 * Math.PI * frequency * t) + 0.2 * Math.Sin(2 * Math.PI * frequency * 2 * t);
-                break;
+            double t = (double)i / sampleRate;
+            double sample = 0;
 
-            case "accordion":
-                // sinusoïde + dent de scie + vibrato léger
-                double vibrato = Math.Sin(2 * Math.PI * 5 * t) * 0.02; // 5Hz vibrato ±2%
-                sample = Math.Sin(2 * Math.PI * frequency * (1 + vibrato) * t)
-                       + 0.3 * Math.Sin(2 * Math.PI * frequency * 2 * (1 + vibrato) * t)
-                       + 0.15 * Math.Sin(2 * Math.PI * frequency * 3 * (1 + vibrato) * t);
-                break;
+            switch (instrument.ToLower())
+            {
+                case "synth": // machine à écrire / synthé grave
+                    // sinusoïde + octave, attaque ultra courte
+                    sample = Math.Sin(2 * Math.PI * frequency * t) + 0.2 * Math.Sin(2 * Math.PI * frequency * 2 * t);
+                    break;
 
-            case "violin":
-                // triangle approximée avec harmoniques + léger glissando
-                double gliss = 0.003 * i / samples; // variation très faible
-                sample = Math.Sin(2 * Math.PI * frequency * (1 + gliss) * t)
-                       + 0.5 * Math.Sin(2 * Math.PI * frequency * 2 * (1 + gliss) * t)
-                       + 0.3 * Math.Sin(2 * Math.PI * frequency * 3 * (1 + gliss) * t);
-                break;
+                case "accordion":
+                    // sinusoïde + dent de scie + vibrato léger
+                    double vibrato = Math.Sin(2 * Math.PI * 5 * t) * 0.02; // 5Hz vibrato ±2%
+                    sample = Math.Sin(2 * Math.PI * frequency * (1 + vibrato) * t)
+                           + 0.3 * Math.Sin(2 * Math.PI * frequency * 2 * (1 + vibrato) * t)
+                           + 0.15 * Math.Sin(2 * Math.PI * frequency * 3 * (1 + vibrato) * t);
+                    break;
 
-            default:
-                // fallback : simple sinusoïde
-                sample = Math.Sin(2 * Math.PI * frequency * t);
-                break;
+                case "violin":
+                    // triangle approximée avec harmoniques + léger glissando
+                    double gliss = 0.003 * i / samples; // variation très faible
+                    sample = Math.Sin(2 * Math.PI * frequency * (1 + gliss) * t)
+                           + 0.5 * Math.Sin(2 * Math.PI * frequency * 2 * (1 + gliss) * t)
+                           + 0.3 * Math.Sin(2 * Math.PI * frequency * 3 * (1 + gliss) * t);
+                    break;
+
+                default:
+                    // fallback : simple sinusoïde
+                    sample = Math.Sin(2 * Math.PI * frequency * t);
+                    break;
+            }
+
+            // enveloppe ADSR simplifiée (attaque rapide pour synth, medium pour accordéon/violon)
+            double envelope = 1.0 - (double)i / samples;
+            if (envelope < 0) envelope = 0;
+
+            buffer[i] = (float)(sample * envelope * volume);
         }
 
-        // enveloppe ADSR simplifiée (attaque rapide pour synth, medium pour accordéon/violon)
-        double envelope = 1.0 - (double)i / samples;
-        if (envelope < 0) envelope = 0;
+        var provider = new BufferedWaveProvider(WaveFormat.CreateIeeeFloatWaveFormat(sampleRate, 1));
+        provider.AddSamples(buffer.SelectMany(BitConverter.GetBytes).ToArray(), 0, buffer.Length * 4);
 
-        buffer[i] = (float)(sample * envelope * volume);
+        var waveOut = new WaveOutEvent();
+        waveOut.Init(provider);
+        waveOut.Play();
+
+        Task.Delay(durationMs).ContinueWith(_ => waveOut.Dispose());
     }
-
-    var provider = new BufferedWaveProvider(WaveFormat.CreateIeeeFloatWaveFormat(sampleRate, 1));
-    provider.AddSamples(buffer.SelectMany(BitConverter.GetBytes).ToArray(), 0, buffer.Length * 4);
-
-    var waveOut = new WaveOutEvent();
-    waveOut.Init(provider);
-    waveOut.Play();
-
-    Task.Delay(durationMs).ContinueWith(_ => waveOut.Dispose());
-}
 
 }
