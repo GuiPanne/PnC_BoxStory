@@ -108,7 +108,7 @@ public partial class DialogueControl : UserControl
     }
     
     private void PlayBlip(int frequency, int durationMs, string instrument = "synth", float volume = 0.05f)
-{
+{ 
     int sampleRate = 44100;
     int samples = (int)((sampleRate * durationMs) / 1000.0);
     var buffer = new float[samples];
