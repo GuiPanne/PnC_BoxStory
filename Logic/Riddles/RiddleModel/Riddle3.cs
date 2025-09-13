@@ -20,7 +20,7 @@ public class Riddle3 : Riddle
         this.IElements.Add(new InteractiveElement("Tag4", "EE305N", 206, 45, 505, 649));
         this.IElements.Add(new InteractiveElement("Tag5", "EE306N", 254, 41, 879, 425));
         this.IElements.Add(new InteractiveElement("Tag6", "EE307N", 249, 40, 874, 486));
-        this.IElements.Add(new InteractiveElement("Tag7", "EE308N", 256, 39, 871, 550));
+        this.IElements.Add(new InteractiveElement("Tag7", "EE308N", 256, 39, 871, 543));
         this.IElements.Add(new InteractiveElement("Tag8", "EE309N", 255, 44, 871, 595));
         this.IElements.Add(new InteractiveElement("Tag9", "EE310N", 250, 49, 866, 656));
 
