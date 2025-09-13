@@ -78,7 +78,7 @@ public class Riddle3 : Riddle
 
     protected override void NotifyRemoveSpecificElement(Element element)
     {
-        this.IElements.Remove(this.IElements.Find(e => e.ImageName == e.ImageName));
+        this.IElements.Remove(this.IElements.Find(e => e.ImageName == element.ImageName));
         foreach (IObserver obs in this.observers)
         {
             obs.RemoveSpecificElement(element);
