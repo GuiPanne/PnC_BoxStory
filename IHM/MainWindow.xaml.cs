@@ -34,7 +34,7 @@ public partial class MainWindow : Window, IObserver
         this.scene.Register(this);
         this.scene.Update();
         
-        DialogueControl dc = new DialogueControl("dialogTest");
+        DialogueControl dc = new DialogueControl("IntroText");
         RootGrid.Children.Add(dc);
         
         music.LaunchMusic();
