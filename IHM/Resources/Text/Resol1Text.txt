@@ -3,7 +3,7 @@ ETHAN---Ca diffuse du son ? pourquoi ça fonctionne com-
 MARIA---"Ethan ne cours pas dans les cailloux ! Et arrête d'embarquer *tttssss* dans toutes tes histoires. Il suffit."
 ETHAN---"Mais mère ! vous ne me laissez jamais faire ce que je veux pfff"
 ETHAN---"Oui mais je sais ce qui est bon pour toi. Alors tu rentres."
-DESCRIPTION---tttrezz kgtrth ee
-ETHAN---Des souvenirs audio ? Je crois que c'est père qui avait inventé cette machine. Je l'a prennais toujours avec moi je crois.
-DESCRIPTION---"CLAC" 
+DESCRIPTION---*tttrezz*..*kgtrth*..*ee*
+ETHAN---Des souvenirs audio ? Je crois que c'est père qui avait inventé cette machine. Je la prenais toujours avec moi je crois.
+DESCRIPTION---*CLAC* 
 ETHAN---hmm ? je crois que le tiroir n'est plus bloqué ?

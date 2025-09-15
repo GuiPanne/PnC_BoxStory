@@ -1,19 +1,23 @@
-﻿JEAN---"Bonjour Ethan, d'abord je tiens à m'excusé pour ce que tu viens d'écouter et si tu te poses la question oui c'et bien arrivé..."
-JEAN---"Après que tu sois tombé dans les cailloux à l'extérieur tu as fait un coma d'une semaine, je suis resté à ton chevet."
-JEAN---"Ta mère pour respecter notre deadline est resté à maison et à finit notre prototype.. hmmm... celui qui peut modifier la... la mémoire."
+﻿JEAN---"Bonjour Ethan, d'abord je tiens à m'excuser pour ce que tu viens d'écouter et si tu te poses la question oui c'est bien arrivé..."
+JEAN---"Après que tu sois tombé dans les cailloux à l'extérieur tu es tombé dans le coma pendant une semaine, je suis resté à ton chevet."
+JEAN---"Ta mère, pour respecter notre deadline, est restée à la maison et a finit notre prototype.. hmmm... celui qui peut modifier la... la mémoire."
 JEAN---"Il a été refusé par nos employeurs car selon eux ce n'est pas éthique... venant d'un laboratoire de science. enfin bref"
 JEAN---"Quand tu es rentré à la maison tu étais inconsolable pour la mort de Lucky... Et au bout de trois mois tu.. tu nous as demandé d'utiliser notre invention..."
 JEAN---"Sur toi..."
-JEAN---"surement à cause de la culpabilité on a accepté et ça a fonctionné, enfin plus ou moins"
-JEAN---"A cause du manque de test sur la machine il y a eu un effet secondaire, on pense que tes crises sont dus à l'utilisation de la machine."
-JEAN---"On s'en veut tellement. tu ne peux imaginer à quelle point nous sommes navré. de t'avoir fait subir nos ambitions."
+JEAN---"sûrement à cause de la culpabilité on a accepté et ça a fonctionné, enfin plus ou moins"
+JEAN---"A cause du manque de tests sur la machine il y a eu un effet secondaire, on pense que tes crises sont dus à l'utilisation de la machine."
+JEAN---"On s'en veut tellement. tu ne peux imaginer à quel point nous sommes navrés de t'avoir fait subir nos ambitions."
 JEAN---"Ce que tu viens de résoudre est notre dernier prototype. On voulais te laisser le choix d'aller au bout ou non. Si tu entends ça sache que tu connais maintenant toute la vérité."
 JEAN---"Nous sommes coupables d'avoir rendu ta vie difficile."
 JEAN---"Je suis désolé mon fils."
 ETHAN---...
 ETHAN---...
-ETHAN---...
 ETHAN---..
 ETHAN---.
-ACTION---Se lève
-ACTION---Subit une crise
+ACTION — Se lève.
+ACTION — Subit une crise.
+ETHAN — Hmm… ma tête…
+ACTION — Vacille et titube.
+ETHAN — Nonnn… pas encore !
+ACTION — Une violente crise le secoue.
+ACTION — Retourne lentement sur sa chaise.
