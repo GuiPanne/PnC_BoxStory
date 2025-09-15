@@ -937,6 +937,10 @@
       <Content Include="Resources\Text\IntroText.txt">
         <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       </Content>
+      <None Remove="Resources\Text\Indice1.txt" />
+      <Content Include="Resources\Text\Indice1.txt">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </Content>
     </ItemGroup>
 
     <ItemGroup>

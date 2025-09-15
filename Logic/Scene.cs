@@ -70,6 +70,7 @@ public class Scene : Observable, IObserver
                         this.soundService.PlaySfx("bruitChaise.mp3");
                         this.SetCurrentRiddle("Riddle3");
                         this.Update();
+                        this.NotifyLaunchDialogue("Indice1");
                         break;
                     case "EP006N":
                         this.soundService.PlaySfx("bruitChaise.mp3");
