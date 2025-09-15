@@ -51,4 +51,6 @@ public abstract class Observable
     
     protected abstract void NotifyRemoveSpecificElement(Element element);
 
+    protected abstract void NotifyLaunchDialogue(string dialogueFileName);
+
 }

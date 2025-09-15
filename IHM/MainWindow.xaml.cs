@@ -102,6 +102,12 @@ public partial class MainWindow : Window, IObserver
         this.MainCanvas.Children.Remove(img);
     }
 
+    public void LaunchDialogue(string dialogueFileName)
+    {
+        DialogueControl dc = new DialogueControl(dialogueFileName);
+        RootGrid.Children.Add(dc);
+    }
+
     /// <summary>
     /// Create an image (uiElement) in the canvas
     /// </summary>

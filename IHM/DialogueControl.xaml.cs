@@ -58,8 +58,10 @@ public partial class DialogueControl : UserControl
         if (dialogues.Count > 0)
         {
             DialogueText.Text = "";
+            DialogueTextProgress.Text = "";
             string dialogue = dialogues.Dequeue();
             adaptedDialog = this.IdentifyVoice(dialogue);
+            DialogueText.Text = adaptedDialog;
             dt.Tick -= DisplayDialogue;
             dt.Tick += DisplayDialogue;
             dt.Start();
@@ -76,7 +78,7 @@ public partial class DialogueControl : UserControl
         if (i < adaptedDialog.Length)
         {
             char c = adaptedDialog[i];
-            DialogueText.Text += c;
+            DialogueTextProgress.Text += c;
             int freq = frequencyMap.ContainsKey(c) ? frequencyMap[c] : defaultFrequency;
             PlayBlip(freq, 50, "accordion");
             i++;
@@ -94,7 +96,7 @@ public partial class DialogueControl : UserControl
         {
             isWriting = false;
             dt.Stop();
-            DialogueText.Text = adaptedDialog;
+            DialogueTextProgress.Text = adaptedDialog;
         }else
             ShowNextDialogue();
     }

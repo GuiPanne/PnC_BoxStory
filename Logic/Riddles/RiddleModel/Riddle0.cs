@@ -88,6 +88,13 @@ public class Riddle0 : Riddle
                     this.IElements.Add(new InteractiveElement("Name", "EP007N", 197, 143, 520, 230));
                     break;
                 case 6:
+                    this.IElements.Clear();
+                    this.SElements.Clear();
+                    this.BackgroundName = "DE004N";
+                    this.SElements.Add(new StaticElement("Chien","EP001N",149,206,1339,147));
+                    this.SElements.Add(new StaticElement("Tiroir","EP000N",815,105,355,730));
+                    this.SElements.Add(new StaticElement("Name", "EP007N", 197, 143, 520, 230));
+                    this.IElements.Add(new InteractiveElement("Turn", "FI001N", 91, 134, 1194, 530));
                     break;
             }
         }else if (cubeRotation == 2)
@@ -95,8 +102,20 @@ public class Riddle0 : Riddle
             switch (successNumber)
             {
                 case 6:
+                    this.IElements.Clear();
+                    this.SElements.Clear();
+                    this.BackgroundName = "DE005N";
+                    this.SElements.Add(new StaticElement("Chien","EP001N",149,206,1339,147));
+                    this.SElements.Add(new StaticElement("Tiroir","EP000N",815,105,355,730));
+                    this.IElements.Add(new InteractiveElement("Taquin", "EP008N", 400, 400, 250, 100));
                     break;
                 case 7:
+                    this.IElements.Clear();
+                    this.SElements.Clear();
+                    this.BackgroundName = "DE005N";
+                    this.SElements.Add(new StaticElement("Chien","EP001N",149,206,1339,147));
+                    this.SElements.Add(new StaticElement("Tiroir","EP000N",815,105,355,730));
+                    this.SElements.Add(new StaticElement("Taquin", "EP008N", 400, 400, 250, 100));
                     break;
             }
         }
@@ -118,6 +137,11 @@ public class Riddle0 : Riddle
     }
 
     protected override void NotifyRemoveSpecificElement(Element element)
+    {
+        throw new NotImplementedException();
+    }
+
+    protected override void NotifyLaunchDialogue(string dialogueFileName)
     {
         throw new NotImplementedException();
     }

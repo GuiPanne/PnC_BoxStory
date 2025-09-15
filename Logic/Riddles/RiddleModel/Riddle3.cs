@@ -85,6 +85,11 @@ public class Riddle3 : Riddle
         }    
     }
 
+    protected override void NotifyLaunchDialogue(string dialogueFileName)
+    {
+        throw new NotImplementedException();
+    }
+
     public override void UpdateRoomRiddle(int successNumber, int changeRotation)
     {
         throw new NotImplementedException();

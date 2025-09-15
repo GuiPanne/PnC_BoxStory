@@ -23,4 +23,5 @@ public interface IObserver
     public void ChangeSpecificElement(Element element, string oldName);
     
     public void RemoveSpecificElement(Element element);
+    public void LaunchDialogue(string dialogueFileName);
 }

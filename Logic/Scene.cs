@@ -14,12 +14,14 @@ public class Scene : Observable, IObserver
     private int riddlesSuccess;
     private List<Riddle> riddles;
     private ISoundService soundService;
-
+    private int cubeRotation;
+    
     /// <summary>
     /// the init of the scene with the start of the game
     /// </summary>
     public Scene(ISoundService soundService)
     {
+        this.cubeRotation = 0;
         this.soundService = soundService;
         this.riddles = new List<Riddle> {
             new Riddle0(soundService),
@@ -28,6 +30,7 @@ public class Scene : Observable, IObserver
             new Riddle3(soundService),
             new Riddle4(soundService),
             new Riddle5(soundService),
+            new Riddle6(soundService),
         };
         this.riddlesSuccess = 1;
         this.SetCurrentRiddle("Riddle0");
@@ -78,6 +81,11 @@ public class Scene : Observable, IObserver
                         this.SetCurrentRiddle("Riddle5");
                         this.Update();
                         break;
+                    case "EP008N":
+                        this.soundService.PlaySfx("bruitChaise.mp3");
+                        this.SetCurrentRiddle("Riddle6");
+                        this.Update();
+                        break;
                 }
                 break;
             case "FI": // fléche d'intéraction 
@@ -90,8 +98,9 @@ public class Scene : Observable, IObserver
                         this.Update();
                         break;
                     case "FI001N":
+                        this.cubeRotation += 1;
                         this.soundService.PlaySfx("bruitTourne.mp3");
-                        this.SetCurrentRiddle("Riddle0", 1);
+                        this.SetCurrentRiddle("Riddle0", this.cubeRotation);
                         this.Update();
                         break;
                 }
@@ -111,6 +120,7 @@ public class Scene : Observable, IObserver
         if (currentRiddleIsSuccess)
         {
             this.riddlesSuccess++;
+            this.NotifyLaunchDialogue("Resol0Text".Replace("0", this.currentRiddle.Name.Substring(6,1)));
         }
     }
     
@@ -138,6 +148,14 @@ public class Scene : Observable, IObserver
         }
     }
 
+    protected override void NotifyLaunchDialogue(string dialogueFileName)
+    {
+        foreach (IObserver obs in this.observers)
+        {
+            obs.LaunchDialogue(dialogueFileName);
+        }
+    }
+
     public void SceneTransition(string imageName, List<InteractiveElement> interactiveElements, List<StaticElement> staticElements)
     {
         throw new NotImplementedException();
@@ -151,6 +169,11 @@ public class Scene : Observable, IObserver
     public void RemoveSpecificElement(Element element)
     {
         this.NotifyRemoveSpecificElement(element);
+    }
+
+    public void LaunchDialogue(string dialogueFileName)
+    {
+        this.NotifyLaunchDialogue(dialogueFileName);
     }
 
     private void SetCurrentRiddle(string name, int cubeRotation = -1)

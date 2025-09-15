@@ -111,4 +111,9 @@ public class Riddle2 : Riddle
     {
         throw new NotImplementedException();
     }
+
+    protected override void NotifyLaunchDialogue(string dialogueFileName)
+    {
+        throw new NotImplementedException();
+    }
 }

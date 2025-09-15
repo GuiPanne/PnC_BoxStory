@@ -905,6 +905,38 @@
       <Content Include="Resources\Sound\SFX\bruitRelachement.mp3">
         <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       </Content>
+      <None Remove="Resources\Text\Resol1Text.txt" />
+      <Content Include="Resources\Text\Resol1Text.txt">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </Content>
+      <None Remove="Resources\Text\Resol2Text.txt" />
+      <Content Include="Resources\Text\Resol2Text.txt">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </Content>
+      <None Remove="Resources\Text\Resol3Text.txt" />
+      <Content Include="Resources\Text\Resol3Text.txt">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </Content>
+      <None Remove="Resources\Text\Resol4Text.txt" />
+      <Content Include="Resources\Text\Resol4Text.txt">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </Content>
+      <None Remove="Resources\Text\Resol5Text.txt" />
+      <Content Include="Resources\Text\Resol5Text.txt">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </Content>
+      <None Remove="Resources\Text\Resol6Text.txt" />
+      <Content Include="Resources\Text\Resol6Text.txt">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </Content>
+      <None Remove="Resources\Text\OutroText.txt" />
+      <Content Include="Resources\Text\OutroText.txt">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </Content>
+      <None Remove="Resources\Text\IntroText.txt" />
+      <Content Include="Resources\Text\IntroText.txt">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </Content>
     </ItemGroup>
 
     <ItemGroup>

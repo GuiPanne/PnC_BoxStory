@@ -10,8 +10,15 @@
                    Stretch="None"
                    Opacity="0.9"/>
 
-            <!-- Texte positionné à l'intérieur de l'image -->
             <TextBlock x:Name="DialogueText"
+                       Foreground="Black"
+                       FontSize="20"
+                       FontFamily="Segoe Script"
+                       TextWrapping="Wrap"
+                       Margin="40,575,40,20" 
+                       Width="1000"
+                       VerticalAlignment="Top"/>
+            <TextBlock x:Name="DialogueTextProgress"
                        Foreground="White"
                        FontSize="20"
                        FontFamily="Segoe Script"
