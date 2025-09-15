@@ -1,6 +1,7 @@
 ﻿using System.IO;
 using System.Windows.Controls;
 using System.Windows.Input;
+using System.Windows.Media;
 using System.Windows.Threading;
 using Logic.SoundControl;
 using NAudio.Wave;
@@ -106,7 +107,30 @@ public partial class DialogueControl : UserControl
         string[] split = d.Split("---");
         string dialogue = split[1];
         this.voiceNamePath = split[0];
+        this.ChangeTextColor();
         return dialogue;
+    }
+
+    private void ChangeTextColor()
+    {
+        switch (this.voiceNamePath)
+        {
+            case "ETHAN":
+                this.DialogueTextProgress.Foreground = new SolidColorBrush(Color.FromRgb(245,73,39));
+                break;
+            case "JEAN":
+                this.DialogueTextProgress.Foreground = new SolidColorBrush(Color.FromRgb(251, 168, 35));
+                break;
+            case "MARIA":
+                this.DialogueTextProgress.Foreground = new SolidColorBrush(Color.FromRgb(251, 35, 118));
+                break;
+            case "DESCRIPTION":
+                this.DialogueTextProgress.Foreground = new SolidColorBrush(Color.FromRgb(111, 174, 127));
+                break;
+            case "ACTION":
+                this.DialogueTextProgress.Foreground = new SolidColorBrush(Color.FromRgb(96, 107, 190));
+                break;
+        }
     }
     
     private void PlayBlip(int frequency, int durationMs, string instrument = "synth", float volume = 0.05f)
