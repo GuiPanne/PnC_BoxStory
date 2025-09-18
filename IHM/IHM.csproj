@@ -12,7 +12,11 @@
       <None Remove="Resources\IMG_background\DE001N.png" />
       <None Remove="Resources\IMG_background\DE003N.png" />
       <None Remove="Resources\IMG_background\DE004N.png" />
+      <None Remove="Resources\IMG_background\ZE000N.png" />
+      <None Remove="Resources\IMG_background\ZE001N.png" />
       <None Remove="Resources\IMG_background\ZE500N.png" />
+      <None Remove="Resources\IMG_clickable\EE000N.png" />
+      <None Remove="Resources\IMG_clickable\EE000S.png" />
       <None Remove="Resources\IMG_clickable\EE300N.png" />
       <None Remove="Resources\IMG_clickable\EE300S.png" />
       <None Remove="Resources\IMG_clickable\EE301N.png" />
@@ -157,11 +161,23 @@
       <Content Include="Resources\IMG_background\DE004N.png">
         <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       </Content>
+      <Content Include="Resources\IMG_background\ZE000N.png">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+      <Content Include="Resources\IMG_background\ZE001N.png">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
       <Content Include="Resources\IMG_background\ZE400N.png">
         <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       </Content>
       <Content Include="Resources\IMG_background\ZE500N.png">
         <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </Content>
+      <Content Include="Resources\IMG_clickable\EE000N.png">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+      <Content Include="Resources\IMG_clickable\EE000S.png">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       </Content>
       <Content Include="Resources\IMG_clickable\EE101N.png">
         <CopyToOutputDirectory>Always</CopyToOutputDirectory>
