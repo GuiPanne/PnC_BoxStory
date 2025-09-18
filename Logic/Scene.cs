@@ -31,10 +31,10 @@ public class Scene : Observable, IObserver
             new Riddle4(soundService),
             new Riddle5(soundService),
             new Riddle6(soundService),
+            new Drawer(soundService)
         };
         this.riddlesSuccess = 1;
         this.SetCurrentRiddle("Riddle0");
-        //METTRE EN PLACE LE PREMIER DIALOGUE
     }
     
     public void Update()
@@ -86,6 +86,11 @@ public class Scene : Observable, IObserver
                     case "EP008N":
                         this.soundService.PlaySfx("bruitChaise.mp3");
                         this.SetCurrentRiddle("Riddle6");
+                        this.Update();
+                        break;
+                    case "EP000N":
+                        this.soundService.PlaySfx("bruitChaise.mp3");
+                        this.SetCurrentRiddle("Drawer");
                         this.Update();
                         break;
                 }
@@ -170,7 +175,7 @@ public class Scene : Observable, IObserver
 
     public void SceneTransition(string imageName, List<InteractiveElement> interactiveElements, List<StaticElement> staticElements)
     {
-        throw new NotImplementedException();
+        this.NotifySceneTransition(imageName, interactiveElements, staticElements);
     }
 
     public void ChangeSpecificElement(Element element, string oldName)
@@ -208,10 +213,5 @@ public class Scene : Observable, IObserver
 
         if (this.currentRiddle != null)
             this.currentRiddle.Register(this);
-    }
-
-    public void LaunchFirstDialogue()
-    {
-        this.NotifyLaunchDialogue("IntroText");
     }
 }

@@ -41,18 +41,17 @@ public class Riddle0 : Riddle
                     this.BackgroundName = "DE002N";
                     this.IElements.Add(new InteractiveElement("Option", "OP000N", 50,50, 1450, 20));
                     this.SElements.Add(new StaticElement("Chien","EP001N",149,206,1339,147));
-                    this.SElements.Add(new StaticElement("Tiroir","EP000N",815,105,355,730));
+                    this.IElements.Add(new InteractiveElement("Tiroir","EP000N",815,105,355,730));
                     this.SElements.Add(new StaticElement("OnOff","EP003N",80,155,840,218));
                     this.IElements.Add(new InteractiveElement("Binaries", "EP005N", 177, 110, 794, 535));
                     break;
                 case 3: 
-                    
                     this.IElements.Clear();
                     this.SElements.Clear();
                     this.BackgroundName = "DE001N";
                     this.IElements.Add(new InteractiveElement("Option", "OP000N", 50,50, 1450, 20));
                     this.SElements.Add(new StaticElement("Chien","EP001N",149,206,1339,147));
-                    this.SElements.Add(new StaticElement("Tiroir","EP000N",815,105,355,730));
+                    this.IElements.Add(new InteractiveElement("Tiroir","EP000N",815,105,355,730));
                     this.IElements.Add(new InteractiveElement("cesear", "EP004N", 183, 372, 510, 220));
                     break;
                 case 4:
@@ -62,7 +61,7 @@ public class Riddle0 : Riddle
                     this.BackgroundName = "DE001N";
                     this.IElements.Add(new InteractiveElement("Option", "OP000N", 50,50, 1450, 20));
                     this.SElements.Add(new StaticElement("Chien","EP001N",149,206,1339,147));
-                    this.SElements.Add(new StaticElement("Tiroir","EP000N",815,105,355,730));
+                    this.IElements.Add(new InteractiveElement("Tiroir","EP000N",815,105,355,730));
                     this.SElements.Add(new StaticElement("cesear", "EP004N", 183, 372, 510, 220));
                     this.IElements.Add(new InteractiveElement("Turn", "FI001N", 91, 134, 1194, 530));
                     break;
@@ -82,7 +81,7 @@ public class Riddle0 : Riddle
                     this.BackgroundName = "DE003N";
                     this.IElements.Add(new InteractiveElement("Option", "OP000N", 50,50, 1450, 20));
                     this.SElements.Add(new StaticElement("Chien","EP001N",149,206,1339,147));
-                    this.SElements.Add(new StaticElement("Tiroir","EP000N",815,105,355,730));
+                    this.IElements.Add(new InteractiveElement("Tiroir","EP000N",815,105,355,730));
                     this.IElements.Add(new InteractiveElement("Onde", "EP006N", 290, 103, 590, 539));
                     break;
                 case 5:
@@ -91,7 +90,7 @@ public class Riddle0 : Riddle
                     this.BackgroundName = "DE004N";
                     this.IElements.Add(new InteractiveElement("Option", "OP000N", 50,50, 1450, 20));
                     this.SElements.Add(new StaticElement("Chien","EP001N",149,206,1339,147));
-                    this.SElements.Add(new StaticElement("Tiroir","EP000N",815,105,355,730));
+                    this.IElements.Add(new InteractiveElement("Tiroir","EP000N",815,105,355,730));
                     this.IElements.Add(new InteractiveElement("Name", "EP007N", 197, 143, 520, 230));
                     break;
                 case 6:
@@ -100,7 +99,7 @@ public class Riddle0 : Riddle
                     this.BackgroundName = "DE004N";
                     this.IElements.Add(new InteractiveElement("Option", "OP000N", 50,50, 1450, 20));
                     this.SElements.Add(new StaticElement("Chien","EP001N",149,206,1339,147));
-                    this.SElements.Add(new StaticElement("Tiroir","EP000N",815,105,355,730));
+                    this.IElements.Add(new InteractiveElement("Tiroir","EP000N",815,105,355,730));
                     this.SElements.Add(new StaticElement("Name", "EP007N", 197, 143, 520, 230));
                     this.IElements.Add(new InteractiveElement("Turn", "FI001N", 91, 134, 1194, 530));
                     break;
@@ -115,7 +114,7 @@ public class Riddle0 : Riddle
                     this.BackgroundName = "DE005N";
                     this.IElements.Add(new InteractiveElement("Option", "OP000N", 50,50, 1450, 20));
                     this.SElements.Add(new StaticElement("Chien","EP001N",149,206,1339,147));
-                    this.SElements.Add(new StaticElement("Tiroir","EP000N",815,105,355,730));
+                    this.IElements.Add(new InteractiveElement("Tiroir","EP000N",815,105,355,730));
                     this.IElements.Add(new InteractiveElement("Taquin", "EP008N", 400, 400, 250, 100));
                     break;
                 case 7:
@@ -124,7 +123,7 @@ public class Riddle0 : Riddle
                     this.BackgroundName = "DE005N";
                     this.IElements.Add(new InteractiveElement("Option", "OP000N", 50,50, 1450, 20));
                     this.SElements.Add(new StaticElement("Chien","EP001N",149,206,1339,147));
-                    this.SElements.Add(new StaticElement("Tiroir","EP000N",815,105,355,730));
+                    this.IElements.Add(new InteractiveElement("Tiroir","EP000N",815,105,355,730));
                     this.SElements.Add(new StaticElement("Taquin", "EP008N", 400, 400, 250, 100));
                     break;
             }
