@@ -1,0 +1,58 @@
+﻿<UserControl x:Class="IHM.Control.OptionControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             Width="400"
+             Height="225"
+             Background="Transparent">
+    <Grid Background="#80000000"> <!-- bloque les clics derrière -->
+        <!-- Fond du menu option -->
+        <Image Source="../Resources/IMG_background/option.png"
+               Stretch="Fill"
+               Opacity="0.9"/>
+        
+        <!-- Contenu des sliders -->
+        <StackPanel VerticalAlignment="Top"
+                    HorizontalAlignment="Left"
+                    Margin="10"
+                    Width="380"
+                    Height="205">
+            
+            <!-- Musique -->
+            <StackPanel Orientation="Vertical" HorizontalAlignment="Stretch" Margin="0,5">
+                <Label Content="Volume de la musique" HorizontalAlignment="Center"/>
+                <Slider x:Name="MusicSlider"
+                        Minimum="0" Maximum="1" TickFrequency="0.1" IsSnapToTickEnabled="True"
+                        Width="360"
+                        ValueChanged="MusicSlider_OnValueChanged"/>
+            </StackPanel>
+
+            <!-- Effets -->
+            <StackPanel Orientation="Vertical" HorizontalAlignment="Stretch" Margin="0,5">
+                <Label Content="Volume des effets" HorizontalAlignment="Center"/>
+                <Slider x:Name="SFXSlider"
+                        Minimum="0" Maximum="1" TickFrequency="0.1" IsSnapToTickEnabled="True"
+                        Width="360"
+                        ValueChanged="SFXSlider_OnValueChanged"/>
+            </StackPanel>
+
+            <!-- Dialogue -->
+            <StackPanel Orientation="Vertical" HorizontalAlignment="Stretch" Margin="0,5">
+                <Label Content="Volume des dialogues" HorizontalAlignment="Center"/>
+                <Slider x:Name="DialogueSlider"
+                        Minimum="0" Maximum="1" TickFrequency="0.1" IsSnapToTickEnabled="True"
+                        Width="360"
+                        ValueChanged="DialogueSlider_OnValueChanged"/>
+            </StackPanel>
+
+            <!-- Bouton Retour -->
+            <Image x:Name="Retour"
+                   Source="../Resources/IMG_clickable/retour.png"
+                   Width="99"
+                   Height="65"
+                   Stretch="Uniform"
+                   HorizontalAlignment="Center"
+                   Margin="0,5"
+                   MouseDown="Retour_OnMouseDown"/>
+        </StackPanel>
+    </Grid>
+</UserControl>

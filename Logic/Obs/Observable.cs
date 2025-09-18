@@ -53,4 +53,6 @@ public abstract class Observable
 
     protected abstract void NotifyLaunchDialogue(string dialogueFileName);
 
+    protected abstract void NotifyLaunchOption();
+
 }

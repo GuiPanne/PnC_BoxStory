@@ -6,20 +6,32 @@ namespace IHM.WPFSoundControl;
 
 public class SoundService :ISoundService
 {
+    public double VolumeMusic
+    {
+        get => volumeMusic;
+        set => volumeMusic = value;
+    }
+
+    public double VolumeEffect
+    {
+        get => volumeEffect;
+        set => volumeEffect = value;
+    }
+
+    public double VolumeDialogue
+    {
+        get => volumeDialogue;
+        set => volumeDialogue = value;
+    }
+
     private List<MediaPlayer> activeSfx;
     private string sfxPath;
     private MediaPlayer musicPlayer;
-    private double volume;
+    private double volumeMusic;
+    private double volumeEffect;
+    private double volumeDialogue;
     private string[] musicFilesName;
-
-
-    private bool isStopMusic;
-
-    public bool IsStopMusic
-    {
-        get{ return isStopMusic;}
-        set{ isStopMusic = value;}
-    }
+    
 
     public SoundService()
     {
@@ -27,9 +39,10 @@ public class SoundService :ISoundService
         musicPlayer = new MediaPlayer();
         musicFilesName = GetMusicFilesName();
         sfxPath = "../Resources/Sound/SFX/";
-        volume = 0.1;
-        isStopMusic = false;
-        musicPlayer.Volume = volume;
+        volumeMusic = 0.5;
+        volumeEffect = 0.5;
+        volumeDialogue = 0.5;
+        musicPlayer.Volume = volumeMusic;
     }
 
     private string[] GetMusicFilesName()

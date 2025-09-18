@@ -5,6 +5,7 @@ using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using IHM.Control;
 using IHM.WPFSoundControl;
 using Logic;
 using Logic.Obs;
@@ -20,24 +21,31 @@ public partial class MainWindow : Window, IObserver
 {
     private string path;
     private Scene scene;
+    private ISoundService soundService;
+    private OptionControl optionControl;
+    private Rectangle optionBackdrop;
     
     /// <summary>
     /// init the window of the game 
     /// </summary>
     public MainWindow()
     {
-        ISoundService music = new SoundService();
+        this.soundService = new SoundService();
         InitializeComponent();
         this.MouseMove += MainCanvas_MouseMove;
         this.path = "Resources/IMG_clickable/";
-        this.scene = new Scene(music);
+        this.scene = new Scene(soundService);
         this.scene.Register(this);
         this.scene.Update();
         
-        DialogueControl dc = new DialogueControl("IntroText");
-        RootGrid.Children.Add(dc);
+        this.optionControl = new OptionControl(this.soundService, CloseOption);
+        this.optionControl.Visibility = Visibility.Collapsed;
+        RootGrid.Children.Add(this.optionControl);
+        optionControl.HorizontalAlignment = HorizontalAlignment.Left;
+        optionControl.VerticalAlignment = VerticalAlignment.Top;
         
-        music.LaunchMusic();
+        soundService.LaunchMusic();
+        this.Loaded += MainWindow_Loaded;
     }
 
     /// <summary>
@@ -106,6 +114,16 @@ public partial class MainWindow : Window, IObserver
     {
         DialogueControl dc = new DialogueControl(dialogueFileName);
         RootGrid.Children.Add(dc);
+    }
+
+    public void LaunchOption()
+    {
+        optionControl.Visibility = Visibility.Visible;
+    }
+    
+    public void CloseOption()
+    {
+        optionControl.Visibility = Visibility.Collapsed;
     }
 
     /// <summary>
@@ -205,4 +223,44 @@ public partial class MainWindow : Window, IObserver
         var pos = e.GetPosition(MainCanvas);
         CoordLabel.Content = $"X: {pos.X:0}, Y: {pos.Y:0}";
     }
+    
+    private void InitializeMenu()
+    {
+        Grid menuGrid = new Grid
+        {
+            Background = new SolidColorBrush(Color.FromRgb(15, 15, 40)),
+            Width = this.Width,
+            Height = this.Height
+        };
+        RootGrid.Children.Add(menuGrid);
+        Panel.SetZIndex(menuGrid, 1000);
+
+        StackPanel stack = new StackPanel
+        {
+            HorizontalAlignment = HorizontalAlignment.Center,
+            VerticalAlignment = VerticalAlignment.Center
+        };
+        menuGrid.Children.Add(stack);
+
+        Button  playButton = new Button { Content = "Jouer", Width = 200, Height = 50, Margin = new Thickness(0,10,0,10) };
+        Button quitButton = new Button { Content = "Quitter", Width = 200, Height = 50, Margin = new Thickness(0,10,0,10) };
+
+        playButton.Click += (s, e) =>
+        {
+            
+            menuGrid.Visibility = Visibility.Collapsed;
+            this.LaunchDialogue("IntroText");
+        };
+        quitButton.Click += (s, e) =>this.Close();
+
+        stack.Children.Add(playButton);
+        stack.Children.Add(quitButton);
+    }
+
+
+    private void MainWindow_Loaded(object sender, RoutedEventArgs e)
+    {
+        InitializeMenu();
+    }
+
 }

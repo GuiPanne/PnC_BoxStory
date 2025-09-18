@@ -7,4 +7,8 @@ public interface ISoundService
     void StopMusic();
     public void DialogSFX(string voiceName);
 
+    double VolumeMusic { get; set; }
+    double VolumeEffect { get; set; }
+    double VolumeDialogue { get; set; }
+    
 }

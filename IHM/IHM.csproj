@@ -957,6 +957,22 @@
       <Content Include="Resources\Text\Indice1.txt">
         <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       </Content>
+      <None Remove="Resources\IMG_clickable\retour.png" />
+      <Content Include="Resources\IMG_clickable\retour.png">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </Content>
+      <None Remove="Resources\IMG_clickable\OP000S.png" />
+      <Content Include="Resources\IMG_clickable\OP000S.png">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </Content>
+      <None Remove="Resources\IMG_clickable\OP000N.png" />
+      <Content Include="Resources\IMG_clickable\OP000N.png">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </Content>
+      <None Remove="Resources\IMG_background\option.png" />
+      <Content Include="Resources\IMG_background\option.png">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </Content>
     </ItemGroup>
 
     <ItemGroup>
@@ -1000,6 +1016,14 @@
 
     <ItemGroup>
       <PackageReference Include="NAudio" Version="2.2.1" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Page Update="Control\DialogueControl.xaml">
+        <Generator>MSBuild:Compile</Generator>
+        <XamlRuntime>Wpf</XamlRuntime>
+        <SubType>Designer</SubType>
+      </Page>
     </ItemGroup>
 
 </Project>

@@ -116,4 +116,9 @@ public class Riddle2 : Riddle
     {
         throw new NotImplementedException();
     }
+
+    protected override void NotifyLaunchOption()
+    {
+        throw new NotImplementedException();
+    }
 }

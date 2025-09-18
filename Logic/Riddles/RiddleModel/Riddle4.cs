@@ -201,6 +201,11 @@ public class Riddle4 : Riddle
         throw new NotImplementedException();
     }
 
+    protected override void NotifyLaunchOption()
+    {
+        throw new NotImplementedException();
+    }
+
     // T'inquiète c'est propre comme archi 😊
     private class StaticElementState
     {

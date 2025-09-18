@@ -34,6 +34,7 @@ public class Scene : Observable, IObserver
         };
         this.riddlesSuccess = 1;
         this.SetCurrentRiddle("Riddle0");
+        //METTRE EN PLACE LE PREMIER DIALOGUE
     }
     
     public void Update()
@@ -108,7 +109,9 @@ public class Scene : Observable, IObserver
                 break;
             case "EM": // éléments menu 
                 break;
-            
+            case "OP":
+                this.LaunchOption();
+            break;
         }
     }
 
@@ -157,6 +160,14 @@ public class Scene : Observable, IObserver
         }
     }
 
+    protected override void NotifyLaunchOption()
+    {
+        foreach (IObserver obs in this.observers)
+        {
+            obs.LaunchOption();
+        }
+    }
+
     public void SceneTransition(string imageName, List<InteractiveElement> interactiveElements, List<StaticElement> staticElements)
     {
         throw new NotImplementedException();
@@ -177,6 +188,11 @@ public class Scene : Observable, IObserver
         this.NotifyLaunchDialogue(dialogueFileName);
     }
 
+    public void LaunchOption()
+    {
+        this.NotifyLaunchOption();
+    }
+
     private void SetCurrentRiddle(string name, int cubeRotation = -1)
     {
         if (this.currentRiddle != null)
@@ -192,5 +208,10 @@ public class Scene : Observable, IObserver
 
         if (this.currentRiddle != null)
             this.currentRiddle.Register(this);
+    }
+
+    public void LaunchFirstDialogue()
+    {
+        this.NotifyLaunchDialogue("IntroText");
     }
 }

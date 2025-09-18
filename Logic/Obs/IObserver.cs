@@ -24,4 +24,5 @@ public interface IObserver
     
     public void RemoveSpecificElement(Element element);
     public void LaunchDialogue(string dialogueFileName);
+    public void LaunchOption();
 }
