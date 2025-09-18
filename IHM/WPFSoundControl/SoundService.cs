@@ -8,8 +8,11 @@ public class SoundService :ISoundService
 {
     public double VolumeMusic
     {
-        get => volumeMusic;
-        set => volumeMusic = value;
+        get => musicPlayer.Volume;
+        set
+        {
+            musicPlayer.Volume = value;
+        }
     }
 
     public double VolumeEffect
@@ -27,7 +30,6 @@ public class SoundService :ISoundService
     private List<MediaPlayer> activeSfx;
     private string sfxPath;
     private MediaPlayer musicPlayer;
-    private double volumeMusic;
     private double volumeEffect;
     private double volumeDialogue;
     private string[] musicFilesName;
@@ -39,10 +41,9 @@ public class SoundService :ISoundService
         musicPlayer = new MediaPlayer();
         musicFilesName = GetMusicFilesName();
         sfxPath = "../Resources/Sound/SFX/";
-        volumeMusic = 0.5;
         volumeEffect = 0.5;
         volumeDialogue = 0.5;
-        musicPlayer.Volume = volumeMusic;
+        musicPlayer.Volume = 0.5;
     }
 
     private string[] GetMusicFilesName()
@@ -71,21 +72,7 @@ public class SoundService :ISoundService
 
     public void DialogSFX(string voiceName)
     {
-        string basePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Resources", "Sound", "Character", voiceName);
-        string[] voiceLine = Directory.GetFileSystemEntries(basePath, "*.mp3");
-        MediaPlayer voicePlayer = new MediaPlayer();
-        voicePlayer.Volume = 0.6; 
-        Random r = new Random();
-        string chosenFile = voiceLine[r.Next(0, voiceLine.Length)];
-        voicePlayer.Open(new Uri(chosenFile, UriKind.Absolute));
-        voicePlayer.MediaEnded += (sender, args) =>
-        {
-            voicePlayer.Close();
-            activeSfx.Remove(voicePlayer);
-        };
-
-        activeSfx.Add(voicePlayer);
-        voicePlayer.Play();
+        throw new NotImplementedException();
     }
 
     public void PlaySfx(string fileName)
@@ -93,7 +80,7 @@ public class SoundService :ISoundService
         string fullPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Resources", "Sound", "SFX", fileName);
 
         MediaPlayer sfx = new MediaPlayer();
-        sfx.Volume = 0.6;
+        sfx.Volume = volumeEffect;
         sfx.Open(new Uri(fullPath, UriKind.Absolute));
         sfx.MediaEnded += (sender, args) =>
         {
