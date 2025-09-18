@@ -6,16 +6,17 @@
     <!-- Panneau global qui capture les clics -->
     <Grid Background="Transparent" MouseDown="OnClickNext">
         <Grid VerticalAlignment="Bottom">
-            <Image Source="Resources/IMG_background/dialog.png"
-                   Stretch="None"
-                   Opacity="0.9"/>
+            <Image Source="../Resources/IMG_background/dialog.png"
+                   Stretch="Fill"
+                   Opacity="0.98"
+                   />
 
             <TextBlock x:Name="DialogueText"
-                       Foreground="Black"
+                       Foreground="SlateGray"
                        FontSize="20"
                        FontFamily="Segoe Script"
                        TextWrapping="Wrap"
-                       Margin="40,575,40,20" 
+                       Margin="40,600,40,20" 
                        Width="1000"
                        VerticalAlignment="Top"/>
             <TextBlock x:Name="DialogueTextProgress"
@@ -23,7 +24,7 @@
                        FontSize="20"
                        FontFamily="Segoe Script"
                        TextWrapping="Wrap"
-                       Margin="40,575,40,20" 
+                       Margin="40,600,40,20" 
                        Width="1000"
                        VerticalAlignment="Top"/>
         </Grid>    

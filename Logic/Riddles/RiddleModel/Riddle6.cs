@@ -17,7 +17,7 @@ public class Riddle6 : Riddle
         (-1, 0), 
         (1, 0),  
         (0, -1), 
-        (0, 1)   
+        (0, 1)
     };
     private Dictionary<Coord, InteractiveElement> cases;
     
@@ -155,6 +155,11 @@ public class Riddle6 : Riddle
     }
 
     protected override void NotifyLaunchDialogue(string dialogueFileName)
+    {
+        throw new NotImplementedException();
+    }
+
+    protected override void NotifyLaunchOption()
     {
         throw new NotImplementedException();
     }

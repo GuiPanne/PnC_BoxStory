@@ -110,6 +110,11 @@ public class Riddle5 : Riddle
         throw new NotImplementedException();
     }
 
+    protected override void NotifyLaunchOption()
+    {
+        throw new NotImplementedException();
+    }
+
     public override void UpdateRoomRiddle(int successNumber, int changeRotation)
     {
         throw new NotImplementedException();
