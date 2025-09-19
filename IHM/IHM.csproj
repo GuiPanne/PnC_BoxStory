@@ -973,6 +973,10 @@
       <Content Include="Resources\IMG_background\option.png">
         <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       </Content>
+      <None Remove="Resources\IMG_background\DE000N.png" />
+      <Content Include="Resources\IMG_background\DE000N.png">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </Content>
     </ItemGroup>
 
     <ItemGroup>

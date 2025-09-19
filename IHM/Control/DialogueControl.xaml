@@ -16,7 +16,7 @@
                        FontSize="20"
                        FontFamily="Segoe Script"
                        TextWrapping="Wrap"
-                       Margin="40,600,40,20" 
+                       Margin="30,615,30,20" 
                        Width="1000"
                        VerticalAlignment="Top"/>
             <TextBlock x:Name="DialogueTextProgress"
@@ -24,7 +24,7 @@
                        FontSize="20"
                        FontFamily="Segoe Script"
                        TextWrapping="Wrap"
-                       Margin="40,600,40,20" 
+                       Margin="30,615,30,20" 
                        Width="1000"
                        VerticalAlignment="Top"/>
         </Grid>    
