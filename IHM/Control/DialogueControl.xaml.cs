@@ -34,6 +34,7 @@ public partial class DialogueControl : UserControl
         dialogues = new Queue<string>(lines);
         dt.Interval = new TimeSpan(0, 0, 0, 0, 60); // vitesse d'affichage
         InitializeComponent();
+        this.soundService.PlaySpecificMusic(txtFileName+".mp3");
         ShowNextDialogue();
     }
 
@@ -61,6 +62,8 @@ public partial class DialogueControl : UserControl
             {
                 parent.IsHitTestVisible = false;
                 parent.Children.Remove(this);
+                
+                this.soundService.LaunchMusic();
             }
         }
     }

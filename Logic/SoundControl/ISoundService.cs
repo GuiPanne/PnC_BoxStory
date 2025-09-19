@@ -32,5 +32,10 @@ public interface ISoundService
     /// </summary>
     /// <param name="c">the character</param>
     void PlayDialogue(char c);
-
+    
+    /// <summary>
+    /// Play a specific music and relaunch normal music after
+    /// </summary>
+    /// <param name="fileName">the music to launch</param>
+    void PlaySpecificMusic(string fileName);
 }

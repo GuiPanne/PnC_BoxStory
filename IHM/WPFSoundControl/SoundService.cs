@@ -10,7 +10,6 @@ namespace IHM.WPFSoundControl;
 public class SoundService :ISoundService
 {
     private List<MediaPlayer> activeSfx;
-    private string sfxPath;
     private MediaPlayer musicPlayer;
     private double volumeEffect;
     private double volumeDialogue;
@@ -66,10 +65,13 @@ public class SoundService :ISoundService
         activeSfx = new List<MediaPlayer>();
         musicPlayer = new MediaPlayer();
         musicFilesName = GetMusicFilesName();
-        sfxPath = "../Resources/Sound/SFX/";
         volumeEffect = 0.5;
         volumeDialogue = 0.5;
         VolumeMusic = 0.5;
+        musicPlayer.MediaEnded += (sender, args) =>
+        {
+            LaunchMusic();
+        };
     }
     /// <summary>
     /// get all music file name to launch them more easily
@@ -80,22 +82,21 @@ public class SoundService :ISoundService
         string basePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Resources", "Sound", "Music");
         return Directory.GetFileSystemEntries(basePath, "*.mp3");
     }
-    public void LaunchMusic()
+    public async void LaunchMusic()
     {
+        double volumeToGo = VolumeMusic;
+        await FadeVolume(musicPlayer.Volume, 0, 1000);
         musicPlayer.Position = TimeSpan.Zero;
         Random r = new Random();
         string chosenFile = musicFilesName[r.Next(0, musicFilesName.Length)];
         musicPlayer.Open(new Uri(chosenFile, UriKind.Absolute));
-        musicPlayer.MediaEnded += (sender, args) =>
-        {
-            LaunchMusic();
-        };
+        
         musicPlayer.Play();
+        await FadeVolume(0, volumeToGo, 1000);
     }
     public void PlaySfx(string fileName)
     {
         string fullPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Resources", "Sound", "SFX", fileName);
-
         MediaPlayer sfx = new MediaPlayer();
         sfx.Volume = volumeEffect;
         sfx.Open(new Uri(fullPath, UriKind.Absolute));
@@ -106,6 +107,38 @@ public class SoundService :ISoundService
         };
         activeSfx.Add(sfx);
         sfx.Play();
+    }
+
+    public async void PlaySpecificMusic(string fileName)
+    {
+        string fullPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Resources", "Sound", "SpecificMusic", fileName);
+        musicPlayer.Open(new Uri(fullPath, UriKind.Absolute));
+        double volumeToGo = this.VolumeMusic;
+        this.VolumeMusic = 0;
+        musicPlayer.Play();
+        
+        await FadeVolume(0, volumeToGo, 1000);
+    }
+    
+    /// <summary>
+    /// fade in and out for the volume of the music
+    /// </summary>
+    /// <param name="from">the lowest volume</param>
+    /// <param name="to">the high volume we go for</param>
+    /// <param name="durationMs"> duration of the fade</param>
+    private async Task FadeVolume(double from, double to, int durationMs)
+    {
+        int steps = 20;
+        double stepSize = (to - from) / steps;
+        int stepDelay = durationMs / steps;
+
+        musicPlayer.Volume = from;
+        for (int i = 0; i < steps; i++)
+        {
+            musicPlayer.Volume += stepSize;
+            await Task.Delay(stepDelay);
+        }
+        musicPlayer.Volume = to;
     }
     
     public void PlayDialogue(char c)
@@ -137,7 +170,7 @@ public class SoundService :ISoundService
             else
                 envelope = Math.Exp(-(i - samples * 0.1) / (samples * 0.9 / 5.0));
 
-            buffer[i] = (float)(sample * envelope * (this.volumeDialogue*0.45));
+            buffer[i] = (float)(sample * envelope * (this.volumeDialogue*0.20));
         }
 
         var provider = new BufferedWaveProvider(WaveFormat.CreateIeeeFloatWaveFormat(sampleRate, 1));

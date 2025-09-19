@@ -977,6 +977,34 @@
       <Content Include="Resources\IMG_background\DE000N.png">
         <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       </Content>
+      <None Remove="Resources\Sound\SpecificMusic\IntroText.mp3" />
+      <Content Include="Resources\Sound\SpecificMusic\IntroText.mp3">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </Content>
+      <None Remove="Resources\Sound\SpecificMusic\Resol6Text.mp3" />
+      <Content Include="Resources\Sound\SpecificMusic\Resol6Text.mp3">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </Content>
+      <None Remove="Resources\Sound\SpecificMusic\Resol5Text.mp3" />
+      <Content Include="Resources\Sound\SpecificMusic\Resol5Text.mp3">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </Content>
+      <None Remove="Resources\Sound\SpecificMusic\Resol4Text.mp3" />
+      <Content Include="Resources\Sound\SpecificMusic\Resol4Text.mp3">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </Content>
+      <None Remove="Resources\Sound\SpecificMusic\Resol2Text.mp3" />
+      <Content Include="Resources\Sound\SpecificMusic\Resol2Text.mp3">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </Content>
+      <None Remove="Resources\Sound\SpecificMusic\Resol1Text.mp3" />
+      <Content Include="Resources\Sound\SpecificMusic\Resol1Text.mp3">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </Content>
+      <None Remove="Resources\Sound\SpecificMusic\OutroText.mp3" />
+      <Content Include="Resources\Sound\SpecificMusic\OutroText.mp3">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </Content>
     </ItemGroup>
 
     <ItemGroup>
@@ -1028,6 +1056,10 @@
         <XamlRuntime>Wpf</XamlRuntime>
         <SubType>Designer</SubType>
       </Page>
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="Resources\Sound\SpecificMusic\" />
     </ItemGroup>
 
 </Project>
