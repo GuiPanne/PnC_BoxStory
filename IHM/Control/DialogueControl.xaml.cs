@@ -7,7 +7,9 @@ using Logic.SoundControl;
 using NAudio.Wave;
 
 namespace IHM;
-
+/// <summary>
+/// Represents the dialogue display
+/// </summary>
 public partial class DialogueControl : UserControl
 {
     private readonly Queue<string> dialogues;
@@ -41,6 +43,10 @@ public partial class DialogueControl : UserControl
     private string adaptedDialog;
     private int i;
 
+    /// <summary>
+    /// init the dialogue for a specific file
+    /// </summary>
+    /// <param name="txtFileName">the file name who contains text of the dialogue</param>
     public DialogueControl(string txtFileName)
     {
         string path = "Resources/text/" + txtFileName+".txt";
@@ -52,6 +58,9 @@ public partial class DialogueControl : UserControl
         ShowNextDialogue();
     }
 
+    /// <summary>
+    /// Launch each lines of the .txt progressively 
+    /// </summary>
     private void ShowNextDialogue()
     {
         i = 0;
@@ -73,7 +82,11 @@ public partial class DialogueControl : UserControl
                 parent.Children.Remove(this);
         }
     }
-
+    /// <summary>
+    /// display the dialogue
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="e"></param>
     private void DisplayDialogue(object sender, EventArgs e)
     {
         if (i < adaptedDialog.Length)
@@ -90,7 +103,11 @@ public partial class DialogueControl : UserControl
             isWriting = false;
         }
     }
-
+    /// <summary>
+    /// when clicked launch the next line of the dialogue
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="e"></param>
     private void OnClickNext(object sender, MouseButtonEventArgs e)
     {
         if (isWriting)
@@ -101,7 +118,11 @@ public partial class DialogueControl : UserControl
         }else
             ShowNextDialogue();
     }
-
+    /// <summary>
+    /// Identify the person who speaks in the dialogue thanks of the name in the beginning of the line
+    /// </summary>
+    /// <param name="d">the dialogue line</param>
+    /// <returns>return the line of the dialogue without the name</returns>
     private string IdentifyVoice(string d)
     {
         string[] split = d.Split("---");
@@ -111,6 +132,9 @@ public partial class DialogueControl : UserControl
         return dialogue;
     }
 
+    /// <summary>
+    /// Change the text color depending on the person who speak
+    /// </summary>
     private void ChangeTextColor()
     {
         switch (this.voiceNamePath)
@@ -133,6 +157,13 @@ public partial class DialogueControl : UserControl
         }
     }
     
+    /// <summary>
+    /// play the sound when a character appear
+    /// </summary>
+    /// <param name="frequency">the frequency of the character</param>
+    /// <param name="durationMs">the duration of the note</param>
+    /// <param name="instrument">the instrument who is simulated</param>
+    /// <param name="volume">the volume to play</param>
     private void PlayBlip(int frequency, int durationMs, string instrument = "synth", float volume = 0.05f)
     { 
         int sampleRate = 44100;

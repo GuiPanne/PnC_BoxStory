@@ -32,7 +32,6 @@ public partial class MainWindow : Window, IObserver
     {
         this.soundService = new SoundService();
         InitializeComponent();
-        this.MouseMove += MainCanvas_MouseMove;
         this.path = "Resources/IMG_clickable/";
         this.scene = new Scene(soundService);
         this.scene.Register(this);
@@ -68,7 +67,10 @@ public partial class MainWindow : Window, IObserver
         Start_Transition(imageName, interactiveElements, staticElements);
     }
 
-
+    /// <summary>
+    /// display all interactive elements in the windows 
+    /// </summary>
+    /// <param name="interactiveElements">all interactive elements</param>
     private void SetInteractiveElements(List<InteractiveElement> interactiveElements)
     {
         foreach (InteractiveElement intEl in interactiveElements)
@@ -76,7 +78,10 @@ public partial class MainWindow : Window, IObserver
             this.AddImage(intEl.ImageName, intEl.ImageWidth, intEl.ImageHeight, intEl.ImageX, intEl.ImageY, true);
         }
     }
-
+    /// <summary>
+    /// display all static elements in the windows
+    /// </summary>
+    /// <param name="staticElements">all static elements</param>
     private void SetStaticElements(List<StaticElement> staticElements)
     {
         foreach (StaticElement staticEl in staticElements)
@@ -121,6 +126,9 @@ public partial class MainWindow : Window, IObserver
         optionControl.Visibility = Visibility.Visible;
     }
     
+    /// <summary>
+    /// Close the option panel
+    /// </summary>
     public void CloseOption()
     {
         optionControl.Visibility = Visibility.Collapsed;
@@ -156,6 +164,11 @@ public partial class MainWindow : Window, IObserver
         MainCanvas.Children.Add(image);
     }
 
+    /// <summary>
+    /// When the mouse is over an interactive element
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="e"></param>
     private void Image_MouseEnter(object sender, MouseEventArgs e)
     {
         if (sender is Image img)
@@ -166,7 +179,11 @@ public partial class MainWindow : Window, IObserver
             img.Source = new BitmapImage(new Uri(path+tempName+".png", UriKind.Relative));
         }
     }
-
+    /// <summary>
+    /// When the mouse leave an interactive element
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="e"></param>
     private void Image_MouseLeave(object sender, MouseEventArgs e)
     {
         if (sender is Image img)
@@ -174,7 +191,12 @@ public partial class MainWindow : Window, IObserver
             img.Source = new BitmapImage(new Uri(path+img.Tag+".png", UriKind.Relative));
         }
     }
-
+    /// <summary>
+    /// made a black screen transition to display a new scene 
+    /// </summary>
+    /// <param name="newBackgroundName">the background name</param>
+    /// <param name="interactiveElements">all interactive elements to display</param>
+    /// <param name="staticElements">all static elements to display</param>
     private void Start_Transition(string newBackgroundName, List<InteractiveElement> interactiveElements, List<StaticElement> staticElements)
     {
         List<UIElement> copy = MainCanvas.Children.OfType<UIElement>().ToList();
@@ -218,12 +240,9 @@ public partial class MainWindow : Window, IObserver
         rect.BeginAnimation(UIElement.OpacityProperty, fadeIn);
     }
 
-    private void MainCanvas_MouseMove(object sender, MouseEventArgs e)
-    {
-        var pos = e.GetPosition(MainCanvas);
-        CoordLabel.Content = $"X: {pos.X:0}, Y: {pos.Y:0}";
-    }
-    
+    /// <summary>
+    /// init the menu who is before the start of the game
+    /// </summary>
     private void InitializeMenu()
     {
         Grid menuGrid = new Grid
@@ -257,7 +276,11 @@ public partial class MainWindow : Window, IObserver
         stack.Children.Add(quitButton);
     }
 
-
+    /// <summary>
+    /// When all is charge display the menu
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="e"></param>
     private void MainWindow_Loaded(object sender, RoutedEventArgs e)
     {
         InitializeMenu();

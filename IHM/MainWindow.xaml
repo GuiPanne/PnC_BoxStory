@@ -11,12 +11,5 @@
         Background="Black">
     <Grid Name="RootGrid">
         <Canvas Name="MainCanvas" />
-        <Label Name="CoordLabel"
-               HorizontalAlignment="Left"
-               VerticalAlignment="Top"
-               Margin="10"
-               Foreground="White"
-               Background="Black"
-               Opacity="0.7"/>
     </Grid>
 </Window>

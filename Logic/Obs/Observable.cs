@@ -45,14 +45,25 @@ public abstract class Observable
     /// <summary>
     /// notify the observer to update a specific element 
     /// </summary>
-    /// <param name="element"></param>
+    /// <param name="element">the new state of the element</param>
     /// <param name="oldName">the old name of the image needed to find it</param>
     protected abstract void NotifyChangeSpecificElement(Element element, string oldName);
     
+    /// <summary>
+    /// notify the observers to remove a specific element
+    /// </summary>
+    /// <param name="element">the element to remove</param>
     protected abstract void NotifyRemoveSpecificElement(Element element);
 
+    /// <summary>
+    /// Notify the observers to launch a specific dialogue
+    /// </summary>
+    /// <param name="dialogueFileName">the file name of the dialogue</param>
     protected abstract void NotifyLaunchDialogue(string dialogueFileName);
 
+    /// <summary>
+    /// Notify the observers to launch the option pannel
+    /// </summary>
     protected abstract void NotifyLaunchOption();
 
 }

@@ -3,9 +3,18 @@ using System.Windows.Media;
 using Logic.SoundControl;
 
 namespace IHM.WPFSoundControl;
-
+/// <summary>
+/// The sound service who launch every sound who can be heard in the game
+/// </summary>
 public class SoundService :ISoundService
 {
+    private List<MediaPlayer> activeSfx;
+    private string sfxPath;
+    private MediaPlayer musicPlayer;
+    private double volumeEffect;
+    private double volumeDialogue;
+    private string[] musicFilesName;
+    
     public double VolumeMusic
     {
         get => musicPlayer.Volume;
@@ -14,27 +23,19 @@ public class SoundService :ISoundService
             musicPlayer.Volume = value;
         }
     }
-
     public double VolumeEffect
     {
         get => volumeEffect;
         set => volumeEffect = value;
     }
-
     public double VolumeDialogue
     {
         get => volumeDialogue;
         set => volumeDialogue = value;
     }
-
-    private List<MediaPlayer> activeSfx;
-    private string sfxPath;
-    private MediaPlayer musicPlayer;
-    private double volumeEffect;
-    private double volumeDialogue;
-    private string[] musicFilesName;
-    
-
+    /// <summary>
+    /// init the sound service
+    /// </summary>
     public SoundService()
     {
         activeSfx = new List<MediaPlayer>();
@@ -45,18 +46,15 @@ public class SoundService :ISoundService
         volumeDialogue = 0.5;
         musicPlayer.Volume = 0.5;
     }
-
+    /// <summary>
+    /// get all music file name to launch them more easily
+    /// </summary>
+    /// <returns></returns>
     private string[] GetMusicFilesName()
     {
         string basePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Resources", "Sound", "Music");
         return Directory.GetFileSystemEntries(basePath, "*.mp3");
     }
-    
-    public void StopMusic()
-    {
-            musicPlayer.Stop();
-    }
-
     public void LaunchMusic()
     {
         musicPlayer.Position = TimeSpan.Zero;
@@ -68,11 +66,6 @@ public class SoundService :ISoundService
             LaunchMusic();
         };
         musicPlayer.Play();
-    }
-
-    public void DialogSFX(string voiceName)
-    {
-        throw new NotImplementedException();
     }
 
     public void PlaySfx(string fileName)

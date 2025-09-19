@@ -12,11 +12,10 @@ public abstract class Riddle : Observable
     private string backgroundName;
     private List<InteractiveElement> iElements;
     private List<StaticElement> sElements;
-    
     protected ISoundService soundService;
 
     /// <summary>
-    /// all elements contain in the riddle
+    /// all interactive elements contain in the riddle
     /// </summary>
     /// <exception cref="ArgumentNullException"></exception>
     public List<InteractiveElement> IElements
@@ -25,6 +24,10 @@ public abstract class Riddle : Observable
         set => iElements = value ?? throw new ArgumentNullException(nameof(value));
     }
 
+    /// <summary>
+    /// all static elements contain in the riddle
+    /// </summary>
+    /// <exception cref="ArgumentNullException"></exception>
     public List<StaticElement> SElements
     {
         get => sElements;
@@ -71,5 +74,10 @@ public abstract class Riddle : Observable
     /// <param name="imageName"> the image name who has been click in IHM</param>
     public abstract void ReactElement(string imageName);
 
+    /// <summary>
+    /// Change the state of the room 
+    /// </summary>
+    /// <param name="successNumber">number of riddle success</param>
+    /// <param name="changeRotation">the rotation of the cube</param>
     public abstract void UpdateRoomRiddle(int successNumber, int changeRotation);
 }
