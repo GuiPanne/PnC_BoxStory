@@ -2,13 +2,18 @@
 using Logic.SoundControl;
 
 namespace Logic.Riddles.RiddleModel;
-
+/// <summary>
+/// Represents the Riddle 3 of the game
+/// </summary>
 public class Riddle3 : Riddle
 {
     public override string Name => "Riddle3";
+    private InteractiveElement selectedElement;
     
-    public InteractiveElement selectedElement;
-    
+    /// <summary>
+    /// init all possible answer of the riddle and the lever
+    /// </summary>
+    /// <param name="soundService">to play sfx sound</param>
     public Riddle3(ISoundService soundService) : base(soundService)
     {
         this.BackgroundName = "ZE300N";
@@ -55,7 +60,13 @@ public class Riddle3 : Riddle
             }
         }
     }
-
+    
+    /// <summary>
+    /// Change the position of the elements who is indicated witch answer is selected
+    /// </summary>
+    /// <param name="e">the element</param>
+    /// <param name="newX">new X position</param>
+    /// <param name="newY">new Y position</param>
     private void MoveSelectIndicator(Element e, double newX, double newY)
     {
         e.ImageX = newX;

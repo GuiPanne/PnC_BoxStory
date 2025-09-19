@@ -5,7 +5,7 @@ namespace Logic.Riddles.RiddleModel;
 
 public class Riddle6 : Riddle
 {
-    string[,] expected =
+    private string[,] expected =
     {
         { "1",  "2",  "3",  "4"  },
         { "5",  "6",  "7",  "8"  },
@@ -109,7 +109,9 @@ public class Riddle6 : Riddle
             CheckSolved();
         }
     }
-
+    /// <summary>
+    /// verify if the sliding puzzle is solved
+    /// </summary>
     private void CheckSolved()
     {
         bool solved = true;

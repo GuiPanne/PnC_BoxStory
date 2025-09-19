@@ -12,6 +12,10 @@ public class Riddle0 : Riddle
     public int CubeRotation;
     public override string Name => "Riddle0";
 
+    /// <summary>
+    /// init the logic of the main view of the game
+    /// </summary>
+    /// <param name="soundService">the soundService</param>
     public Riddle0(ISoundService soundService) : base(soundService)
     {
         cubeRotation = 0;

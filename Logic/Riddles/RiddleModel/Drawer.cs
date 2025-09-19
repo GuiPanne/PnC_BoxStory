@@ -2,10 +2,16 @@
 using Logic.SoundControl;
 
 namespace Logic.Riddles.RiddleModel;
-
+/// <summary>
+/// Represents the inside of a Drawer
+/// </summary>
 public class Drawer : Riddle
 {
     public override string Name { get => "Drawer"; }
+    /// <summary>
+    /// init the Drawer
+    /// </summary>
+    /// <param name="soundService">the sound service if we need to play a sound</param>
     public Drawer(ISoundService soundService) : base(soundService)
     {
         this.BackgroundName = "ZE000N";

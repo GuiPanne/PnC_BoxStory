@@ -8,7 +8,7 @@ namespace Logic.Obs;
 public interface IObserver
 {
     /// <summary>
-    /// Change the background 
+    /// Change the background and all elements to make the transition to a new scene
     /// </summary>
     /// <param name="imageName">the name of the image who is the new BG</param>
     /// <param name="interactiveElements"> interactive elements to display</param>
@@ -16,7 +16,7 @@ public interface IObserver
     public void SceneTransition(string imageName, List<InteractiveElement> interactiveElements, List<StaticElement> staticElements);
 
     /// <summary>
-    /// Update the image of a specific element 
+    /// Update the display element for a specific new state of an element 
     /// </summary>
     /// <param name="element">the new state of the element</param>
     /// <param name="oldName"> the old name of the image needed to find it</param>

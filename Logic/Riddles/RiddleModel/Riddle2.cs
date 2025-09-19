@@ -2,12 +2,17 @@
 using Logic.SoundControl;
 
 namespace Logic.Riddles.RiddleModel;
-
+/// <summary>
+/// Second Riddle of the game
+/// </summary>
 public class Riddle2 : Riddle
 {
     private int count;
     public override string Name => "Riddle2";
-
+    /// <summary>
+    /// init all binaries buttons for the riddle
+    /// </summary>
+    /// <param name="soundService">sound service for playing sfx</param>
     public Riddle2(ISoundService soundService) : base(soundService)
     {
         this.count = 0;
@@ -33,27 +38,27 @@ public class Riddle2 : Riddle
         this.soundService.PlaySfx("bruitToucheMachineEcrire.mp3");
         switch (imageName)
         {
-            case "EE200N": // bouton 1
+            case "EE200N": // button 1
                 ToggleLabel("1Label", "EE220N", "EE210N");
                 break;
 
-            case "EE201N": // bouton 2
+            case "EE201N": // button 2
                 ToggleLabel("2Label", "EE221N", "EE211N");
                 break;
 
-            case "EE202N": // bouton 4
+            case "EE202N": // button 4
                 ToggleLabel("4Label", "EE222N", "EE212N");
                 break;
 
-            case "EE203N": // bouton 8
+            case "EE203N": // button 8
                 ToggleLabel("8Label", "EE223N", "EE213N");
                 break;
 
-            case "EE204N": // bouton 16
+            case "EE204N": // button 16
                 ToggleLabel("16Label", "EE224N", "EE214N");
                 break;
 
-            case "EE205N": // bouton 32
+            case "EE205N": // button 32
                 ToggleLabel("32Label", "EE225N", "EE215N");
                 break;
         }
@@ -69,6 +74,12 @@ public class Riddle2 : Riddle
         }
     }
     
+    /// <summary>
+    /// Find the static element corresponding and change is state, change the count
+    /// </summary>
+    /// <param name="labelName">the label corresponding</param>
+    /// <param name="offImage">state 0</param>
+    /// <param name="onImage">state 1</param>
     private void ToggleLabel(string labelName, string offImage, string onImage)
     {
         var label = this.SElements.Find(s => s.Name == labelName);

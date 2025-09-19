@@ -9,14 +9,17 @@ namespace Logic.Riddles.RiddleModel;
 public class Riddle1 : Riddle
 {
     public override string Name => "Riddle1";
-    
+    /// <summary>
+    /// Init the basic element of the riddle1
+    /// </summary>
+    /// <param name="soundService"> soundService to play some sound</param>
     public Riddle1(ISoundService soundService) : base(soundService)
     {
         this.BackgroundName = "ZE100N";
         this.IElements.Add(new InteractiveElement("OnOffButton", "EE100N", 247, 581, 678, 140));
         this.IElements.Add(new InteractiveElement("Back", "FI000N", 95, 91, 1425, 745));
     }
-        
+    
     public override void ReactElement(string imageName)
     {
         this.soundService.PlaySfx("bruitClicUltime.mp3");

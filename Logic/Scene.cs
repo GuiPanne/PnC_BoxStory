@@ -36,7 +36,9 @@ public class Scene : Observable, IObserver
         this.riddlesSuccess = 1;
         this.SetCurrentRiddle("Riddle0");
     }
-    
+    /// <summary>
+    /// Update the scene
+    /// </summary>
     public void Update()
     {
         this.NotifySceneTransition(this.currentRiddle.BackgroundName, this.currentRiddle.IElements, this.currentRiddle.SElements);
@@ -197,7 +199,12 @@ public class Scene : Observable, IObserver
     {
         this.NotifyLaunchOption();
     }
-
+    
+    /// <summary>
+    /// Update the element currently observed
+    /// </summary>
+    /// <param name="name">the name of the new current riddle</param>
+    /// <param name="cubeRotation">the rotation of the cube</param>
     private void SetCurrentRiddle(string name, int cubeRotation = -1)
     {
         if (this.currentRiddle != null)

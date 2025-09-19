@@ -3,15 +3,13 @@ using Logic.SoundControl;
 
 namespace Logic.Riddles.RiddleModel;
 
+/// <summary>
+/// Represents the Riddle 4 of the game
+/// </summary>
 public class Riddle4 : Riddle
 {
-    // Positions actuelles des SE (0,1,2) pour correspondre aux 3 images
     private int[] currentSEPositions = new int[4];
-    
-    // Positions actuelles des IE (1..4)
     private int[] currentIEPositions = new int[4];
-    
-    // Multiplicateurs des IE sur les SE
     private readonly Dictionary<int, Dictionary<int,int>> ieEffects = new()
     {
         { 1, new Dictionary<int,int>{{1,-1},{2,1}} },
@@ -19,7 +17,9 @@ public class Riddle4 : Riddle
         { 3, new Dictionary<int,int>{{2,-2}} },
         { 4, new Dictionary<int,int>{{3,1},{4,2}} }
     };
-    
+    /// <summary>
+    /// All possibles position of each element
+    /// </summary>
     private Dictionary<int, List<StaticElementState>> seStates = new()
     {
         { 1, new List<StaticElementState>
@@ -54,15 +54,18 @@ public class Riddle4 : Riddle
     
     public override string Name => "Riddle4";
 
+    /// <summary>
+    /// init all elements for the riddle
+    /// </summary>
+    /// <param name="soundService">sound service to play sfx</param>
     public Riddle4(ISoundService soundService) : base(soundService)
     {
-        // Initialisation des positions des SE
+        // positions of the waves
         currentSEPositions[0] = 2; 
         currentSEPositions[1] = 1; 
         currentSEPositions[2] = 0; 
         currentSEPositions[3] = 1; 
-
-        // Initialisation des positions des IE
+        // positions of the buttons
         currentIEPositions[0] = 1;
         currentIEPositions[1] = 1;
         currentIEPositions[2] = 1;
@@ -84,29 +87,24 @@ public class Riddle4 : Riddle
 
     public override void ReactElement(string imageName)
     {
-        // Trouver l'IE cliqué
         var ie = IElements.FirstOrDefault(x => x.ImageName == imageName);
         if (ie == null) return;
 
         int ieIndex = IElements.IndexOf(ie);
-
-        // On ignore le "Back" (index 4)
+        
         if (ieIndex < 0 || ieIndex > 3) return;
 
-        int oldPos = currentIEPositions[ieIndex];   // ancienne position (1..4)
+        int oldPos = currentIEPositions[ieIndex];
         int newPos = oldPos + 1;
         if (newPos > 4) newPos = 1;
         currentIEPositions[ieIndex] = newPos;
 
-        // ✅ Calcul du delta
         int delta = newPos - oldPos;
-        if (delta == -3) delta = +1; // sécurité au cas où
-        if (delta == 3) delta = -1; // pour éviter tout bug de wrap
-        // (mais normalement newPos - oldPos donne toujours 1 ou -3)
+        if (delta == -3) delta = +1; 
+        if (delta == 3) delta = -1; 
 
         ApplyIEEffectDelta(ieIndex, delta);
 
-        // Mise à jour des images
         UpdateImages(imageName);
         this.soundService.PlaySfx("longBruitEnregistrement.mp3");
         
@@ -120,7 +118,11 @@ public class Riddle4 : Riddle
             this.IsSuccess = false;
         }
     }
-    
+    /// <summary>
+    /// Change all positions for the buttons 
+    /// </summary>
+    /// <param name="ieIndex"></param>
+    /// <param name="delta"></param>
     private void ApplyIEEffectDelta(int ieIndex, int delta)
     {
         if (!ieEffects.TryGetValue(ieIndex + 1, out var effects)) return;
@@ -130,12 +132,15 @@ public class Riddle4 : Riddle
             int seIndex = kvp.Key - 1; // 0-based
             int mult = kvp.Value;
 
-            // On applique uniquement la variation
+            // applied variations
             currentSEPositions[seIndex] += delta * mult;
             currentSEPositions[seIndex] = ((currentSEPositions[seIndex] % 3) + 3) % 3;
         }
     }
-    
+    /// <summary>
+    /// update the images for each waves
+    /// </summary>
+    /// <param name="imageName"></param>
     private void UpdateImages(string imageName)
     {
         // Met à jour l'IE qui a été cliqué
@@ -155,7 +160,6 @@ public class Riddle4 : Riddle
             this.NotifyChangeSpecificElement(ie, oldName);
         }
 
-        // Met à jour chaque SE
         for (int i = 0; i < SElements.Count; i++)
         {
             int pos = currentSEPositions[i]; // 0,1,2

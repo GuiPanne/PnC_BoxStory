@@ -3,12 +3,18 @@ using Logic.SoundControl;
 
 namespace Logic.Riddles.RiddleModel;
 
+/// <summary>
+/// Represents the riddle 5 of the game
+/// </summary>
 public class Riddle5 : Riddle
 {
+    private InteractiveElement[] SelectedElements;
     public override string Name => "Riddle5";
-    
-    public InteractiveElement[] SelectedElements;
 
+    /// <summary>
+    /// init all letters buttons
+    /// </summary>
+    /// <param name="soundService">to play sound</param>
     public Riddle5(ISoundService soundService) : base(soundService)
     {
         this.BackgroundName = "ZE500N";
