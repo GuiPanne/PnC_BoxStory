@@ -27,6 +27,10 @@ public interface ISoundService
     /// </summary>
     double VolumeDialogue { get; set; }
 
+    /// <summary>
+    /// play a sound for a specific character
+    /// </summary>
+    /// <param name="c">the character</param>
     void PlayDialogue(char c);
 
 }
