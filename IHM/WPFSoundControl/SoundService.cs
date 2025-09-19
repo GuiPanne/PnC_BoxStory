@@ -44,7 +44,7 @@ public class SoundService :ISoundService
         get => musicPlayer.Volume;
         set
         {
-            musicPlayer.Volume = value;
+            musicPlayer.Volume = value * 0.5;
         }
     }
     public double VolumeEffect
@@ -69,7 +69,7 @@ public class SoundService :ISoundService
         sfxPath = "../Resources/Sound/SFX/";
         volumeEffect = 0.5;
         volumeDialogue = 0.5;
-        musicPlayer.Volume = 0.5;
+        VolumeMusic = 0.5;
     }
     /// <summary>
     /// get all music file name to launch them more easily
