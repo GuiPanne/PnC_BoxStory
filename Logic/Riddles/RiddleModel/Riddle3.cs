@@ -18,21 +18,21 @@ public class Riddle3 : Riddle
     {
         this.BackgroundName = "ZE300N";
         
-        this.IElements.Add(new InteractiveElement("Tag0", "EE301N", 214, 40, 533, 421));
-        this.IElements.Add(new InteractiveElement("Tag1", "EE302N", 214, 38, 527, 474));
-        this.IElements.Add(new InteractiveElement("Tag2", "EE303N", 202, 41, 535, 528));
-        this.IElements.Add(new InteractiveElement("Tag3", "EE304N", 237, 42, 527, 590));
-        this.IElements.Add(new InteractiveElement("Tag4", "EE305N", 206, 45, 505, 649));
-        this.IElements.Add(new InteractiveElement("Tag5", "EE306N", 254, 41, 879, 425));
-        this.IElements.Add(new InteractiveElement("Tag6", "EE307N", 249, 40, 874, 486));
-        this.IElements.Add(new InteractiveElement("Tag7", "EE308N", 256, 39, 871, 543));
-        this.IElements.Add(new InteractiveElement("Tag8", "EE309N", 255, 44, 871, 595));
-        this.IElements.Add(new InteractiveElement("Tag9", "EE310N", 250, 49, 866, 656));
+        this.IElements.Add(new InteractiveElement("Tag0", "EE301N", 214, 40, 533, 436));
+        this.IElements.Add(new InteractiveElement("Tag1", "EE302N", 214, 38, 527, 489));
+        this.IElements.Add(new InteractiveElement("Tag2", "EE303N", 202, 41, 535, 543));
+        this.IElements.Add(new InteractiveElement("Tag3", "EE304N", 237, 42, 527, 605));
+        this.IElements.Add(new InteractiveElement("Tag4", "EE305N", 206, 45, 505, 664));
+        this.IElements.Add(new InteractiveElement("Tag5", "EE306N", 254, 41, 879, 440));
+        this.IElements.Add(new InteractiveElement("Tag6", "EE307N", 249, 40, 874, 491));
+        this.IElements.Add(new InteractiveElement("Tag7", "EE308N", 256, 39, 871, 558));
+        this.IElements.Add(new InteractiveElement("Tag8", "EE309N", 255, 44, 871, 610));
+        this.IElements.Add(new InteractiveElement("Tag9", "EE310N", 250, 49, 866, 671));
 
-        this.IElements.Add(new InteractiveElement("Lever", "EE300N", 90, 89, 1015, 712));
+        this.IElements.Add(new InteractiveElement("Lever", "EE300N", 90, 89, 1015, 727));
         this.SElements.Add(new StaticElement("Selected", "EE311N", 219, 73, -999, -999));
         
-        this.IElements.Add(new InteractiveElement("Back", "FI000N", 95, 91, 1425, 745));
+        this.IElements.Add(new InteractiveElement("Back", "FI000N", 95, 91, 1485, 745));
     }
 
     public override void ReactElement(string imageName)

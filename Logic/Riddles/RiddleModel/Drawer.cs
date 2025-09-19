@@ -15,8 +15,8 @@ public class Drawer : Riddle
     public Drawer(ISoundService soundService) : base(soundService)
     {
         this.BackgroundName = "ZE000N";
-        this.IElements.Add(new InteractiveElement("feuilles", "EE000N", 308, 425, 300, 150));
-        this.IElements.Add(new InteractiveElement("Back", "FI000N", 95, 91, 1425, 745));
+        this.IElements.Add(new InteractiveElement("feuilles", "EE000N", 308, 425, 330, 198));
+        this.IElements.Add(new InteractiveElement("Back", "FI000N", 95, 91, 1485, 745));
     }
 
     protected override void NotifySceneTransition(string imageName, List<InteractiveElement> interactiveElements, List<StaticElement> staticElements)

@@ -32,19 +32,25 @@ public partial class MainWindow : Window, IObserver
     {
         this.soundService = new SoundService();
         InitializeComponent();
+        this.MouseMove += MainCanvas_MouseMove;
         this.path = "Resources/IMG_clickable/";
         this.scene = new Scene(soundService);
         this.scene.Register(this);
         this.scene.Update();
-        
+
         this.optionControl = new OptionControl(this.soundService, CloseOption);
         this.optionControl.Visibility = Visibility.Collapsed;
-        RootGrid.Children.Add(this.optionControl);
+        MiddleGrid.Children.Add(this.optionControl);
         optionControl.HorizontalAlignment = HorizontalAlignment.Left;
         optionControl.VerticalAlignment = VerticalAlignment.Top;
-        
+
         soundService.LaunchMusic();
         this.Loaded += MainWindow_Loaded;
+    }
+    private void MainCanvas_MouseMove(object sender, MouseEventArgs e)
+    {
+        var pos = e.GetPosition(MainCanvas);
+        CoordLabel.Content = $"X: {pos.X:0}, Y: {pos.Y:0}";
     }
 
     /// <summary>
@@ -118,7 +124,8 @@ public partial class MainWindow : Window, IObserver
     public void LaunchDialogue(string dialogueFileName)
     {
         DialogueControl dc = new DialogueControl(dialogueFileName, soundService);
-        RootGrid.Children.Add(dc);
+        OverlayGrid.IsHitTestVisible = true;
+        OverlayGrid.Children.Add(dc);
     }
 
     public void LaunchOption()
@@ -224,7 +231,12 @@ public partial class MainWindow : Window, IObserver
             // Étape 2 : changer le background
             string folder = "Resources/IMG_background/";
             string path = folder + newBackgroundName + ".png";
-            this.Background = new ImageBrush(new BitmapImage(new Uri(path, UriKind.Relative)));
+            MainCanvas.Background = new ImageBrush(new BitmapImage(new Uri(path, UriKind.Relative)))
+            {
+                Stretch = Stretch.UniformToFill,
+                AlignmentX = AlignmentX.Center,
+                AlignmentY = AlignmentY.Center
+            };
 
             // Étape 3 : ajouter les éléments 
             this.SetInteractiveElements(interactiveElements);
@@ -251,7 +263,8 @@ public partial class MainWindow : Window, IObserver
             Width = this.Width,
             Height = this.Height
         };
-        RootGrid.Children.Add(menuGrid);
+        OverlayGrid.IsHitTestVisible = true;
+        OverlayGrid.Children.Add(menuGrid);
         Panel.SetZIndex(menuGrid, 1000);
 
         StackPanel stack = new StackPanel

@@ -36,6 +36,7 @@ public partial class OptionControl : UserControl
     private void Retour_OnMouseDown(object sender, MouseButtonEventArgs e)
     {
         this.Visibility = Visibility.Collapsed;
+        closeAction?.Invoke();
     }
     /// <summary>
     /// change the dialogue Volume

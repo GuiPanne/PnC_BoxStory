@@ -52,7 +52,7 @@ public class Riddle5 : Riddle
         this.IElements.Add(new InteractiveElement("b3c5", "EE542N", 106, 96, 1049, 467));
         this.IElements.Add(new InteractiveElement("b4c5", "EE543N", 103, 103, 1049, 571));
         
-        this.IElements.Add(new InteractiveElement("Back", "FI000N", 95, 91, 1425, 745));
+        this.IElements.Add(new InteractiveElement("Back", "FI000N", 95, 91, 1485, 745));
 
     }
 

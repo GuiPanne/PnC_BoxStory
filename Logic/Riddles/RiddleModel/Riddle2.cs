@@ -31,7 +31,7 @@ public class Riddle2 : Riddle
         this.IElements.Add(new InteractiveElement("2Button", "EE201N", 139, 135, 1000, 542));
         this.IElements.Add(new InteractiveElement("1Button", "EE200N", 139, 135, 1173, 538));
 
-        this.IElements.Add(new InteractiveElement("Back", "FI000N", 95, 91, 1425, 745));
+        this.IElements.Add(new InteractiveElement("Back", "FI000N", 95, 91, 1485, 745));
     }
     public override void ReactElement(string imageName)
     {

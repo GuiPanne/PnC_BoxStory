@@ -58,7 +58,10 @@ public partial class DialogueControl : UserControl
         else
         {
             if (this.Parent is Panel parent)
+            {
+                parent.IsHitTestVisible = false;
                 parent.Children.Remove(this);
+            }
         }
     }
     /// <summary>

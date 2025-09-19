@@ -16,8 +16,8 @@ public class Riddle1 : Riddle
     public Riddle1(ISoundService soundService) : base(soundService)
     {
         this.BackgroundName = "ZE100N";
-        this.IElements.Add(new InteractiveElement("OnOffButton", "EE100N", 247, 581, 678, 140));
-        this.IElements.Add(new InteractiveElement("Back", "FI000N", 95, 91, 1425, 745));
+        this.IElements.Add(new InteractiveElement("OnOffButton", "EE100N", 247, 581, 725, 153));
+        this.IElements.Add(new InteractiveElement("Back", "FI000N", 95, 91, 1485, 745));
     }
     
     public override void ReactElement(string imageName)

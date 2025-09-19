@@ -24,30 +24,30 @@ public class Riddle4 : Riddle
     {
         { 1, new List<StaticElementState>
             {
-                new StaticElementState("EE420N", 246, 95, 317, 229),
-                new StaticElementState("EE440N", 245, 22, 317, 306),
-                new StaticElementState("EE430N", 245, 95, 317, 310),
+                new StaticElementState("EE420N", 246, 95, 328, 255),
+                new StaticElementState("EE440N", 245, 22, 328, 332),
+                new StaticElementState("EE430N", 245, 95, 328, 336),
             }
         },
         { 2, new List<StaticElementState>
             {
-                new StaticElementState("EE421N", 246, 95, 535, 229),
-                new StaticElementState("EE441N", 245, 22, 535, 306),
-                new StaticElementState("EE431N", 245, 95, 535, 310),
+                new StaticElementState("EE421N", 246, 95, 570, 255),
+                new StaticElementState("EE441N", 245, 22, 570, 332),
+                new StaticElementState("EE431N", 245, 95, 570, 336),
             }
         },
         { 3, new List<StaticElementState>
             {
-                new StaticElementState("EE422N", 246, 95, 763, 229),
-                new StaticElementState("EE442N", 245, 22, 763, 306),
-                new StaticElementState("EE432N", 245, 95, 763, 310),
+                new StaticElementState("EE422N", 246, 95, 802, 255),
+                new StaticElementState("EE442N", 245, 22, 802, 332),
+                new StaticElementState("EE432N", 245, 95, 802, 336),
             }
         },
         { 4, new List<StaticElementState>
             {
-                new StaticElementState("EE423N", 246, 95, 987, 229),
-                new StaticElementState("EE443N", 245, 22, 987, 306),
-                new StaticElementState("EE433N", 245, 95, 987, 310),
+                new StaticElementState("EE423N", 246, 95, 1024, 255),
+                new StaticElementState("EE443N", 245, 22, 1024, 332),
+                new StaticElementState("EE433N", 245, 95, 1024, 336),
             }
         }
     };
@@ -72,17 +72,17 @@ public class Riddle4 : Riddle
         currentIEPositions[3] = 1;
         
         this.BackgroundName = "ZE400N";
-        this.SElements.Add(new StaticElement("Onde1", "EE430N", 245,95, 317, 310));
-        this.SElements.Add(new StaticElement("Onde2", "EE441N", 245,22, 535, 306));
-        this.SElements.Add(new StaticElement("Onde3", "EE422N", 246,95, 763, 229));
-        this.SElements.Add(new StaticElement("Onde4", "EE443N", 245,22, 983, 306));
+        this.SElements.Add(new StaticElement("Onde1", "EE430N", 245,95, 328, 336));
+        this.SElements.Add(new StaticElement("Onde2", "EE441N", 245,22, 570, 332));
+        this.SElements.Add(new StaticElement("Onde3", "EE422N", 246,95, 802, 255));
+        this.SElements.Add(new StaticElement("Onde4", "EE443N", 245,22, 1024, 332));
 
         this.IElements.Add(new InteractiveElement("Button1", "EE400N", 175, 215, 362, 500));
         this.IElements.Add(new InteractiveElement("Button2", "EE401N", 175, 215, 597, 500));
         this.IElements.Add(new InteractiveElement("Button3", "EE402N", 175, 215, 828, 500));
         this.IElements.Add(new InteractiveElement("Button4", "EE403N", 175, 215, 1053, 500));
 
-        this.IElements.Add(new InteractiveElement("Back", "FI000N", 95, 91, 1425, 745));
+        this.IElements.Add(new InteractiveElement("Back", "FI000N", 95, 91, 1485, 745));
     }
 
     public override void ReactElement(string imageName)
