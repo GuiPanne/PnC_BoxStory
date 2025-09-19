@@ -13,5 +13,5 @@ JEAN---"Pardon ? On parle de *tssssss* pas d'une lampe ou que sais-je. C'était 
 MARIA---"..."
 MARIA---"Oui mais plus qu'une petite semaine et on aura fini notre invention, on lui dira à ce moment là, si tu insistes autant... Bien qu'il n'ait pas besoin de savoir."
 ETHAN---"snif snif"
-ETHAN---"Ethan, qu'est-ce que tu fais là ?"
+JEAN---"Ethan, qu'est-ce que tu fais là ?"
 ACTION---"commence à courir vers les escaliers"

@@ -1009,6 +1009,10 @@
       <Content Include="Resources\Sound\SpecificMusic\Resol3Text.mp3">
         <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       </Content>
+      <None Remove="Resources\Sound\SpecificMusic\Indice1.mp3" />
+      <Content Include="Resources\Sound\SpecificMusic\Indice1.mp3">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </Content>
     </ItemGroup>
 
     <ItemGroup>
