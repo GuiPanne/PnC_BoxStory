@@ -26,5 +26,7 @@ public interface ISoundService
     /// get or set the dialogue sfx volume
     /// </summary>
     double VolumeDialogue { get; set; }
-    
+
+    void PlayDialogue(char c);
+
 }

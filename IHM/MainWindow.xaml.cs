@@ -117,7 +117,7 @@ public partial class MainWindow : Window, IObserver
 
     public void LaunchDialogue(string dialogueFileName)
     {
-        DialogueControl dc = new DialogueControl(dialogueFileName);
+        DialogueControl dc = new DialogueControl(dialogueFileName, soundService);
         RootGrid.Children.Add(dc);
     }
 
