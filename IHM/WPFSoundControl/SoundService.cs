@@ -12,6 +12,7 @@ public class SoundService :ISoundService
     private List<MediaPlayer> activeSfx;
     private MediaPlayer musicPlayer;
     private double volumeEffect;
+    private double volumeMusic;
     private double volumeDialogue;
     private string[] musicFilesName;
     private Dictionary<char, int> frequencyMap = new Dictionary<char, int>
@@ -43,7 +44,8 @@ public class SoundService :ISoundService
         get => musicPlayer.Volume;
         set
         {
-            musicPlayer.Volume = value * 0.5;
+            volumeMusic = value* 0.5;
+            musicPlayer.Volume = volumeMusic; ;
         }
     }
     public double VolumeEffect
@@ -84,15 +86,14 @@ public class SoundService :ISoundService
     }
     public async void LaunchMusic()
     {
-        double volumeToGo = VolumeMusic;
-        await FadeVolume(musicPlayer.Volume, 0, 1000);
+        await FadeVolume(volumeMusic, 0, 1000);
         musicPlayer.Position = TimeSpan.Zero;
         Random r = new Random();
         string chosenFile = musicFilesName[r.Next(0, musicFilesName.Length)];
         musicPlayer.Open(new Uri(chosenFile, UriKind.Absolute));
         
         musicPlayer.Play();
-        await FadeVolume(0, volumeToGo, 1000);
+        await FadeVolume(0, volumeMusic, 1000);
     }
     public void PlaySfx(string fileName)
     {
@@ -113,11 +114,10 @@ public class SoundService :ISoundService
     {
         string fullPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Resources", "Sound", "SpecificMusic", fileName);
         musicPlayer.Open(new Uri(fullPath, UriKind.Absolute));
-        double volumeToGo = this.VolumeMusic;
-        this.VolumeMusic = 0;
+        this.musicPlayer.Volume = 0;
         musicPlayer.Play();
         
-        await FadeVolume(0, volumeToGo, 1000);
+        await FadeVolume(0, volumeMusic, 1000);
     }
     
     /// <summary>
