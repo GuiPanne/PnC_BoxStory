@@ -56,6 +56,7 @@ public class Drawer : Riddle
         InteractiveElement element = this.IElements.Find(el => el.ImageName == imageName);
         this.NotifyRemoveSpecificElement(element);
         this.IElements.Remove(element);
+        this.soundService.PlaySfx("bruitPapier.mp3");
         this.NotifySceneTransition(this.BackgroundName, this.IElements, this.SElements);
     }
 

@@ -1013,6 +1013,18 @@
       <Content Include="Resources\Sound\SpecificMusic\Indice1.mp3">
         <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       </Content>
+      <None Remove="Resources\Sound\SFX\bruitTiroirO.mp3" />
+      <Content Include="Resources\Sound\SFX\bruitTiroirO.mp3">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </Content>
+      <None Remove="Resources\Sound\SFX\bruitTiroirC.mp3" />
+      <Content Include="Resources\Sound\SFX\bruitTiroirC.mp3">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </Content>
+      <None Remove="Resources\Sound\SFX\bruitPapier.mp3" />
+      <Content Include="Resources\Sound\SFX\bruitPapier.mp3">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </Content>
     </ItemGroup>
 
     <ItemGroup>

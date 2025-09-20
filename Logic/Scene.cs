@@ -91,7 +91,7 @@ public class Scene : Observable, IObserver
                         this.Update();
                         break;
                     case "EP000N":
-                        this.soundService.PlaySfx("bruitChaise.mp3");
+                        this.soundService.PlaySfx("bruitTiroirO.mp3");
                         this.SetCurrentRiddle("Drawer");
                         this.Update();
                         break;
@@ -102,7 +102,11 @@ public class Scene : Observable, IObserver
                 {
                     case "FI000N":
                         this.VerifySuccess(currentRiddle.IsSuccess);
-                        this.soundService.PlaySfx("bruitChaise2.mp3");
+                        if (this.currentRiddle.Name != "Drawer")
+                        {
+                            this.soundService.PlaySfx("bruitChaise2.mp3");
+                        }else
+                            this.soundService.PlaySfx("bruitTiroirC.mp3");
                         this.SetCurrentRiddle("Riddle0");
                         this.Update();
                         break;
