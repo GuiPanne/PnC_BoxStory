@@ -1,9 +1,10 @@
-﻿ACTION---"sors de la maison"
-JEAN---"Ethan attends on est désolés pour Lucky"
+﻿ACTION---"Sors de la maison"
+JEAN---"Ethan attend, on est désolés pour Lucky"
 ETHAN---"S'il te plait rentre dans la maison, il fait noir dehors, tu pourrais te faire mal !"
 ETHAN---"Je vous déteste, euhhhheuuhhhhsnif snif"
 ETHAN---"Je veux voir mon chiennnnnnnnnn einnhieiinnnh ouin"
 ACTION---"tombe"
-JEAN---"OH MON DIEU ! ETHAN, tu m'ent....."
+JEAN---"OH MON DIEU ! ETHAN, ta tête, tu m'ent....."
 DESCRIPTION---tessssss grrrtresshhhhhh
-ETHAN---C'est vraiment arrivé tout ça ???? Je ... je n'en ai aucun souvenir ? 
+ETHAN---C'est vraiment arrivé tout ça ???? Je... je n'en ai aucun souvenir ? 
+ACTION---Se palpe le crâne maladroitement

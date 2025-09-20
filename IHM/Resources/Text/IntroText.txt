@@ -1,7 +1,8 @@
-﻿ETHAN---Un artiste... Voilà ce que les gens connaissent de moi. Célèbre, reconnu par ces pairs. 
-ETHAN---Mais à quoi bon... Malgrès toutes mes dépenses je suis incapable de me débarasser de mes crises, ces crises de douleurs qui me font perdre la raison depuis tant d'années.
-ETHAN---Mes parents des inventeurs reconnus n'ont jamais compris pourquoi j'étais différent comme si j'étais une invention ratée comme celle qu'il y avait au fond du garage ou dans le grenier.
-ETHAN---Aujourd'hui après tant d'années ils sont morts, bien que nous n'ayons pas parlé depuis des années, je suis et je récupère leur héritage.
-ETHAN---Cette maison... Je crois que je n'en ai que des mauvais souvenirs.
-ETHAN---A l'étage ma chambre, la chambre parentale et le grenier.
-ETHAN---Il n'y a plus rien ?? Qu'est ce que c'est que cette boîte ?
+﻿ETHAN---Un artiste... Voilà ce que les gens connaissent de moi. Célèbre, reconnu par ces pairs. Pour ses toiles frôlant leurs pulsions de colère indécise et inavouée.
+ETHAN---Mais à quoi bon... 
+ETHAN---Malgré toute cette notoriété, ces dépenses, ces rendez-vous. Je suis incapable de me débarrasser de ce mal qui me ronge, ces crises de douleurs qui me font perdre la raison depuis dès années.
+ETHAN---Mes parents, des inventeurs reconnus, n'ont jamais compris pourquoi je soufrais de ce mal, tout en essayant de me réparer au même titre qu'une invention ratée comme celle qu'il y avait au fond du garage ou dans le grenier. Tout ça pour me jeter dans une école avec une pension dès que cela fut possible. Les poches pleines et le cœur vide, j'ai trouvé ma voix : l'Art.
+ETHAN---Depuis cette dicension nous ne nous sommes jamais revu... Et aujourd'hui après tant d'années, ils sont morts, bien que nous n'ayons pas parlé depuis des années, je suis et je récupère leur héritage.
+ETHAN---Cette maison... Je crois que je n'en ai que des mauvais souvenirs. Ces tentatives de soins, ces disputes...
+ETHAN---A l'étage : ma chambre, la chambre parentale... et le grenier. Ce grenier remplit de deux vies de travail acharné...
+ETHAN---Quoi ? Mais qu'ont-ils fait de tous leurs travaux ? Et qu'est-ce que c'est que cette boîte ?

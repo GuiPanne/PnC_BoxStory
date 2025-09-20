@@ -1,9 +1,10 @@
 ﻿DESCRIPTION---*grr*..*ttttsssss*.. *tsrgreeesssss*.
-ETHAN---Ca diffuse du son ? pourquoi ça fonctionne com-
-MARIA---"Ethan ne cours pas dans les cailloux ! Et arrête d'embarquer *tttssss* dans toutes tes histoires. Il suffit."
-ETHAN---"Mais mère ! vous ne me laissez jamais faire ce que je veux pfff"
-ETHAN---"Oui mais je sais ce qui est bon pour toi. Alors tu rentres."
+ETHAN---Ça diffuse du son ? pourquoi ça fonctionne com-
+MARIA---"Ethan ne court pas dans les cailloux ! Et arrête d'embarquer *tttssss* dans toutes tes histoires. Il suffit. Si tu te blesses on va perdre du temps à devoir te soigner."
+ETHAN---"Mais mère ! Vous ne me laissez jamais faire ce que je veux pfff"
+ETHAN---"Oui, mais je sais ce qui est bon pour toi. Alors, tu rentres."
 DESCRIPTION---*tttrezz*..*kgtrth*..*ee*
-ETHAN---Des souvenirs audio ? Je crois que c'est père qui avait inventé cette machine. Je la prenais toujours avec moi je crois.
+ETHAN---Des souvenirs audio ? Je crois que c'est père qui avait inventé cette machine pour moi. Je la prenais toujours avec moi, je crois.
+ETHAN---Mais pourquoi avoir disposé ça ici, je n'ai aucun souvenir de ce genre de moment ?
 DESCRIPTION---*CLAC* 
 ETHAN---hmm ? je crois que le tiroir n'est plus bloqué ?

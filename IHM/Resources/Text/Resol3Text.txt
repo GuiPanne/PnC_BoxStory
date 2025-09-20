@@ -1,12 +1,12 @@
 ﻿ETHAN---"snif snif mère : *tssss* il ne veut plus sortir. Je ne sais pas quoi faire."
-MARIA---"Je n'ai pas le temps Ethan, on doit avancer le plus vite possible sur le prototype, au pire on en rachètera un."
+MARIA---"Je n'ai pas le temps Ethan, on doit avancer le plus vite possible sur le prototype, au pire, on en rachètera un."
 ETHAN---*pleure*
-MARIA---"D'ailleurs tu as fini tes devoirs, si ce n'est pas le cas va dans ta chambre."
-MARIA---"Jean où en es-tu de la fonte d...."
+MARIA---"D'ailleurs, tu as fini tes devoirs, si ce n'est pas le cas va dans ta chambre et finis-les."
+MARIA---"Jean, où en es-tu de l'installation de la sous-p-'"
 DESCRIPTION---*tsss*..*tts*..*ggrettss*
-ETHAN---Mais je n'ai aucun souvenir de tout ça, ça ne me dit vraiment rien...
+ETHAN---Je n'ai aucun souvenir de tout ça, ça ne me dit vraiment rien... Pourquoi j'étais autant en émois, ça avais l'air de me tenir énormément à cœur.
 ETHAN---Toutefois le comportement de mère ne m'étonne guère :
 ETHAN---Froid.
 ETHAN---Professionnel.
-ETHAN---Matérialiste.
+ETHAN---Détaché.
 ETHAN---...
