@@ -94,4 +94,10 @@ public partial class OptionControl : UserControl
         parentWindow.ResizeMode = _previousResizeMode;
         parentWindow.WindowState = _previousWindowState;
     }
+
+    private void Exit_OnMouseDown(object sender, MouseButtonEventArgs e)
+    {
+        var parentWindow = Window.GetWindow(this);
+        parentWindow.Close();
+    }
 }

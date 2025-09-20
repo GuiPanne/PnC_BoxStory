@@ -48,10 +48,12 @@
             <Grid HorizontalAlignment="Center">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto"/>   <!-- Colonne pour la checkbox -->
+                    <ColumnDefinition Width="Auto"/>
                     <ColumnDefinition Width="*" />     <!-- Colonne pour le bouton retour -->
                 </Grid.ColumnDefinitions>
 
                 <CheckBox x:Name="FullScreenToggle"
+                          Grid.Column="1"
                           Content="Plein écran"
                           VerticalAlignment="Center"
                           Margin="0,0,10,0"
@@ -59,16 +61,23 @@
                           Unchecked="FullScreenToggle_Unchecked"/>
 
                 <Image x:Name="Retour"
-                       Grid.Column="1"
+                       Grid.Column="2"
                        Source="../Resources/IMG_clickable/retour.png"
-                       Width="99"
-                       Height="65"
+                       Width="60"
+                       Height="60"
                        Stretch="Uniform"
                        HorizontalAlignment="Left"
                        MouseDown="Retour_OnMouseDown"/>
             </Grid>
-
         </StackPanel>
-        
+        <Image x:Name="Exit"
+               Source="../Resources/IMG_clickable/sortie.png"
+               Width="50"
+               Height="50"
+               Stretch="Uniform"
+               HorizontalAlignment="Left"
+               VerticalAlignment="Bottom"
+               Margin="10"
+               MouseDown="Exit_OnMouseDown"/>
     </Grid>
 </UserControl>

@@ -1025,6 +1025,10 @@
       <Content Include="Resources\Sound\SFX\bruitPapier.mp3">
         <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       </Content>
+      <None Remove="Resources\IMG_clickable\sortie.png" />
+      <Content Include="Resources\IMG_clickable\sortie.png">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </Content>
     </ItemGroup>
 
     <ItemGroup>
