@@ -18,7 +18,7 @@
                     Height="205">
             
             <!-- Musique -->
-            <StackPanel Orientation="Vertical" HorizontalAlignment="Stretch" Margin="0,5">
+            <StackPanel Orientation="Vertical" HorizontalAlignment="Stretch" Margin="0,1">
                 <Label Content="Volume de la musique" HorizontalAlignment="Center"/>
                 <Slider x:Name="MusicSlider"
                         Minimum="0" Maximum="1" TickFrequency="0.1" IsSnapToTickEnabled="True"
@@ -27,7 +27,7 @@
             </StackPanel>
 
             <!-- Effets -->
-            <StackPanel Orientation="Vertical" HorizontalAlignment="Stretch" Margin="0,5">
+            <StackPanel Orientation="Vertical" HorizontalAlignment="Stretch" Margin="0,1">
                 <Label Content="Volume des effets" HorizontalAlignment="Center"/>
                 <Slider x:Name="SFXSlider"
                         Minimum="0" Maximum="1" TickFrequency="0.1" IsSnapToTickEnabled="True"
@@ -36,23 +36,39 @@
             </StackPanel>
 
             <!-- Dialogue -->
-            <StackPanel Orientation="Vertical" HorizontalAlignment="Stretch" Margin="0,5">
+            <StackPanel Orientation="Vertical" HorizontalAlignment="Stretch" Margin="0,1">
                 <Label Content="Volume des dialogues" HorizontalAlignment="Center"/>
                 <Slider x:Name="DialogueSlider"
                         Minimum="0" Maximum="1" TickFrequency="0.1" IsSnapToTickEnabled="True"
                         Width="360"
                         ValueChanged="DialogueSlider_OnValueChanged"/>
             </StackPanel>
+            
+            <!-- Fullscreen -->
+            <Grid HorizontalAlignment="Center">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>   <!-- Colonne pour la checkbox -->
+                    <ColumnDefinition Width="*" />     <!-- Colonne pour le bouton retour -->
+                </Grid.ColumnDefinitions>
 
-            <!-- Bouton Retour -->
-            <Image x:Name="Retour"
-                   Source="../Resources/IMG_clickable/retour.png"
-                   Width="99"
-                   Height="65"
-                   Stretch="Uniform"
-                   HorizontalAlignment="Center"
-                   Margin="0,5"
-                   MouseDown="Retour_OnMouseDown"/>
+                <CheckBox x:Name="FullScreenToggle"
+                          Content="Plein écran"
+                          VerticalAlignment="Center"
+                          Margin="0,0,10,0"
+                          Checked="FullScreenToggle_Checked"
+                          Unchecked="FullScreenToggle_Unchecked"/>
+
+                <Image x:Name="Retour"
+                       Grid.Column="1"
+                       Source="../Resources/IMG_clickable/retour.png"
+                       Width="99"
+                       Height="65"
+                       Stretch="Uniform"
+                       HorizontalAlignment="Left"
+                       MouseDown="Retour_OnMouseDown"/>
+            </Grid>
+
         </StackPanel>
+        
     </Grid>
 </UserControl>
