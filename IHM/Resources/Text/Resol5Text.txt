@@ -1,6 +1,6 @@
 ﻿ACTION---"Sors de la maison"
 JEAN---"Ethan attend, on est désolés pour Lucky"
-ETHAN---"S'il te plait rentre dans la maison, il fait noir dehors, tu pourrais te faire mal !"
+JEAN---"S'il te plait rentre dans la maison, il fait noir dehors, tu pourrais te faire mal !"
 ETHAN---"Je vous déteste, euhhhheuuhhhhsnif snif"
 ETHAN---"Je veux voir mon chiennnnnnnnnn einnhieiinnnh ouin"
 ACTION---"tombe"
