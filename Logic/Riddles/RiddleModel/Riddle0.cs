@@ -19,7 +19,7 @@ public class Riddle0 : Riddle
     public Riddle0(ISoundService soundService) : base(soundService)
     {
         cubeRotation = 0;
-        this.BackgroundName = "DE000N";
+        this.BackgroundName = "DE005N";
         this.IElements = new List<InteractiveElement>();
         this.IElements.Add(new InteractiveElement("Option", "OP000N", 50,50, 1522, 20));
         this.SElements.Add(new StaticElement("Tiroir","EP000N",815,105,369,795));
@@ -29,6 +29,10 @@ public class Riddle0 : Riddle
 
     public override void UpdateRoomRiddle(int successNumber, int changeRotation)
     {
+        //DEBOGAGE
+        cubeRotation = 2;
+        successNumber = 6;
+
         if (changeRotation != -1)
         {
             cubeRotation = changeRotation;
@@ -119,7 +123,7 @@ public class Riddle0 : Riddle
                     this.IElements.Add(new InteractiveElement("Option", "OP000N", 50, 50, 1522, 20));
                     this.SElements.Add(new StaticElement("Chien", "EP001N", 149, 206, 1401, 170));
                     this.IElements.Add(new InteractiveElement("Tiroir", "EP000N", 815, 105, 369, 795));
-                    this.IElements.Add(new InteractiveElement("Taquin", "EP008N", 400, 400, 250, 100));
+                    this.IElements.Add(new InteractiveElement("Taquin", "EP008N", 400, 400, 565, 265));
                     break;
                 case 7:
                     this.IElements.Clear();
@@ -128,7 +132,7 @@ public class Riddle0 : Riddle
                     this.IElements.Add(new InteractiveElement("Option", "OP000N", 50, 50, 1522, 20));
                     this.SElements.Add(new StaticElement("Chien", "EP001N", 149, 206, 1401, 170));
                     this.IElements.Add(new InteractiveElement("Tiroir", "EP000N", 815, 105, 369, 795));
-                    this.SElements.Add(new StaticElement("Taquin", "EP008N", 400, 400, 250, 100));
+                    this.SElements.Add(new StaticElement("Taquin", "EP008N", 400, 400, 250, 500));
                     break;
             }
         }

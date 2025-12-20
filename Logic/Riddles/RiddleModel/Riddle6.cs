@@ -10,7 +10,7 @@ public class Riddle6 : Riddle
         { "1",  "2",  "3",  "4"  },
         { "5",  "6",  "7",  "8"  },
         { "9",  "10", "11", "12" },
-        { "13", "14", "15", "0"  }
+        { "13", "14", "15", "00"  }
     };
     private List<(int dx, int dy)> directions = new List<(int dx, int dy)>
     {
@@ -25,29 +25,30 @@ public class Riddle6 : Riddle
 
     public Riddle6(ISoundService soundService) : base(soundService)
     {
+        this.BackgroundName = "ZE600N";
         //line 1
-        this.IElements.Add(new InteractiveElement("04", "EE004N", 100,100, 15,15));
-        this.IElements.Add(new InteractiveElement("01", "EE001N", 100,100, 15,15));
-        this.IElements.Add(new InteractiveElement("02", "EE002N", 100,100, 15,15));
-        this.IElements.Add(new InteractiveElement("03", "EE003N", 100,100, 15,15));
+        this.IElements.Add(new InteractiveElement("04", "EE604N", 192, 192, 446,84));
+        this.IElements.Add(new InteractiveElement("01", "EE601N", 192, 192, 628, 84));
+        this.IElements.Add(new InteractiveElement("02", "EE602N", 192, 192, 818, 84));
+        this.IElements.Add(new InteractiveElement("03", "EE603N", 192, 192, 999, 84));
         
         //line 2
-        this.IElements.Add(new InteractiveElement("05", "EE005N", 100,100, 15,15));
-        this.IElements.Add(new InteractiveElement("06", "EE006N", 100,100, 15,15));
-        this.IElements.Add(new InteractiveElement("08", "EE008N", 100,100, 15,15));
-        this.IElements.Add(new InteractiveElement("07", "EE007N", 100,100, 15,15));
+        this.IElements.Add(new InteractiveElement("05", "EE605N", 192, 192, 446, 268));
+        this.IElements.Add(new InteractiveElement("06", "EE606N", 192, 192, 628, 268));
+        this.IElements.Add(new InteractiveElement("08", "EE608N", 192, 192, 818, 268));
+        this.IElements.Add(new InteractiveElement("07", "EE607N", 192, 192, 999, 268));
 
         //line 3
-        this.IElements.Add(new InteractiveElement("15", "EE015N", 100,100, 15,15));
-        this.IElements.Add(new InteractiveElement("12", "EE012N", 100,100, 15,15));
-        this.IElements.Add(new InteractiveElement("11", "EE011N", 100,100, 15,15));
-        this.IElements.Add(new InteractiveElement("10", "EE010N", 100,100, 15,15));
-        
+        this.IElements.Add(new InteractiveElement("15", "EE615N", 192, 192, 446, 458));
+        this.IElements.Add(new InteractiveElement("12", "EE612N", 192, 192, 628, 458));
+        this.IElements.Add(new InteractiveElement("11", "EE611N", 192, 192, 818, 458));
+        this.IElements.Add(new InteractiveElement("10", "EE610N", 192, 192, 999, 458));
+       
         //line 4
-        this.IElements.Add(new InteractiveElement("13", "EE013N", 100,100, 15,15));
-        this.IElements.Add(new InteractiveElement("00", "EE000N", 100,100, 15,15));
-        this.IElements.Add(new InteractiveElement("14", "EE014N", 100,100, 15,15));
-        this.IElements.Add(new InteractiveElement("09", "EE009N", 100,100, 15,15));
+        this.IElements.Add(new InteractiveElement("13", "EE613N", 192, 192, 446, 644));
+        this.IElements.Add(new InteractiveElement("00", "EE616N", 192, 192, 628, 644));
+        this.IElements.Add(new InteractiveElement("14", "EE614N", 192, 192, 818, 644));
+        this.IElements.Add(new InteractiveElement("09", "EE609N", 192, 192, 999, 644));
 
         this.cases = new Dictionary<Coord, InteractiveElement>();
         
@@ -74,7 +75,7 @@ public class Riddle6 : Riddle
 
     public override void ReactElement(string imageName)
     {
-        if (imageName != "EE000N")
+        if (imageName != "EE616N" && imageName != "EE000N")
         {
             string name = imageName.Substring(3,2);
             InteractiveElement element = this.IElements.Find(e => e.Name == name);
@@ -83,9 +84,9 @@ public class Riddle6 : Riddle
             foreach (var (dx, dy) in directions)
             {
                 Coord neighborCoord = new Coord(actualPosition.X + dx, actualPosition.Y + dy);
-
-                if (this.cases.TryGetValue(neighborCoord, out var potentialNeighbor) 
-                    && potentialNeighbor.Name == "0") 
+                this.cases.TryGetValue(neighborCoord, out var potentialNeighbor);
+                if (potentialNeighbor != null 
+                    && potentialNeighbor.Name == "00") 
                 {
                     neighbor = potentialNeighbor;
                     break;
