@@ -5,8 +5,26 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:IHM"
         mc:Ignorable="d"
-        Title="MainWindow" Height="900" Width="1600">
-    <Canvas Name="MainCanvas">
+        Title="MainWindow" Height="900" Width="1600"
+        WindowStartupLocation="CenterScreen"
+        Background="Black">
 
-    </Canvas>
+    <Grid x:Name="RootGrid">
+        <Viewbox Stretch="Uniform" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Grid x:Name="MiddleGrid" Width="1600" Height="900">
+                <Canvas x:Name="MainCanvas"/>
+
+                <Grid x:Name="OverlayGrid" Background="Transparent" IsHitTestVisible="False">
+                </Grid>
+            </Grid>
+        </Viewbox>
+
+        <Label Name="CoordLabel"
+   HorizontalAlignment="Left"
+   VerticalAlignment="Top"
+   Margin="10"
+   Foreground="White"
+   Background="Black"
+   Opacity="0.7"/>
+    </Grid>
 </Window>

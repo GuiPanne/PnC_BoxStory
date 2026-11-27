@@ -1,6 +1,6 @@
-﻿using Logic.Enigmes;
+﻿using Logic.Riddles;
 
-namespace Logic.obs;
+namespace Logic.Obs;
 
 /// <summary>
 /// Abstract class who can be observed and indicate something change
@@ -39,23 +39,31 @@ public abstract class Observable
     /// notify the observers the bg changes
     /// </summary>
     /// <param name="imageName">the new background name</param>
-    protected abstract void NotifyBackgroundChange(string imageName);
-
-    /// <summary>
-    /// notify the obs the canvas need to be clean
-    /// </summary>
-    protected abstract void NotifyCleanCanvas();
-    
-    /// <summary>
-    /// notify the observer to display all interactive elements
-    /// </summary>
-    protected abstract void NotifySetInteractiveElements();
+    /// <param name="interactiveElements"> elements to display</param>
+    protected abstract void NotifySceneTransition(string imageName, List<InteractiveElement> interactiveElements, List<StaticElement> staticElements);
 
     /// <summary>
     /// notify the observer to update a specific element 
     /// </summary>
-    /// <param name="intEl">the element to update</param>
+    /// <param name="element">the new state of the element</param>
     /// <param name="oldName">the old name of the image needed to find it</param>
-    protected abstract void NotifyChangeSpecificIntElement(InteractiveElement intEl, string oldName);
+    protected abstract void NotifyChangeSpecificElement(Element element, string oldName);
+    
+    /// <summary>
+    /// notify the observers to remove a specific element
+    /// </summary>
+    /// <param name="element">the element to remove</param>
+    protected abstract void NotifyRemoveSpecificElement(Element element);
+
+    /// <summary>
+    /// Notify the observers to launch a specific dialogue
+    /// </summary>
+    /// <param name="dialogueFileName">the file name of the dialogue</param>
+    protected abstract void NotifyLaunchDialogue(string dialogueFileName);
+
+    /// <summary>
+    /// Notify the observers to launch the option pannel
+    /// </summary>
+    protected abstract void NotifyLaunchOption();
 
 }

@@ -1,6 +1,7 @@
-﻿using Logic.obs;
+﻿using Logic.Obs;
+using Logic.SoundControl;
 
-namespace Logic.Enigmes;
+namespace Logic.Riddles;
 
 /// <summary>
 /// abstract class who represents the basic of a riddle
@@ -9,16 +10,28 @@ public abstract class Riddle : Observable
 {
     private bool isSuccess;
     private string backgroundName;
-    private List<InteractiveElement> elements;
+    private List<InteractiveElement> iElements;
+    private List<StaticElement> sElements;
+    protected ISoundService soundService;
 
     /// <summary>
-    /// all elements contain in the riddle
+    /// all interactive elements contain in the riddle
     /// </summary>
     /// <exception cref="ArgumentNullException"></exception>
-    public List<InteractiveElement> Elements
+    public List<InteractiveElement> IElements
     {
-        get => elements;
-        set => elements = value ?? throw new ArgumentNullException(nameof(value));
+        get => iElements;
+        set => iElements = value ?? throw new ArgumentNullException(nameof(value));
+    }
+
+    /// <summary>
+    /// all static elements contain in the riddle
+    /// </summary>
+    /// <exception cref="ArgumentNullException"></exception>
+    public List<StaticElement> SElements
+    {
+        get => sElements;
+        set => sElements = value ?? throw new ArgumentNullException(nameof(value));
     }
 
     /// <summary>
@@ -47,9 +60,11 @@ public abstract class Riddle : Observable
     /// <summary>
     /// init the riddle
     /// </summary>
-    public Riddle()
+    public Riddle(ISoundService soundService)
     {
-        this.elements = new List<InteractiveElement>();
+        this.soundService = soundService;
+        this.iElements = new List<InteractiveElement>();
+        this.sElements = new List<StaticElement>();
         this.isSuccess = false;
     }
 
@@ -58,4 +73,11 @@ public abstract class Riddle : Observable
     /// </summary>
     /// <param name="imageName"> the image name who has been click in IHM</param>
     public abstract void ReactElement(string imageName);
+
+    /// <summary>
+    /// Change the state of the room 
+    /// </summary>
+    /// <param name="successNumber">number of riddle success</param>
+    /// <param name="changeRotation">the rotation of the cube</param>
+    public abstract void UpdateRoomRiddle(int successNumber, int changeRotation);
 }

@@ -1,0 +1,32 @@
+﻿<UserControl x:Class="IHM.DialogueControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             Background="Transparent">
+
+    <!-- Panneau global qui capture les clics -->
+    <Grid Background="Transparent" MouseDown="OnClickNext">
+        <Grid VerticalAlignment="Bottom">
+            <Image Source="../Resources/IMG_background/dialog.png"
+                   Stretch="Fill"
+                   Opacity="0.98"
+                   />
+
+            <TextBlock x:Name="DialogueText"
+                       Foreground="SlateGray"
+                       FontSize="20"
+                       FontFamily="Segoe Script"
+                       TextWrapping="Wrap"
+                       Margin="30,635,30,20" 
+                       Width="1000"
+                       VerticalAlignment="Top"/>
+            <TextBlock x:Name="DialogueTextProgress"
+                       Foreground="White"
+                       FontSize="20"
+                       FontFamily="Segoe Script"
+                       TextWrapping="Wrap"
+                       Margin="30,635,30,20" 
+                       Width="1000"
+                       VerticalAlignment="Top"/>
+        </Grid>    
+    </Grid>
+</UserControl>

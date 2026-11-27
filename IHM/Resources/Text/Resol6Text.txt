@@ -1,0 +1,30 @@
+﻿JEAN---"...                         Hm hmm...."
+JEAN---"Bonjour Ethan, d'abord, je tiens à m'excuser pour ce que tu viens d'écouter et si tu te poses la question oui, c'est bien arrivé..."
+JEAN---"Après que tu sois tombé dans les cailloux à l'extérieur tu..."
+JEAN---"Tu es tombé dans le coma pendant une semaine, évidemment je suis resté à ton chevet."
+JEAN---"Ta mère, pour respecter notre deadline, est restée à la maison et a fini notre prototype... hmmm... celui qui peut modifier la... la mémoire."
+JEAN---"Il a été refusé par nos employeurs, car selon eux ce n'est pas éthique... venant d'un laboratoire de science, dotant plus que le supérieur qui nous avait chargé de ce projet a été arrêté par la police pour des activités scientifiques sortant du cadre légal. Enfin bref"
+JEAN---"Quand tu es rentré à la maison, tu n'étais plus toi même et tu étais inconsolable pour la mort de Lucky... Et au bout de trois mois tu... Tu nous as demandé d'utiliser notre invention..."
+JEAN---"Sur toi..."
+JEAN---"Sûrement à cause de la culpabilité et de notre faiblesse, on a accepté et ça a fonctionné, enfin plus ou moins"
+JEAN---"À cause du manque de tests sur la machine, il y a eu un effet secondaire, on pense que tes crises sont dus à l'utilisation de la machine."
+JEAN---"On s'en veut tellement. Tu ne peux imaginer à quel point nous sommes navrés de t'avoir fait subir ça."
+JEAN---"Ce que tu viens de résoudre est notre dernier prototype. On voulait te laisser le choix d'aller au bout ou non. Si tu entends ça sache que tu connais maintenant toute la vérité."
+JEAN---"Nous sommes coupables d'avoir rendu ta vie difficile et on a vraiment essayer de te soigner même si tu ne comprenais pas pourquoi on te faisait subir des traitements."
+JEAN---"Et un jour avec la culpabilité, j'ai craqué : on t'a envoyé dans la pension et on a coupé les ponts avec toi car lorsqu'on te regardait la seule chose qu'on voyait c'étaient nos erreurs."
+JEAN---"Je suis désolé mon fils."
+ETHAN---...
+ETHAN---...
+ETHAN---..
+ETHAN---.
+ACTION — Se lève.
+ACTION — Subit une crise.
+ETHAN — Hmm… ma tête…
+ACTION — Vacille et titube.
+ETHAN — Nonnn… pas encore !
+ACTION — Une violente crise le secoue.
+ACTION — Retourne lentement sur sa chaise.
+ETHAN---.
+ETHAN---.
+ETHAN---.
+ETHAN---Aller ça suffit.

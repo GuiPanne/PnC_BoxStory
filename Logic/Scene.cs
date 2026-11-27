@@ -1,6 +1,7 @@
-﻿using Logic.Enigmes;
-using Logic.Enigmes.Riddle1;
-using Logic.obs;
+﻿using Logic.Obs;
+using Logic.Riddles;
+using Logic.Riddles.RiddleModel;
+using Logic.SoundControl;
 
 namespace Logic;
 
@@ -12,35 +13,37 @@ public class Scene : Observable, IObserver
     private Riddle currentRiddle;
     private int riddlesSuccess;
     private List<Riddle> riddles;
-
+    private ISoundService soundService;
+    private int cubeRotation;
+    
     /// <summary>
     /// the init of the scene with the start of the game
     /// </summary>
-    public Scene()
+    public Scene(ISoundService soundService)
     {
+        this.cubeRotation = 0;
+        this.soundService = soundService;
         this.riddles = new List<Riddle> {
-            new Riddle0(),
-            new Riddle1(),
+            new Riddle0(soundService),
+            new Riddle1(soundService),
+            new Riddle2(soundService),
+            new Riddle3(soundService),
+            new Riddle4(soundService),
+            new Riddle5(soundService),
+            new Riddle6(soundService),
+            new Drawer(soundService)
         };
         this.riddlesSuccess = 1;
         this.SetCurrentRiddle("Riddle0");
     }
-
-    public void Init()
-    {
-        this.NotifyBackgroundChange(this.currentRiddle.BackgroundName);
-        this.NotifySetInteractiveElements();
-    }
-
+    /// <summary>
+    /// Update the scene
+    /// </summary>
     public void Update()
     {
-        this.NotifyCleanCanvas();
-        this.NotifyBackgroundChange(this.currentRiddle.BackgroundName);
-        this.NotifySetInteractiveElements();
+        this.NotifySceneTransition(this.currentRiddle.BackgroundName, this.currentRiddle.IElements, this.currentRiddle.SElements);
     }
-
-
-
+    
     /// <summary>
     /// when an image is clicked choose what to do thanks to the image name
     /// </summary>
@@ -52,22 +55,74 @@ public class Scene : Observable, IObserver
         {
             case "EE": // éléments d'énigme
                 this.currentRiddle.ReactElement(imageName);
-                this.VerifySuccess(currentRiddle.IsSuccess);
                 break;
             case "EP": // éléments de la pièce
                 switch (imageName)
                 {
                     case "EP003N":
+                        this.soundService.PlaySfx("bruitChaise.mp3");
                         this.SetCurrentRiddle("Riddle1");
+                        this.Update();
+                        break;
+                    case "EP005N":
+                        this.soundService.PlaySfx("bruitChaise.mp3");
+                        this.SetCurrentRiddle("Riddle2");
+                        this.Update();
+                        break;
+                    case "EP004N":
+                        this.soundService.PlaySfx("bruitChaise.mp3");
+                        this.SetCurrentRiddle("Riddle3");
+                        this.Update();
+                        this.NotifyLaunchDialogue("Indice1");
+                        break;
+                    case "EP006N":
+                        this.soundService.PlaySfx("bruitChaise.mp3");
+                        this.SetCurrentRiddle("Riddle4");
+                        this.Update();
+                        break;
+                    case "EP007N":
+                        this.soundService.PlaySfx("bruitChaise.mp3");
+                        this.SetCurrentRiddle("Riddle5");
+                        this.Update();
+                        break;
+                    case "EP008N":
+                        this.soundService.PlaySfx("bruitChaise.mp3");
+                        this.SetCurrentRiddle("Riddle6");
+                        this.Update();
+                        break;
+                    case "EP000N":
+                        this.soundService.PlaySfx("bruitTiroirO.mp3");
+                        this.SetCurrentRiddle("Drawer");
                         this.Update();
                         break;
                 }
                 break;
             case "FI": // fléche d'intéraction 
+                switch (imageName)
+                {
+                    case "FI000N":
+                        this.VerifySuccess(currentRiddle.IsSuccess);
+                        if (this.currentRiddle.Name != "Drawer")
+                        {
+                            this.soundService.PlaySfx("bruitChaise2.mp3");
+                        }else
+                            this.soundService.PlaySfx("bruitTiroirC.mp3");
+                        this.SetCurrentRiddle("Riddle0");
+                        this.Update();
+                        break;
+                    case "FI001N":
+                        this.cubeRotation += 1;
+                        this.soundService.PlaySfx("bruitTourne.mp3");
+                        this.SetCurrentRiddle("Riddle0", this.cubeRotation);
+                        this.Update();
+                        break;
+                }
                 break;
             case "EM": // éléments menu 
                 break;
-            
+            case "OP":
+                this.LaunchOption();
+            break;
         }
     }
 
@@ -80,67 +135,92 @@ public class Scene : Observable, IObserver
         if (currentRiddleIsSuccess)
         {
             this.riddlesSuccess++;
+            this.NotifyLaunchDialogue("Resol0Text".Replace("0", this.currentRiddle.Name.Substring(6,1)));
         }
     }
     
-    protected override void NotifyBackgroundChange(string imageName)
+    protected override void NotifySceneTransition(string imageName, List<InteractiveElement> interactiveElements, List<StaticElement> staticElements)
     {
         foreach (IObserver obs in this.observers)
         {
-            obs.DisplayBackGround(imageName);
+            obs.SceneTransition(imageName, interactiveElements, staticElements);
         }
     }
 
-    protected override void NotifyCleanCanvas()
+    protected override void NotifyChangeSpecificElement(Element element, string oldName)
     {
         foreach (IObserver obs in this.observers)
         {
-            obs.CleanCanvas();
+            obs.ChangeSpecificElement(element, oldName);
         }
     }
 
-    protected override void NotifySetInteractiveElements()
+    protected override void NotifyRemoveSpecificElement(Element element)
     {
         foreach (IObserver obs in this.observers)
         {
-            obs.SetInteractiveElements(currentRiddle.Elements);
+            obs.RemoveSpecificElement(element);
         }
     }
 
-    protected override void NotifyChangeSpecificIntElement(InteractiveElement intEl, string oldName)
+    protected override void NotifyLaunchDialogue(string dialogueFileName)
     {
         foreach (IObserver obs in this.observers)
         {
-            obs.ChangeSpecificIntElement(intEl, oldName);
+            obs.LaunchDialogue(dialogueFileName);
         }
     }
 
-    public void DisplayBackGround(string imageName)
+    protected override void NotifyLaunchOption()
     {
-        throw new NotImplementedException();
+        foreach (IObserver obs in this.observers)
+        {
+            obs.LaunchOption();
+        }
     }
 
-    public void CleanCanvas()
+    public void SceneTransition(string imageName, List<InteractiveElement> interactiveElements, List<StaticElement> staticElements)
     {
-        throw new NotImplementedException();
+        this.NotifySceneTransition(imageName, interactiveElements, staticElements);
     }
 
-    public void SetInteractiveElements(List<InteractiveElement> interactiveElements)
+    public void ChangeSpecificElement(Element element, string oldName)
     {
-        throw new NotImplementedException();
+        this.NotifyChangeSpecificElement(element, oldName);
     }
 
-    public void ChangeSpecificIntElement(InteractiveElement intEl, string oldName)
+    public void RemoveSpecificElement(Element element)
     {
-        this.NotifyChangeSpecificIntElement(intEl, oldName);
+        this.NotifyRemoveSpecificElement(element);
     }
 
-    private void SetCurrentRiddle(string name)
+    public void LaunchDialogue(string dialogueFileName)
+    {
+        this.NotifyLaunchDialogue(dialogueFileName);
+    }
+
+    public void LaunchOption()
+    {
+        this.NotifyLaunchOption();
+    }
+    
+    /// <summary>
+    /// Update the element currently observed
+    /// </summary>
+    /// <param name="name">the name of the new current riddle</param>
+    /// <param name="cubeRotation">the rotation of the cube</param>
+    private void SetCurrentRiddle(string name, int cubeRotation = -1)
     {
         if (this.currentRiddle != null)
             this.currentRiddle.Unregister(this);
 
         this.currentRiddle = this.riddles.Find(r => r.Name == name);
+        
+        //Vérification cohérence salle du cube
+        if (this.currentRiddle.Name == "Riddle0")
+        {
+            this.currentRiddle.UpdateRoomRiddle(this.riddlesSuccess, cubeRotation);
+        }
 
         if (this.currentRiddle != null)
             this.currentRiddle.Register(this);

@@ -1,34 +1,40 @@
-﻿using Logic.Enigmes;
+﻿using Logic.Riddles;
 
-namespace Logic.obs;
+namespace Logic.Obs;
 
 /// <summary>
 /// interface of an observer who react to the notification of an observable
 /// </summary>
 public interface IObserver
 {
-    
     /// <summary>
-    /// change the background 
+    /// Change the background and all elements to make the transition to a new scene
     /// </summary>
     /// <param name="imageName">the name of the image who is the new BG</param>
-    public void DisplayBackGround(string imageName);
-    
+    /// <param name="interactiveElements"> interactive elements to display</param>
+    /// <param name="staticElements">the static elements to display </param>
+    public void SceneTransition(string imageName, List<InteractiveElement> interactiveElements, List<StaticElement> staticElements);
+
     /// <summary>
-    /// Remove all element in the canva (image)
+    /// Update the display element for a specific new state of an element 
     /// </summary>
-    public void CleanCanvas();
-    
-    /// <summary>
-    /// Add interactive elements from the scene in the canvas
-    /// </summary>
-    /// <param name="interactiveElements"></param>
-    public void SetInteractiveElements(List<InteractiveElement> interactiveElements);
-    
-    /// <summary>
-    /// Update the image of a specific element 
-    /// </summary>
-    /// <param name="intEl"> the interactive element to update</param>
+    /// <param name="element">the new state of the element</param>
     /// <param name="oldName"> the old name of the image needed to find it</param>
-    public void ChangeSpecificIntElement(InteractiveElement intEl, string oldName);
+    public void ChangeSpecificElement(Element element, string oldName);
+    
+    /// <summary>
+    /// Remove a specific element in the screen
+    /// </summary>
+    /// <param name="element">the element to remove</param>
+    public void RemoveSpecificElement(Element element);
+    /// <summary>
+    /// Launch a dialogue 
+    /// </summary>
+    /// <param name="dialogueFileName">the file name to launch</param>
+    public void LaunchDialogue(string dialogueFileName);
+    
+    /// <summary>
+    /// Launch the option pannel
+    /// </summary>
+    public void LaunchOption();
 }
